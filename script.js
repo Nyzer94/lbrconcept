@@ -184,7 +184,7 @@ window.handleFormSubmit = async function(event) {
      * 2. Entrez votre email (rayanchennaoui@gmail.com) pour générer votre clé gratuite d'envoi.
      * 3. Remplacez simplement la clé ci-dessous :
      */
-    const WEB3FORMS_ACCESS_KEY = 'e22e5192-3c1a-4cbe-b43c-6cb4a5ee11f4'; // <-- Remplacez par votre clé Web3Forms liée à rayanchennaoui@gmail.com
+    const WEB3FORMS_ACCESS_KEY = '928f773a-acf8-4977-bde5-1cfed2aa814d'; // <-- Remplacez par votre clé Web3Forms liée à rayanchennaoui@gmail.com
     formData.append('access_key', WEB3FORMS_ACCESS_KEY);
     formData.append('from_name', 'LBR CONCEPT — Site Web');
 
