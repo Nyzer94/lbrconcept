@@ -124,26 +124,129 @@ function initFormInteractivity() {
     });
   }
 
-  // File upload indicator
+  // Gestionnaire de fichiers multiples avec suppression et renommage
+  initMultiFileManager();
+}
+
+// État des fichiers téléversés
+let uploadedFiles = [];
+
+function initMultiFileManager() {
   const fileInput = document.getElementById('dceUpload');
+  const fileListContainer = document.getElementById('fileListContainer');
   const fileLabel = document.getElementById('dceUploadLabel');
-  if (fileInput && fileLabel) {
-    fileInput.addEventListener('change', () => {
-      if (fileInput.files && fileInput.files.length > 0) {
-        const count = fileInput.files.length;
-        if (count === 1) {
-          fileLabel.innerHTML = `<span class="text-[#c5a059] font-mono">${fileInput.files[0].name}</span> (${(fileInput.files[0].size / 1024 / 1024).toFixed(2)} Mo)`;
-        } else {
-          fileLabel.innerHTML = `<span class="text-[#c5a059] font-mono">${count} fichiers sélectionnés</span>`;
-        }
+
+  if (!fileInput) return;
+
+  fileInput.addEventListener('change', (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      // Ajouter les nouveaux fichiers sélectionnés à notre liste
+      Array.from(e.target.files).forEach(file => {
+        uploadedFiles.push({
+          id: 'file_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+          originalFile: file,
+          name: file.name,
+          size: file.size,
+          type: file.type
+        });
+      });
+      // Réinitialiser le champ input pour permettre de ré-importer si besoin
+      fileInput.value = '';
+      renderFileList();
+    }
+  });
+
+  window.removeUploadedFile = function(fileId) {
+    uploadedFiles = uploadedFiles.filter(f => f.id !== fileId);
+    renderFileList();
+  };
+
+  window.renameUploadedFile = function(fileId) {
+    const item = uploadedFiles.find(f => f.id === fileId);
+    if (!item) return;
+
+    // Extraire extension
+    const lastDot = item.name.lastIndexOf('.');
+    const ext = lastDot !== -1 ? item.name.substring(lastDot) : '';
+    const nameWithoutExt = lastDot !== -1 ? item.name.substring(0, lastDot) : item.name;
+
+    const newName = prompt("Nouveau nom pour ce document :", nameWithoutExt);
+    if (newName && newName.trim() !== '') {
+      item.name = newName.trim() + ext;
+      renderFileList();
+    }
+  };
+
+  function renderFileList() {
+    if (!fileListContainer) return;
+
+    if (uploadedFiles.length === 0) {
+      fileListContainer.innerHTML = '';
+      fileListContainer.classList.add('hidden');
+      if (fileLabel) {
+        fileLabel.textContent = 'Déposer vos plans ou DCE (PDF, DWG, ZIP — max 10 Mo au total)';
       }
+      return;
+    }
+
+    fileListContainer.classList.remove('hidden');
+    let totalBytes = 0;
+
+    let html = `
+      <div class="text-[11px] font-mono text-[#c5a059] flex items-center justify-between pb-1 border-b border-white/10">
+        <span>${uploadedFiles.length} document${uploadedFiles.length > 1 ? 's' : ''} joint${uploadedFiles.length > 1 ? 's' : ''} :</span>
+        <button type="button" onclick="clearAllFiles()" class="text-xs text-gray-400 hover:text-red-400 transition-colors">Tout retirer</button>
+      </div>
+    `;
+
+    uploadedFiles.forEach(file => {
+      totalBytes += file.size;
+      const sizeMo = (file.size / 1024 / 1024).toFixed(2);
+      
+      html += `
+        <div class="flex items-center justify-between p-2.5 bg-[#15171f] border border-white/10 rounded-sm text-xs hover:border-[#c5a059]/40 transition-all">
+          <div class="flex items-center gap-2.5 overflow-hidden pr-2">
+            <i class="fa-solid fa-file-pdf text-[#c5a059] shrink-0 text-sm"></i>
+            <div class="truncate">
+              <span class="text-white font-medium truncate block">${escapeHtml(file.name)}</span>
+              <span class="text-[10px] text-gray-400 font-mono">${sizeMo} Mo</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <!-- Bouton Crayon / Renommer -->
+            <button type="button" onclick="renameUploadedFile('${file.id}')" title="Renommer la pièce jointe" class="w-7 h-7 rounded-sm bg-[#1c1f2a] hover:bg-[#c5a059] text-gray-300 hover:text-black transition-colors flex items-center justify-center">
+              <i class="fa-solid fa-pen text-[11px]"></i>
+            </button>
+            <!-- Bouton Poubelle / Supprimer -->
+            <button type="button" onclick="removeUploadedFile('${file.id}')" title="Supprimer la pièce jointe" class="w-7 h-7 rounded-sm bg-[#1c1f2a] hover:bg-red-500/80 text-gray-300 hover:text-white transition-colors flex items-center justify-center">
+              <i class="fa-solid fa-trash-can text-[11px]"></i>
+            </button>
+          </div>
+        </div>
+      `;
     });
+
+    const totalMo = (totalBytes / 1024 / 1024).toFixed(2);
+    if (fileLabel) {
+      fileLabel.innerHTML = `<span class="text-[#c5a059] font-mono">${uploadedFiles.length} fichier(s)</span> préparé(s) (${totalMo} Mo)`;
+    }
+
+    fileListContainer.innerHTML = html;
   }
+
+  window.clearAllFiles = function() {
+    uploadedFiles = [];
+    renderFileList();
+  };
+}
+
+function escapeHtml(text) {
+  const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+  return text.replace(/[&<>"']/g, m => map[m]);
 }
 
 window.handleFormSubmit = async function(event) {
   const form = document.getElementById('contactForm');
-  const fileInput = document.getElementById('dceUpload');
   const successMsg = document.getElementById('formSuccessMessage');
   const errorMsg = document.getElementById('formErrorMessage');
   const errorText = document.getElementById('formErrorText');
@@ -153,27 +256,41 @@ window.handleFormSubmit = async function(event) {
 
   // Récupération des données du formulaire
   const company = document.getElementById('company')?.value?.trim() || 'Prospect';
-  const selectVal = document.getElementById('projectTypeSelect')?.value;
-  const customVal = document.getElementById('otherProjectTypeInput')?.value?.trim();
-  const projectType = (selectVal === 'autre' && customVal) ? `Autre: ${customVal}` : (selectVal || 'Non spécifié');
-
   const subject = `Demande de devis depuis le site : ${company}`;
 
   // Mettre à jour l'objet pour l'email
   const subjectInput = document.getElementById('formSubmitSubject');
   if (subjectInput) subjectInput.value = subject;
 
-  // Si l'utilisateur a joint un fichier : soumission native obligatoire pour que FormSubmit attache le fichier
-  const hasFile = fileInput && fileInput.files && fileInput.files.length > 0;
+  // Si des fichiers ont été ajoutés par l'utilisateur
+  if (uploadedFiles.length > 0) {
+    // Supprimer les anciens inputs de fichiers injectés
+    form.querySelectorAll('.injected-file-input').forEach(el => el.remove());
 
-  if (hasFile) {
-    // Laisser la soumission HTML standard s'exécuter
+    // Injecter les fichiers renommés dans le formulaire sous forme d'inputs réels
+    uploadedFiles.forEach((item, index) => {
+      // Reconstituer le fichier avec son nom personnalisé
+      const renamedFile = new File([item.originalFile], item.name, { type: item.originalFile.type });
+      
+      const dt = new DataTransfer();
+      dt.items.add(renamedFile);
+
+      const hiddenInput = document.createElement('input');
+      hiddenInput.type = 'file';
+      // FormSubmit prend en charge 'attachment' ou 'attachment[]' pour de multiples pièces jointes
+      hiddenInput.name = uploadedFiles.length === 1 ? 'attachment' : 'attachment[]';
+      hiddenInput.className = 'injected-file-input hidden';
+      hiddenInput.files = dt.files;
+      form.appendChild(hiddenInput);
+    });
+
+    // Soumission native standard pour que FormSubmit attache tous les fichiers dans le mail
     btn.disabled = true;
-    btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transmission du dossier et des pièces...`;
-    return true; // continue standard submit
+    btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transmission du dossier et des ${uploadedFiles.length} pièces...`;
+    return true; // continue la soumission native HTML
   }
 
-  // Sinon (pas de fichier), envoi fluide AJAX sans rechargement de page
+  // Sinon (pas de fichier), envoi AJAX fluide sans rechargement
   event.preventDefault();
 
   if (successMsg) successMsg.classList.add('hidden');
