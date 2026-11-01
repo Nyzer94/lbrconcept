@@ -8,7 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initCounters();
   initFormInteractivity();
+  checkSubmissionRedirect();
 });
+
+/* Affichage du message de confirmation si redirection après envoi avec fichier */
+function checkSubmissionRedirect() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('sent') === 'success') {
+    const successMsg = document.getElementById('formSuccessMessage');
+    if (successMsg) {
+      successMsg.classList.remove('hidden');
+      setTimeout(() => {
+        window.history.replaceState({}, document.title, window.location.pathname + '#contact');
+      }, 1000);
+    }
+  }
+}
 
 /* 1. Navbar dynamic background on scroll */
 function initNavbarScroll() {
@@ -127,8 +142,8 @@ function initFormInteractivity() {
 }
 
 window.handleFormSubmit = async function(event) {
-  event.preventDefault();
   const form = document.getElementById('contactForm');
+  const fileInput = document.getElementById('dceUpload');
   const successMsg = document.getElementById('formSuccessMessage');
   const errorMsg = document.getElementById('formErrorMessage');
   const errorText = document.getElementById('formErrorText');
@@ -136,21 +151,8 @@ window.handleFormSubmit = async function(event) {
   const btn = form.querySelector('button[type="submit"]');
   const originalHtml = btn.innerHTML;
 
-  if (successMsg) successMsg.classList.add('hidden');
-  if (errorMsg) errorMsg.classList.add('hidden');
-
-  btn.disabled = true;
-  btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transmission en cours...`;
-
   // Récupération des données du formulaire
   const company = document.getElementById('company')?.value?.trim() || 'Prospect';
-  const fullName = document.getElementById('fullName')?.value?.trim() || '';
-  const email = document.getElementById('email')?.value?.trim() || '';
-  const phone = document.getElementById('phone')?.value?.trim() || '';
-  const location = document.getElementById('location')?.value?.trim() || 'Non précisé';
-  const surface = document.getElementById('surface')?.value?.trim() || 'Non précisé';
-  const message = document.getElementById('message')?.value?.trim() || '';
-  
   const selectVal = document.getElementById('projectTypeSelect')?.value;
   const customVal = document.getElementById('otherProjectTypeInput')?.value?.trim();
   const projectType = (selectVal === 'autre' && customVal) ? `Autre: ${customVal}` : (selectVal || 'Non spécifié');
@@ -161,14 +163,32 @@ window.handleFormSubmit = async function(event) {
   const subjectInput = document.getElementById('formSubmitSubject');
   if (subjectInput) subjectInput.value = subject;
 
-  // Construction du FormData
+  // Si l'utilisateur a joint un fichier : soumission native obligatoire pour que FormSubmit attache le fichier
+  const hasFile = fileInput && fileInput.files && fileInput.files.length > 0;
+
+  if (hasFile) {
+    // Laisser la soumission HTML standard s'exécuter
+    btn.disabled = true;
+    btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transmission du dossier et des pièces...`;
+    return true; // continue standard submit
+  }
+
+  // Sinon (pas de fichier), envoi fluide AJAX sans rechargement de page
+  event.preventDefault();
+
+  if (successMsg) successMsg.classList.add('hidden');
+  if (errorMsg) errorMsg.classList.add('hidden');
+
+  btn.disabled = true;
+  btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transmission en cours...`;
+
   const formData = new FormData(form);
 
   try {
     const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/rayanchennaoui@gmail.com';
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 20000); // 20s pour upload de fichier
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
 
     const response = await fetch(FORMSUBMIT_ENDPOINT, {
       method: 'POST',
@@ -182,30 +202,16 @@ window.handleFormSubmit = async function(event) {
     clearTimeout(timeoutId);
 
     const result = await response.json().catch(() => ({ success: true }));
-
     const isSuccess = response.ok && (result.success === "true" || result.success === true);
-    const isNeedsActivation = result.message && result.message.includes('needs Activation');
 
-    if (isSuccess || isNeedsActivation) {
+    if (isSuccess) {
       btn.innerHTML = `<i class="fa-solid fa-check"></i> Dossier Transmis`;
       btn.classList.add('bg-emerald-600', 'text-white');
-      if (successMsg) {
-        if (isNeedsActivation) {
-          successMsg.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Formulaire transmis ! Un lien d'activation FormSubmit a été envoyé à votre adresse pour valider la première réception.`;
-        } else {
-          successMsg.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Votre demande et vos pièces ont été transmises avec succès à notre direction. Un ingénieur travaux vous contacte sous 24h.`;
-        }
-        successMsg.classList.remove('hidden');
-      }
+      if (successMsg) successMsg.classList.remove('hidden');
       form.reset();
 
       const otherContainer = document.getElementById('otherProjectTypeContainer');
       if (otherContainer) otherContainer.classList.add('hidden');
-
-      const fileLabel = document.getElementById('dceUploadLabel');
-      if (fileLabel) {
-        fileLabel.textContent = 'Déposer vos plans ou DCE (PDF, DWG, ZIP — max 10 Mo)';
-      }
 
       setTimeout(() => {
         btn.disabled = false;
@@ -213,16 +219,12 @@ window.handleFormSubmit = async function(event) {
         btn.classList.remove('bg-emerald-600', 'text-white');
       }, 5000);
     } else {
-      console.warn('FormSubmit response:', result);
       throw new Error(result.message || `Erreur serveur (${response.status})`);
     }
   } catch (err) {
     console.error('Erreur transmission formulaire:', err);
     if (errorMsg) {
-      const detail = err.name === 'AbortError' 
-        ? "Délai d'attente dépassé pour l'envoi des fichiers. Veuillez réduire la taille de vos plans ou nous contacter au 01 48 81 00 00."
-        : (err.message || "Erreur d'envoi. Veuillez vérifier la connexion ou contacter le 01 48 81 00 00.");
-      if (errorText) errorText.textContent = detail;
+      if (errorText) errorText.textContent = "Erreur d'envoi. Veuillez vérifier la connexion ou contacter le 01 48 81 00 00.";
       errorMsg.classList.remove('hidden');
     }
     btn.disabled = false;
