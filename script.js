@@ -181,6 +181,8 @@ window.handleFormSubmit = async function(event) {
 
     clearTimeout(timeoutId);
 
+    const result = await response.json().catch(() => ({ success: true }));
+
     const isSuccess = response.ok && (result.success === "true" || result.success === true);
     const isNeedsActivation = result.message && result.message.includes('needs Activation');
 
