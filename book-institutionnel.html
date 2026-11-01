@@ -87,6 +87,24 @@
       background-color: #ffffff !important;
     }
 
+    /* PRÉSERVER LE TEXTE BLANC ET GRIS CLAIR SUR LES IMAGES ET BANDEAUX INCRUSTÉS EN ÉDITION BLANCHE */
+    body.light-theme .absolute .text-white,
+    body.light-theme [class*="bg-gradient-to-t"] .text-white,
+    body.light-theme [class*="bg-black"] .text-white,
+    body.light-theme [class*="bg-black/"] .text-white {
+      color: #ffffff !important;
+    }
+    body.light-theme .absolute .text-gray-200,
+    body.light-theme .absolute .text-gray-300,
+    body.light-theme [class*="bg-gradient-to-t"] .text-gray-200,
+    body.light-theme [class*="bg-gradient-to-t"] .text-gray-300 {
+      color: #e5e7eb !important;
+    }
+    body.light-theme .absolute .text-gray-400,
+    body.light-theme [class*="bg-gradient-to-t"] .text-gray-400 {
+      color: #d1d5db !important;
+    }
+
     @media print {
       body.light-theme,
       body.light-theme html {
@@ -103,6 +121,24 @@
       body.light-theme .text-gray-300,
       body.light-theme .text-gray-400 {
         color: #333333 !important;
+      }
+
+      /* Préservation stricte du texte blanc au-dessus des photos à l'impression */
+      body.light-theme .absolute .text-white,
+      body.light-theme [class*="bg-gradient-to-t"] .text-white,
+      body.light-theme [class*="bg-black"] .text-white,
+      body.light-theme [class*="bg-black/"] .text-white {
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body.light-theme .absolute .text-gray-200,
+      body.light-theme .absolute .text-gray-300,
+      body.light-theme [class*="bg-gradient-to-t"] .text-gray-200,
+      body.light-theme [class*="bg-gradient-to-t"] .text-gray-300 {
+        color: #e5e7eb !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
     }
 

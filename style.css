@@ -100,3 +100,14 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #c5a059;
 }
+
+
+/* Filtre or signature pour logos partenaires */
+.gold-logo-filter {
+  filter: brightness(0) saturate(100%) invert(73%) sepia(26%) saturate(786%) hue-rotate(7deg) brightness(92%) contrast(88%);
+  transition: all 0.3s ease;
+}
+.gold-logo-filter:hover {
+  filter: brightness(0) saturate(100%) invert(86%) sepia(21%) saturate(940%) hue-rotate(6deg) brightness(98%) contrast(92%) drop-shadow(0 0 12px rgba(197,160,89,0.5));
+  transform: scale(1.05);
+}

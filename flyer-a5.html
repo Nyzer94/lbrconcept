@@ -8,7 +8,7 @@
   <!-- Polices Officielles de Prestige -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -46,7 +46,17 @@
     }
 
     .luxury-dark {
-      background-color: #0d0f13;
+      background: radial-gradient(circle at 80% 20%, #151821 0%, #0a0c10 100%);
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fcedc5 0%, #dfbe76 40%, #c5a059 80%, #9e7b30 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-glow {
+      box-shadow: 0 0 25px rgba(197, 160, 89, 0.35);
     }
   </style>
 </head>
@@ -60,7 +70,7 @@
         <span>Site Vitrine</span>
       </a>
       <span class="text-gray-600">/</span>
-      <span class="text-xs font-mono text-[#c5a059] uppercase tracking-wider font-semibold">Livrable 2 : Flyer A5 Épuré</span>
+      <span class="text-xs font-mono text-[#c5a059] uppercase tracking-wider font-semibold">Livrable 2 : Flyer A5 Direct & Impactant</span>
     </div>
 
     <div class="flex flex-wrap items-center gap-3">
@@ -81,14 +91,14 @@
 
   <!-- ================= EN-TÊTE ÉCRAN ================= -->
   <div class="text-center max-w-2xl mb-8 no-print">
-    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#c5a059]/30 bg-[#12141a] text-xs font-mono uppercase tracking-widest text-[#c5a059] mb-3">
-      <span>Design Sobre & Épuré • Typographies Larges • Format A5 (148 × 210 mm)</span>
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#c5a059]/40 bg-[#12141a] text-xs font-mono uppercase tracking-widest text-[#c5a059] mb-3">
+      <span>Format A5 Direct (148 × 210 mm) • Typographies Flashy & Imposantes • Contact Immédiat</span>
     </div>
     <h1 class="font-syne font-extrabold text-2xl md:text-3xl text-white uppercase tracking-tight">
-      Flyer Prospection Grands Comptes
+      Flyer B2B — Décideurs & Projets d'Envergure
     </h1>
     <p class="text-sm text-gray-400 mt-2 font-light">
-      Mise en page aérée et directe, sans surcharge visuelle. Conçue pour une lecture fluide et immédiate par les directeurs d'investissement et asset managers.
+      Format plus direct et percutant que le book, optimisé pour capter le regard des donneurs d'ordre en 3 secondes et déclencher une prise de contact immédiate.
     </p>
   </div>
 
@@ -96,91 +106,116 @@
   <main class="w-full flex flex-col items-center gap-12 pb-16">
 
     <!-- ========================================================================= -->
-    <!-- FACE 1 : RECTO A5 — IMPACT B2B & 3 PILIERS CONTRACTUELS -->
+    <!-- FACE 1 : RECTO A5 — IMPACT FLASHY, TITRE STATUTAIRE, PHOTO & CTA DIRECT -->
     <!-- ========================================================================= -->
-    <div class="a5-sheet w-[148mm] h-[210mm] luxury-dark text-white relative flex flex-col justify-between p-[9mm] shadow-[0_25px_60px_rgba(0,0,0,0.85)] border border-white/10 rounded-sm">
+    <div class="a5-sheet w-[148mm] h-[210mm] luxury-dark text-white relative flex flex-col justify-between p-[8mm] shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-2 border-[#c5a059]/40 rounded-sm overflow-hidden">
       
-      <!-- En-tête sobre -->
-      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+      <!-- En-tête : Logo Imposant & Coordonnées Express -->
+      <div class="flex items-center justify-between border-b-2 border-[#c5a059]/40 pb-2.5">
         <div class="flex items-center gap-3">
-          <div class="p-1 px-3 bg-white/95 rounded-sm shadow-sm">
-            <img src="images/logo.png" alt="LBR CONCEPT" class="h-[8mm] w-auto object-contain">
+          <div class="p-1 px-3 bg-white rounded-sm shadow-md">
+            <img src="images/logo.png" alt="LBR CONCEPT" class="h-[9mm] w-auto object-contain">
           </div>
           <div>
-            <span class="font-syne font-extrabold text-[12pt] tracking-[0.15em] text-white uppercase block leading-none">LBR CONCEPT</span>
-            <span class="font-syne font-bold text-[7.5pt] tracking-[0.18em] text-[#c5a059] uppercase block mt-1">CONTRACTANT GÉNÉRAL</span>
+            <span class="font-syne font-black text-[13pt] tracking-[0.14em] text-white uppercase block leading-none">LBR CONCEPT</span>
+            <span class="font-syne font-bold text-[8.5pt] tracking-[0.2em] text-[#c5a059] uppercase block mt-1">CONTRACTANT GÉNÉRAL</span>
           </div>
         </div>
 
         <div class="text-right">
-          <span class="font-mono text-[7pt] text-gray-300 font-bold uppercase tracking-wider block">PARIS & IDF</span>
-          <span class="font-sans text-[6.5pt] text-gray-400 block mt-0.5">477 Rue Marcel Paul, Champigny</span>
+          <span class="px-2 py-1 bg-[#c5a059] text-black font-syne font-black text-[7.5pt] tracking-widest uppercase rounded-sm inline-block">
+            PARIS & IDF
+          </span>
+          <span class="font-mono text-[7pt] text-gray-300 block mt-1 font-bold">477 Rue Marcel Paul</span>
         </div>
       </div>
 
-      <!-- Accroche Majeure Agrandie & Claire -->
-      <div class="my-2">
-        <span class="font-syne font-bold text-[8.5pt] tracking-[0.2em] text-[#c5a059] uppercase block mb-1">
-          BÂTIMENT & TOUS CORPS D'ÉTAT
-        </span>
-        <h2 class="font-syne font-extrabold text-[17pt] leading-[1.15] text-white uppercase tracking-tight">
-          RÉHABILITATION LOURDE &<br>AGENCEMENT D'ENVERGURE
+      <!-- Accroche Majeure Impactante & Flashy -->
+      <div class="my-1.5">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#c5a059]/20 border border-[#c5a059]/60 mb-1.5">
+          <span class="w-2 h-2 rounded-full bg-[#c5a059] animate-pulse"></span>
+          <span class="font-mono text-[7.5pt] text-[#fcedc5] uppercase tracking-widest font-bold">
+            GROS ŒUVRE & SECOND ŒUVRE • TOUS CORPS D'ÉTAT
+          </span>
+        </div>
+        <h2 class="font-syne font-black text-[19pt] leading-[1.08] text-white uppercase tracking-tight">
+          RÉHABILITATION LOURDE &<br><span class="gold-gradient-text">PROJETS D'ENVERGURE</span>
         </h2>
-        <p class="font-sans text-[9pt] text-gray-300 mt-1.5 font-light leading-snug">
-          L'interlocuteur unique pour vos projets tertiaires, patrimoniaux et d'exception en Île-de-France.
+        <p class="font-sans text-[9.5pt] text-gray-200 mt-1 font-medium leading-snug">
+          L'interlocuteur contractuel unique dédié aux <strong class="text-[#c5a059]">foncières, copropriétés, syndics et sièges tertiaires</strong>.
         </p>
       </div>
 
-      <!-- Grande Photographie Monumentale -->
-      <div class="w-full h-[66mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative my-1 shadow-md">
+      <!-- Grande Photographie Monumentale Flashy -->
+      <div class="w-full h-[64mm] rounded-sm overflow-hidden border-2 border-[#c5a059] relative shadow-xl">
         <img src="images/escaliers%20immeuble%20luxe.webp" alt="Restauration cage d'escalier haussmannienne" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-3">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end justify-between p-3">
           <div>
-            <span class="font-syne font-bold text-[10pt] text-white uppercase block">Restructuration Immeuble Haussmannien</span>
-            <span class="font-sans text-[7.5pt] text-gray-300">Restauration structurelle & parties communes d'apparat • Paris 8e</span>
+            <span class="px-2 py-0.5 bg-[#c5a059] text-black font-syne font-black text-[7pt] uppercase tracking-wider rounded-[2px] inline-block mb-1">
+              CHANTIER APPARAT • PARIS 8E
+            </span>
+            <span class="font-syne font-bold text-[11pt] text-white uppercase block leading-tight">Restructuration Immeuble Haussmannien</span>
+            <span class="font-sans text-[8pt] text-gray-200">Restauration structurelle, parties communes & staff d'époque</span>
+          </div>
+          <div class="text-right shrink-0 bg-black/70 backdrop-blur-sm p-1.5 px-2.5 rounded border border-[#c5a059]/50">
+            <span class="font-syne font-black text-[11pt] text-[#c5a059] block leading-none">1 450 m²</span>
+            <span class="font-mono text-[6pt] text-gray-300 uppercase">Clé en main</span>
           </div>
         </div>
       </div>
 
-      <!-- Les 3 Piliers Contractuels Clairs & Lisibles -->
-      <div class="grid grid-cols-3 gap-2.5 my-1">
+      <!-- Les 3 Piliers Contractuels Flashy -->
+      <div class="grid grid-cols-3 gap-2 my-1">
         
-        <div class="p-3 bg-[#13151c] border border-white/10 rounded-sm">
-          <div class="text-[#c5a059] text-[11pt] mb-1">
+        <div class="p-2.5 bg-[#14161f] border border-[#c5a059]/50 rounded-sm">
+          <div class="text-[#c5a059] text-[13pt] mb-0.5">
             <i class="fa-solid fa-user-check"></i>
           </div>
-          <h4 class="font-syne font-bold text-[8.5pt] text-white uppercase leading-tight">Interlocuteur Unique</h4>
-          <p class="font-sans text-[7pt] text-gray-300 mt-1 leading-snug">
-            Pilotage TCE complet : études, métrés et exécution sans dilution de responsabilités.
+          <h4 class="font-syne font-extrabold text-[9pt] text-white uppercase leading-tight">Pilote Unique</h4>
+          <p class="font-sans text-[7.5pt] text-gray-200 mt-0.5 leading-snug">
+            1 seul interlocuteur TCE : conception, autorisations et travaux sans dilution.
           </p>
         </div>
 
-        <div class="p-3 bg-[#13151c] border border-white/10 rounded-sm">
-          <div class="text-[#c5a059] text-[11pt] mb-1">
+        <div class="p-2.5 bg-[#14161f] border border-[#c5a059]/50 rounded-sm">
+          <div class="text-[#c5a059] text-[13pt] mb-0.5">
             <i class="fa-solid fa-clock-check"></i>
           </div>
-          <h4 class="font-syne font-bold text-[8.5pt] text-white uppercase leading-tight">Coûts & Délais Fermes</h4>
-          <p class="font-sans text-[7pt] text-gray-300 mt-1 leading-snug">
-            Engagement au prix forfaitaire convenu. Pénalités de retard contractuelles intégrées.
+          <h4 class="font-syne font-extrabold text-[9pt] text-white uppercase leading-tight">Prix & Délais Fermes</h4>
+          <p class="font-sans text-[7.5pt] text-gray-200 mt-0.5 leading-snug">
+            Budget forfaitaire contractuel sans avenant abusif. Pénalités de retard fermes.
           </p>
         </div>
 
-        <div class="p-3 bg-[#13151c] border border-white/10 rounded-sm">
-          <div class="text-[#c5a059] text-[11pt] mb-1">
+        <div class="p-2.5 bg-[#14161f] border border-[#c5a059]/50 rounded-sm">
+          <div class="text-[#c5a059] text-[13pt] mb-0.5">
             <i class="fa-solid fa-shield-halved"></i>
           </div>
-          <h4 class="font-syne font-bold text-[8.5pt] text-white uppercase leading-tight">Garantie AXA France</h4>
-          <p class="font-sans text-[7pt] text-gray-300 mt-1 leading-snug">
-            Assurance décennale capitalisée, solvabilité solide et respect strict des normes RE2020.
+          <h4 class="font-syne font-extrabold text-[9pt] text-white uppercase leading-tight">Décennale AXA</h4>
+          <p class="font-sans text-[7.5pt] text-gray-200 mt-0.5 leading-snug">
+            Assurance décennale capitalisée, solvabilité solide & conformité RE2020.
           </p>
         </div>
 
       </div>
 
-      <!-- Pied de page -->
-      <div class="border-t border-white/10 pt-2 flex items-center justify-between text-[7pt] font-mono tracking-wider text-gray-400 uppercase">
-        <span class="text-[#c5a059] font-bold">LBR CONCEPT • WWW.LBRCONCEPT.FR</span>
-        <span>TÉL : 01 48 81 00 00</span>
+      <!-- CTA RECTO FLASHY & PERCUTANT -->
+      <div class="p-2.5 bg-gradient-to-r from-[#171922] via-[#202433] to-[#171922] border-2 border-[#c5a059] rounded-sm flex items-center justify-between shadow-lg">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-[#c5a059] text-black flex items-center justify-center font-bold text-sm shrink-0">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div>
+            <span class="font-syne font-black text-[9pt] text-white uppercase block leading-none">
+              CONSULTATION RAPIDE & VISITE TECHNIQUE
+            </span>
+            <span class="font-sans text-[7.5pt] text-gray-300">Chiffrage sous 48h sur plans ou visite de chantier</span>
+          </div>
+        </div>
+        <div class="text-right">
+          <span class="font-mono font-black text-[11pt] text-[#c5a059] block leading-none">01 48 81 00 00</span>
+          <span class="font-mono text-[7pt] text-white uppercase">contact@lbrconcept.fr</span>
+        </div>
       </div>
 
     </div>
@@ -188,119 +223,115 @@
     <!-- ========================================================================= -->
     <!-- FACE 2 : VERSO A5 — 4 PÔLES D'INTERVENTION, CHIFFRES & CONTACT DIRECT -->
     <!-- ========================================================================= -->
-    <div class="a5-sheet w-[148mm] h-[210mm] luxury-dark text-white relative flex flex-col justify-between p-[9mm] shadow-[0_25px_60px_rgba(0,0,0,0.85)] border border-white/10 rounded-sm">
+    <div class="a5-sheet w-[148mm] h-[210mm] luxury-dark text-white relative flex flex-col justify-between p-[8mm] shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-2 border-[#c5a059]/40 rounded-sm overflow-hidden">
       
       <!-- En-tête Verso -->
-      <div class="flex items-center justify-between border-b border-white/10 pb-2.5">
+      <div class="flex items-center justify-between border-b-2 border-[#c5a059]/40 pb-2">
         <div>
-          <span class="font-syne font-extrabold text-[12pt] text-white uppercase tracking-wide">
-            NOTRE PÉRIMÈTRE D'INTERVENTION
+          <span class="font-syne font-black text-[13pt] text-white uppercase tracking-wide">
+            NOS 4 PÔLES D'INTERVENTION
           </span>
-          <span class="font-syne font-bold text-[7.5pt] text-[#c5a059] uppercase block mt-0.5">
+          <span class="font-syne font-bold text-[8.5pt] text-[#c5a059] uppercase block mt-0.5">
             Haute Rénovation & Ingénierie Tous Corps d'État
           </span>
         </div>
-        <span class="font-mono text-[7pt] text-gray-400 uppercase tracking-widest font-bold">
-          4 PÔLES CLÉS
+        <span class="px-2 py-1 bg-[#1a1c26] border border-[#c5a059] text-[#c5a059] font-mono text-[7.5pt] uppercase tracking-widest font-black rounded-sm">
+          IDF • PARIS
         </span>
       </div>
 
-      <!-- 4 Pôles Illustrés -->
-      <div class="grid grid-cols-2 gap-3 my-1">
+      <!-- 4 Pôles Illustrés Agrandis & Très Lisibles -->
+      <div class="grid grid-cols-2 gap-2.5 my-1">
         
         <!-- Pôle 1 : Tertiaire -->
-        <div class="p-2.5 bg-[#13151c] border border-white/10 rounded-sm">
-          <div class="w-full h-[24mm] rounded-sm overflow-hidden mb-2">
+        <div class="p-2 bg-[#14161f] border border-white/15 rounded-sm">
+          <div class="w-full h-[25mm] rounded-sm overflow-hidden mb-1.5 border border-[#c5a059]/30">
             <img src="images/open%20spaceee.webp" alt="Plateau tertiaire" class="w-full h-full object-cover">
           </div>
-          <h4 class="font-syne font-bold text-[9pt] text-white uppercase">1. Tertiaire & Sièges Sociaux</h4>
-          <p class="font-sans text-[7pt] text-gray-300 mt-1 leading-snug">
-            Plateaux de bureaux, cloisons acoustiques vitrées, boardrooms, CVC gainé et réseaux RJ45 Cat 6A.
+          <h4 class="font-syne font-black text-[9.5pt] text-white uppercase leading-tight">1. Tertiaire & Sièges Sociaux</h4>
+          <p class="font-sans text-[7.5pt] text-gray-200 mt-1 leading-snug">
+            Plateaux de bureaux, cloisons vitrées, boardrooms, CVC réversible et réseaux RJ45 Cat 6A.
           </p>
         </div>
 
         <!-- Pôle 2 : Immeubles Complets -->
-        <div class="p-2.5 bg-[#13151c] border border-white/10 rounded-sm">
-          <div class="w-full h-[24mm] rounded-sm overflow-hidden mb-2">
+        <div class="p-2 bg-[#14161f] border border-white/15 rounded-sm">
+          <div class="w-full h-[25mm] rounded-sm overflow-hidden mb-1.5 border border-[#c5a059]/30">
             <img src="images/bure.webp" alt="Bureau prestige" class="w-full h-full object-cover">
           </div>
-          <h4 class="font-syne font-bold text-[9pt] text-white uppercase">2. Immeubles Complets</h4>
-          <p class="font-sans text-[7pt] text-gray-300 mt-1 leading-snug">
-            Restructuration d'immeubles, reprise en sous-œuvre, parties communes, façades et toitures.
+          <h4 class="font-syne font-black text-[9.5pt] text-white uppercase leading-tight">2. Immeubles & Copropriétés</h4>
+          <p class="font-sans text-[7.5pt] text-gray-200 mt-1 leading-snug">
+            Restructuration d'immeubles, reprise en sous-œuvre, parties communes, façades, toitures.
           </p>
         </div>
 
         <!-- Pôle 3 : Résidentiel d'Élite -->
-        <div class="p-2.5 bg-[#13151c] border border-white/10 rounded-sm">
-          <div class="w-full h-[24mm] rounded-sm overflow-hidden mb-2">
+        <div class="p-2 bg-[#14161f] border border-white/15 rounded-sm">
+          <div class="w-full h-[25mm] rounded-sm overflow-hidden mb-1.5 border border-[#c5a059]/30">
             <img src="images/cuisine%20luxe.webp" alt="Cuisine marbre luxe" class="w-full h-full object-cover">
           </div>
-          <h4 class="font-syne font-bold text-[9pt] text-white uppercase">3. Résidentiel d'Élite</h4>
-          <p class="font-sans text-[7pt] text-gray-300 mt-1 leading-snug">
-            Hôtels particuliers et appartements de grand luxe : marbres rares taillés dans la masse, boiseries d'art.
+          <h4 class="font-syne font-black text-[9.5pt] text-white uppercase leading-tight">3. Résidentiel d'Élite</h4>
+          <p class="font-sans text-[7.5pt] text-gray-200 mt-1 leading-snug">
+            Hôtels particuliers et appartements d'exception : marbres rares taillés dans la masse, boiseries d'art.
           </p>
         </div>
 
         <!-- Pôle 4 : Équipements & ERP -->
-        <div class="p-2.5 bg-[#13151c] border border-white/10 rounded-sm">
-          <div class="w-full h-[24mm] rounded-sm overflow-hidden mb-2">
+        <div class="p-2 bg-[#14161f] border border-white/15 rounded-sm">
+          <div class="w-full h-[25mm] rounded-sm overflow-hidden mb-1.5 border border-[#c5a059]/30">
             <img src="images/boxes%20reu.webp" alt="Cabines acoustiques ERP" class="w-full h-full object-cover">
           </div>
-          <h4 class="font-syne font-bold text-[9pt] text-white uppercase">4. Équipements & Normes ERP</h4>
-          <p class="font-sans text-[7pt] text-gray-300 mt-1 leading-snug">
-            Conformité sécurité incendie, accessibilité handicapés (PMR), désenfumage et contrôle technique.
+          <h4 class="font-syne font-black text-[9.5pt] text-white uppercase leading-tight">4. Équipements & ERP</h4>
+          <p class="font-sans text-[7.5pt] text-gray-200 mt-1 leading-snug">
+            Sécurité incendie, normes accessibilité PMR, désenfumage, audit et validation bureau de contrôle.
           </p>
         </div>
 
       </div>
 
-      <!-- Chiffres Clés Agrandis & Très Lisibles -->
-      <div class="grid grid-cols-3 gap-2 py-2.5 px-3 bg-[#13151c] border border-[#c5a059]/40 rounded-sm text-center">
+      <!-- 3 Chiffres Clés Agrandis Flashy -->
+      <div class="grid grid-cols-3 gap-2 py-2 px-3 bg-gradient-to-r from-[#14161f] via-[#1a1d28] to-[#14161f] border-2 border-[#c5a059] rounded-sm text-center">
         <div>
-          <span class="font-syne font-extrabold text-[15pt] text-[#c5a059] block leading-none">15+ Ans</span>
-          <span class="font-sans text-[7pt] text-gray-200 mt-1 block font-medium">D'Expérience Terrain</span>
+          <span class="font-syne font-black text-[16pt] text-[#c5a059] block leading-none">15+ Ans</span>
+          <span class="font-sans text-[7.5pt] text-gray-200 mt-0.5 block font-bold">Terrain & Maîtrise</span>
         </div>
-        <div class="border-x border-white/10">
-          <span class="font-syne font-extrabold text-[15pt] text-white block leading-none">85 000 m²</span>
-          <span class="font-sans text-[7pt] text-gray-200 mt-1 block font-medium">Surfaces Livrées en IDF</span>
+        <div class="border-x border-white/20">
+          <span class="font-syne font-black text-[16pt] text-white block leading-none">85 000 m²</span>
+          <span class="font-sans text-[7.5pt] text-gray-200 mt-0.5 block font-bold">Surfaces Rénovées</span>
         </div>
         <div>
-          <span class="font-syne font-extrabold text-[15pt] text-[#c5a059] block leading-none">100%</span>
-          <span class="font-sans text-[7pt] text-gray-200 mt-1 block font-medium">Conformité aux Délais</span>
+          <span class="font-syne font-black text-[16pt] text-[#c5a059] block leading-none">100%</span>
+          <span class="font-sans text-[7.5pt] text-gray-200 mt-0.5 block font-bold">Délais Respectés</span>
         </div>
       </div>
 
-      <!-- Encart Consultation Simple & Efficace -->
-      <div class="p-3 bg-[#171922] border border-[#c5a059]/60 rounded-sm flex items-center justify-between gap-4">
-        <div>
-          <span class="font-syne font-bold text-[7.5pt] uppercase text-[#c5a059] tracking-wider block">
-            ÉTUDE & DEVIS SUR CONSULTATION
+      <!-- CTA MAJEUR VERSO — CONTACTEZ DIRECTEMENT LBR CONCEPT -->
+      <div class="p-3 bg-gradient-to-r from-[#c5a059] via-[#dfbe76] to-[#b38e44] text-black rounded-sm flex items-center justify-between shadow-xl">
+        <div class="pr-2">
+          <span class="font-syne font-black text-[11pt] uppercase tracking-wide block leading-none text-black">
+            UN CHANTIER ? UN DEVIS ? PARLONS-EN
           </span>
-          <h4 class="font-syne font-bold text-[10.5pt] text-white uppercase mt-0.5 leading-tight">
-            Visite de Chantier & Chiffrage sous 48h
-          </h4>
-          <p class="font-sans text-[7pt] text-gray-300 mt-0.5 font-light">
-            Transmettez vos dossiers DCE ou besoins à notre direction des travaux.
-          </p>
+          <span class="font-sans text-[8pt] text-black/85 font-semibold mt-1 block">
+            Déplacement sur site et chiffrage d'expert sous 48 heures ouvrées
+          </span>
         </div>
 
-        <div class="text-right shrink-0 border-l border-white/15 pl-4 font-mono text-[8pt]">
-          <div class="text-white font-bold flex items-center justify-end gap-1.5">
-            <i class="fa-solid fa-phone text-[#c5a059]"></i>
-            <span>01 48 81 00 00</span>
+        <div class="text-right shrink-0 border-l border-black/30 pl-3">
+          <div class="font-mono font-black text-[12pt] text-black leading-none">
+            01 48 81 00 00
           </div>
-          <div class="text-gray-300 mt-0.5 text-[7.5pt]">
-            contact@lbrconcept.fr
+          <div class="font-mono font-bold text-[8pt] text-black/90 mt-0.5">
+            06 66 99 19 71
           </div>
-          <div class="text-[#c5a059] font-bold text-[7.5pt] mt-0.5">
+          <div class="font-mono text-[7.5pt] font-extrabold uppercase mt-0.5 text-black">
             www.lbrconcept.fr
           </div>
         </div>
       </div>
 
       <!-- Footer Verso -->
-      <div class="border-t border-white/10 pt-2 flex items-center justify-between text-[6.5pt] font-mono tracking-wider text-gray-400 uppercase">
-        <span>ASSURANCE DÉCENNALE AXA FRANCE • POLICE N° 0000010862089504</span>
+      <div class="border-t border-white/10 pt-1.5 flex items-center justify-between text-[7pt] font-mono tracking-wider text-gray-400 uppercase">
+        <span class="text-[#c5a059] font-bold">ASSURANCE DÉCENNALE AXA FRANCE • POLICE N° 0000010862089504</span>
         <span>477 RUE MARCEL PAUL, 94500 CHAMPIGNY</span>
       </div>
 
