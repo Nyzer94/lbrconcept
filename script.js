@@ -264,30 +264,43 @@ window.handleFormSubmit = async function(event) {
 
   // Si des fichiers ont été ajoutés par l'utilisateur
   if (uploadedFiles.length > 0) {
+    // Vérifier la limite totale de taille (10 Mo max pour FormSubmit)
+    const totalBytes = uploadedFiles.reduce((acc, f) => acc + (f.size || 0), 0);
+    if (totalBytes > 10 * 1024 * 1024) {
+      event.preventDefault();
+      alert("Le poids total des pièces jointes dépasse 10 Mo. Veuillez réduire ou compresser vos documents avant l'envoi.");
+      return false;
+    }
+
     // Supprimer les anciens inputs de fichiers injectés
     form.querySelectorAll('.injected-file-input').forEach(el => el.remove());
 
-    // Injecter les fichiers renommés dans le formulaire sous forme d'inputs réels
-    uploadedFiles.forEach((item, index) => {
-      // Reconstituer le fichier avec son nom personnalisé
+    // Regrouper tous les fichiers renommés dans un seul objet DataTransfer
+    const dt = new DataTransfer();
+    uploadedFiles.forEach(item => {
       const renamedFile = new File([item.originalFile], item.name, { type: item.originalFile.type });
-      
-      const dt = new DataTransfer();
       dt.items.add(renamedFile);
+    });
 
+    // Mettre à jour le champ de fichier principal dceUpload avec les fichiers renommés
+    const dceInput = document.getElementById('dceUpload');
+    if (dceInput) {
+      dceInput.name = 'attachment';
+      dceInput.files = dt.files;
+    } else {
       const hiddenInput = document.createElement('input');
       hiddenInput.type = 'file';
-      // FormSubmit prend en charge 'attachment' ou 'attachment[]' pour de multiples pièces jointes
-      hiddenInput.name = uploadedFiles.length === 1 ? 'attachment' : 'attachment[]';
+      hiddenInput.name = 'attachment';
+      hiddenInput.multiple = true;
       hiddenInput.className = 'injected-file-input hidden';
       hiddenInput.files = dt.files;
       form.appendChild(hiddenInput);
-    });
+    }
 
     // Soumission native standard pour que FormSubmit attache tous les fichiers dans le mail
     btn.disabled = true;
-    btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transmission du dossier et des ${uploadedFiles.length} pièces...`;
-    return true; // continue la soumission native HTML
+    btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transmission du dossier (${uploadedFiles.length} pièce${uploadedFiles.length > 1 ? 's' : ''})...`;
+    return true; // continue la soumission native HTML sans erreur 500
   }
 
   // Sinon (pas de fichier), envoi AJAX fluide sans rechargement
