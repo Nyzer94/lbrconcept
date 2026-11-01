@@ -155,6 +155,8 @@ window.handleFormSubmit = async function(event) {
   const customVal = document.getElementById('otherProjectTypeInput')?.value?.trim();
   const projectType = (selectVal === 'autre' && customVal) ? `Autre: ${customVal}` : (selectVal || 'Non spécifié');
 
+  const subject = `Demande de devis depuis le site : ${company}`;
+
   // Construction du FormData pour FormBackend (support natif des fichiers)
   const formData = new FormData(form);
   
