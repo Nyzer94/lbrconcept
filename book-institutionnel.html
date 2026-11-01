@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LBR CONCEPT — Book Institutionnel d'Entreprise (A4 Paysage — 6 Pages)</title>
+  <title>LBR CONCEPT — Book Institutionnel d'Entreprise (Format A4 Vertical — 6 Pages)</title>
 
-  <!-- Polices Officielles de la Charte LBR CONCEPT -->
+  <!-- Polices Officielles de Prestige -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* Configuration A4 Paysage : 297mm × 210mm */
+    /* Configuration A4 Vertical (Portrait) : 210mm × 297mm */
     @page {
-      size: 297mm 210mm landscape;
+      size: 210mm 297mm portrait;
       margin: 0;
     }
 
@@ -32,60 +32,35 @@
       .no-print {
         display: none !important;
       }
-      .a4-landscape-page {
-        width: 297mm !important;
-        height: 210mm !important;
+      .a4-portrait-page {
+        width: 210mm !important;
+        height: 297mm !important;
         page-break-after: always !important;
         page-break-inside: avoid !important;
         position: relative !important;
         overflow: hidden !important;
         margin: 0 auto !important;
         box-shadow: none !important;
+        border: none !important;
       }
     }
 
-    /* Fond Minéral & Grille Suisse */
-    .tactile-paper {
-      background-color: #0b0c0e;
-      background-image: 
-        radial-gradient(rgba(197, 160, 89, 0.05) 1px, transparent 0),
-        radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 0);
-      background-size: 8px 8px, 16px 16px;
-      background-position: 0 0, 4px 4px;
+    .luxury-dark {
+      background-color: #0d0f13;
     }
-
-    /* Or Champagne Métallique */
-    .gold-foil {
-      background: linear-gradient(135deg, #dfbe76 0%, #c5a059 40%, #edd89f 60%, #9b7d3a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Repères de coupe 300 DPI */
-    .crop-mark {
-      position: absolute;
-      width: 6mm;
-      height: 6mm;
-      pointer-events: none;
-      z-index: 50;
-    }
-    .crop-tl { top: 0; left: 0; border-top: 0.35mm solid rgba(197, 160, 89, 0.8); border-left: 0.35mm solid rgba(197, 160, 89, 0.8); }
-    .crop-tr { top: 0; right: 0; border-top: 0.35mm solid rgba(197, 160, 89, 0.8); border-right: 0.35mm solid rgba(197, 160, 89, 0.8); }
-    .crop-bl { bottom: 0; left: 0; border-bottom: 0.35mm solid rgba(197, 160, 89, 0.8); border-left: 0.35mm solid rgba(197, 160, 89, 0.8); }
-    .crop-br { bottom: 0; right: 0; border-bottom: 0.35mm solid rgba(197, 160, 89, 0.8); border-right: 0.35mm solid rgba(197, 160, 89, 0.8); }
   </style>
 </head>
 <body class="bg-[#050608] text-[#e2e4e9] min-h-screen flex flex-col items-center justify-start p-4 md:p-8 antialiased selection:bg-[#c5a059] selection:text-black">
 
   <!-- ================= BARRE D'OUTILS ET NAVIGATION ================= -->
-  <header class="w-full max-w-6xl flex flex-wrap items-center justify-between gap-4 mb-8 no-print border-b border-white/10 pb-4">
+  <header class="w-full max-w-5xl flex flex-wrap items-center justify-between gap-4 mb-8 no-print border-b border-white/10 pb-4">
     <div class="flex items-center gap-3">
       <a href="index.html" class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gray-400 hover:text-[#c5a059] transition-colors">
         <i class="fa-solid fa-arrow-left"></i>
         <span>Site Vitrine</span>
       </a>
       <span class="text-gray-600">/</span>
-      <span class="text-xs font-mono text-[#c5a059] uppercase tracking-wider font-semibold">Livrable 3 : Book Institutionnel A4 (6 Pages)</span>
+      <span class="text-xs font-mono text-[#c5a059] uppercase tracking-wider font-semibold">Livrable 3 : Book A4 Vertical</span>
     </div>
 
     <div class="flex flex-wrap items-center gap-3">
@@ -104,211 +79,181 @@
     </div>
   </header>
 
-  <!-- ================= EN-TÊTE DESCRIPTIF ÉCRAN ================= -->
-  <div class="text-center max-w-4xl mb-8 no-print">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#c5a059]/30 bg-[#151720] text-[10px] font-mono uppercase tracking-widest text-[#c5a059] mb-3">
-      <span>Brochure Commerciale d'Élite • 6 Planches A4 Paysage • Papier Satimat 200g/m² & Couverture 350g Vernis UV</span>
+  <!-- ================= EN-TÊTE ÉCRAN ================= -->
+  <div class="text-center max-w-3xl mb-8 no-print">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#c5a059]/30 bg-[#12141a] text-xs font-mono uppercase tracking-widest text-[#c5a059] mb-3">
+      <span>Format A4 Vertical Standard (210 × 297 mm) • 6 Pages de Prestige • Lecture Confortable</span>
     </div>
     <h1 class="font-syne font-extrabold text-2xl md:text-3xl text-white uppercase tracking-tight">
-      Book Institutionnel & Portfolio Opérationnel
+      Book Institutionnel d'Entreprise
     </h1>
-    <p class="text-xs text-gray-400 mt-2 font-light">
-      Document contractuel de niveau cabinet d'ingénierie et contractant général, calibré au millimètre <strong class="text-white font-mono">297 × 210 mm</strong> pour les réponses aux appels d'offres privés & publics et comités d'investissement.
+    <p class="text-sm text-gray-400 mt-2 font-light">
+      Mise en page éditoriale verticale, sobre et épurée. Typographies larges et aérées, calibrées pour les comités d'investissement, foncières et appels d'offres privés & publics.
     </p>
   </div>
 
-  <!-- ================= CONTENEUR DES 6 PAGES DU BOOK ================= -->
+  <!-- ================= CONTENEUR DES 6 PAGES DU BOOK VERTICAL ================= -->
   <main class="w-full flex flex-col items-center gap-14 pb-20">
 
     <!-- ========================================================================= -->
-    <!-- PAGE 1 : COUVERTURE PRESTIGE A4 PAYSAGE -->
+    <!-- PAGE 1 : COUVERTURE PRESTIGE (A4 VERTICAL 210 × 297 mm) -->
     <!-- ========================================================================= -->
-    <div class="a4-landscape-page w-[297mm] h-[210mm] tactile-paper text-white border border-[#c5a059]/40 relative flex flex-col justify-between p-[12mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)]">
+    <div class="a4-portrait-page w-[210mm] h-[297mm] luxury-dark text-white relative flex flex-col justify-between p-[14mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)] border border-white/10 rounded-sm">
       
-      <!-- Repères d'imprimerie -->
-      <div class="crop-mark crop-tl"></div>
-      <div class="crop-mark crop-tr"></div>
-      <div class="crop-mark crop-bl"></div>
-      <div class="crop-mark crop-br"></div>
-
-      <!-- Header Couverture -->
+      <!-- En-tête Couverture -->
       <div class="flex items-center justify-between border-b border-white/10 pb-4">
-        <div class="flex items-center gap-3">
-          <div class="p-1.5 px-3 bg-white rounded-sm shadow-md">
-            <img src="images/logo.png" alt="LBR" class="h-[9mm] w-auto object-contain">
+        <div class="flex items-center gap-3.5">
+          <div class="p-1.5 px-3 bg-white/95 rounded-sm shadow-sm">
+            <img src="images/logo.png" alt="LBR CONCEPT" class="h-[10mm] w-auto object-contain">
           </div>
           <div>
-            <span class="font-syne font-extrabold text-[12pt] tracking-[0.25em] text-white uppercase block leading-none">LBR CONCEPT</span>
-            <span class="font-mono text-[6.5pt] tracking-[0.22em] text-[#c5a059] uppercase block mt-1">CONTRACTANT GÉNÉRAL • PARIS & ÎLE-DE-FRANCE</span>
+            <span class="font-syne font-extrabold text-[13pt] tracking-[0.18em] text-white uppercase block leading-none">LBR CONCEPT</span>
+            <span class="font-syne font-bold text-[8pt] tracking-[0.2em] text-[#c5a059] uppercase block mt-1.5">CONTRACTANT GÉNÉRAL</span>
           </div>
         </div>
+        <span class="font-mono text-[8pt] text-gray-400 uppercase tracking-widest font-bold">
+          ÉDITION 2026
+        </span>
+      </div>
 
-        <div class="flex items-center gap-4 text-right font-mono text-[6.5pt] text-gray-400 uppercase tracking-widest">
-          <span>ÉDITION GRAND COMPTE</span>
-          <span class="text-[#c5a059]">•</span>
-          <span class="text-white font-bold">EXEMPLAIRE TECHNIQUE 2026</span>
+      <!-- Titre Central Statutaire & Agrandit -->
+      <div class="my-6">
+        <span class="font-syne font-bold text-[9.5pt] tracking-[0.25em] text-[#c5a059] uppercase block mb-2">
+          DOSSIER CORPORATE & RÉFÉRENCES TECHNIQUES
+        </span>
+        <h1 class="font-syne font-extrabold text-[26pt] leading-[1.12] text-white uppercase tracking-tight">
+          PORTFOLIO OPÉRATIONNEL &<br>RÉFÉRENCES TECHNIQUES
+        </h1>
+        <div class="w-16 h-[1.5px] bg-[#c5a059] my-4"></div>
+        <p class="font-sans text-[11pt] text-gray-300 font-light leading-relaxed max-w-[160mm]">
+          Entreprise Générale de Bâtiment • Ingénierie & Rénovation Tous Corps d'État. Pilotage complet d'opérations d'envergure pour foncières, sièges d'entreprises et résidences de prestige.
+        </p>
+      </div>
+
+      <!-- Grande Photographie Héroïque -->
+      <div class="w-full h-[120mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative my-auto shadow-xl">
+        <img src="images/escaliers%20immeuble%20luxe.webp" alt="Restructuration monumentale d'immeuble" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex flex-col justify-end p-6">
+          <span class="font-syne font-bold text-[8.5pt] uppercase tracking-wider text-[#c5a059]">Référence Majeure • Paris 8e</span>
+          <h2 class="font-syne font-bold text-[13pt] text-white uppercase mt-1">Restructuration Immeuble Haussmannien</h2>
+          <p class="font-sans text-[9pt] text-gray-300 mt-1 font-light">1 450 m² rénovés en Tous Corps d'État • Reprise structurelle & parties communes d'apparat.</p>
         </div>
       </div>
 
-      <!-- Coeur de Couverture : Grille Titre & Photographie Héroïque -->
-      <div class="grid grid-cols-12 gap-8 items-center my-auto">
-        
-        <div class="col-span-6 space-y-4">
-          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-sm border border-[#c5a059]/40 bg-[#14161f] text-[6.5pt] font-mono uppercase tracking-[0.25em] text-[#c5a059]">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>DOSSIER CORPORATE & RÉFÉRENCES VÉRIFIÉES</span>
-          </div>
-
-          <h1 class="font-syne font-extrabold text-[26pt] leading-[1.05] tracking-[0.05em] text-white uppercase">
-            PORTFOLIO<br>
-            OPÉRATIONNEL &<br>
-            <span class="gold-foil">RÉFÉRENCES TECHNIQUES</span>
-          </h1>
-
-          <div class="w-20 h-[0.5mm] bg-gradient-to-r from-[#c5a059] to-transparent"></div>
-
-          <p class="font-sans text-[8.5pt] text-gray-300 font-light leading-relaxed max-w-[115mm]">
-            Entreprise Générale de Bâtiment • Ingénierie & Rénovation Tous Corps d'État. Pilotage global de chantiers complexes pour foncières, sièges d'entreprises et résidences de prestige.
-          </p>
-
-          <div class="pt-2 flex items-center gap-6 font-mono text-[6.5pt] text-gray-400 uppercase tracking-wider">
-            <span><strong class="text-white font-syne text-[8.5pt]">85 000 m²</strong> Livrés</span>
-            <span>•</span>
-            <span><strong class="text-white font-syne text-[8.5pt]">15+ Ans</strong> d'Activité</span>
-            <span>•</span>
-            <span><strong class="text-[#c5a059] font-syne text-[8.5pt]">AXA</strong> Décennale</span>
-          </div>
+      <!-- Chiffres Clés Bas de Couverture -->
+      <div class="grid grid-cols-3 gap-3 pt-4 border-t border-white/10 text-center">
+        <div>
+          <span class="font-syne font-extrabold text-[16pt] text-[#c5a059] block leading-none">85 000 m²</span>
+          <span class="font-sans text-[8pt] text-gray-300 uppercase tracking-wider mt-1 block">Surfaces Livrées</span>
         </div>
-
-        <div class="col-span-6">
-          <div class="relative w-full h-[115mm] rounded-sm overflow-hidden border border-[#c5a059]/50 shadow-2xl">
-            <img src="images/escaliers%20immeuble%20luxe.webp" alt="Restructuration lourde" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex flex-col justify-end p-5">
-              <span class="font-mono text-[6pt] uppercase tracking-widest text-[#c5a059]">Projet de Référence • Réhabilitation Haussmannienne</span>
-              <h2 class="font-syne font-bold text-[11pt] text-white uppercase mt-0.5">Restauration Complète & Reprise Sous-Œuvre</h2>
-              <p class="font-sans text-[6.8pt] text-gray-300 mt-0.5 font-light">Paris 8e • 1 450 m² rénovés en Tous Corps d'État • Respect strict des modénatures historiques.</p>
-            </div>
-          </div>
+        <div class="border-x border-white/10">
+          <span class="font-syne font-extrabold text-[16pt] text-white block leading-none">15+ Ans</span>
+          <span class="font-sans text-[8pt] text-gray-300 uppercase tracking-wider mt-1 block">D'Expérience BTP</span>
         </div>
-
+        <div>
+          <span class="font-syne font-extrabold text-[16pt] text-[#c5a059] block leading-none">AXA France</span>
+          <span class="font-sans text-[8pt] text-gray-300 uppercase tracking-wider mt-1 block">Garantie Décennale</span>
+        </div>
       </div>
 
-      <!-- Footer Couverture -->
-      <div class="border-t border-white/10 pt-3 flex items-center justify-between text-[6.2pt] font-mono tracking-widest text-gray-400 uppercase">
-        <span class="text-[#c5a059]">LBR CONCEPT • 477 RUE MARCEL PAUL, 94500 CHAMPIGNY-SUR-MARNE</span>
-        <span>PAGE 01 / 06 • DIRECTION TECHNIQUE</span>
+      <!-- Pied de Page Couverture -->
+      <div class="pt-3 flex items-center justify-between text-[7.5pt] font-mono tracking-wider text-gray-400 uppercase">
+        <span class="text-[#c5a059] font-bold">LBR CONCEPT • 477 RUE MARCEL PAUL, 94500 CHAMPIGNY-SUR-MARNE</span>
+        <span>PAGE 01 / 06</span>
       </div>
 
     </div>
 
 
     <!-- ========================================================================= -->
-    <!-- PAGE 2 : ÉDITO & VISION DU DIRIGEANT / CHIFFRES CLÉS -->
+    <!-- PAGE 2 : ÉDITO & VISION DU DIRIGEANT / 4 CHIFFRES CLÉS -->
     <!-- ========================================================================= -->
-    <div class="a4-landscape-page w-[297mm] h-[210mm] tactile-paper text-white border border-[#c5a059]/40 relative flex flex-col justify-between p-[12mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)]">
+    <div class="a4-portrait-page w-[210mm] h-[297mm] luxury-dark text-white relative flex flex-col justify-between p-[14mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)] border border-white/10 rounded-sm">
       
-      <!-- Repères d'imprimerie -->
-      <div class="crop-mark crop-tl"></div>
-      <div class="crop-mark crop-tr"></div>
-      <div class="crop-mark crop-bl"></div>
-      <div class="crop-mark crop-br"></div>
-
-      <!-- Header Page 2 -->
-      <div class="flex items-center justify-between border-b border-white/10 pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-sm bg-[#c5a059]"></span>
-          <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-white uppercase">01 • ENGAGEMENT & VISION DU DIRIGEANT</span>
-        </div>
-        <span class="font-mono text-[6.5pt] text-[#c5a059] uppercase tracking-widest">LBR CONCEPT • LIVRABLE INSTITUTIONNEL</span>
+      <!-- En-tête -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-[#c5a059] uppercase">01 • ENGAGEMENT & VISION DU DIRIGEANT</span>
+        <span class="font-mono text-[7.5pt] text-gray-400 uppercase tracking-widest font-bold">LBR CONCEPT</span>
       </div>
 
-      <!-- Corps Page 2 : Grille Éditoriale & Métriques -->
-      <div class="grid grid-cols-12 gap-8 my-auto items-center">
+      <!-- Corps : Manifeste & Rigueur Contractuelle -->
+      <div class="my-auto space-y-6">
         
-        <!-- Édito & Manifeste -->
-        <div class="col-span-7 space-y-3.5 pr-2">
-          <span class="font-mono text-[6.5pt] tracking-[0.25em] text-[#c5a059] uppercase block font-semibold">
+        <div class="space-y-3">
+          <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-[#c5a059] uppercase block">
             LA RIGUEUR D'UN CONTRACTANT GÉNÉRAL SANS CONCESSION
           </span>
-          <h2 class="font-syne font-extrabold text-[17pt] leading-tight text-white uppercase">
+          <h2 class="font-syne font-extrabold text-[19pt] leading-tight text-white uppercase tracking-tight">
             « DANS LE BÂTIMENT DE PRESTIGE, LE RESPECT DU COÛT ET DU DÉLAI N'EST PAS UNE OPTION : C'EST NOTRE SERMENT CONTRACTUEL. »
           </h2>
-          
-          <div class="space-y-2.5 font-sans text-[8pt] text-gray-300 leading-relaxed font-light">
-            <p>
-              Créée pour répondre aux exigences des maîtres d'ouvrage les plus scrupuleux, <strong>LBR CONCEPT</strong> réinvente l'approche de l'entreprise générale en éliminant les zones de friction traditionnelles du BTP : dilution des responsabilités, dérives budgétaires imprévues et reports de livraison.
-            </p>
-            <p>
-              En tant que <strong>Contractant Général unique</strong>, nous prenons en charge l'intégralité du cycle de vie de votre opération — de l'analyse rigoureuse du Dossier de Consultation des Entreprises (DCE) jusqu'à la levée complète des réserves et la Garantie de Parfait Achèvement (GPA).
-            </p>
-            <p>
-              Nos équipes d'ingénieurs travaux, métreurs et compagnons hautement qualifiés interviennent en site occupé comme en réhabilitation lourde avec un leitmotiv constant : l'excellence de la finition, la tenue des jalons et la conformité RE2020.
-            </p>
-          </div>
-
-          <div class="pt-2 flex items-center justify-between border-t border-white/10">
-            <div>
-              <span class="font-syne font-bold text-[8.5pt] text-white block uppercase">Direction Générale & Travaux</span>
-              <span class="font-mono text-[6pt] text-[#c5a059] uppercase tracking-wider">LBR CONCEPT SAS • Siège Social Champigny</span>
-            </div>
-            <div class="text-right">
-              <span class="font-mono text-[6pt] text-gray-400 block uppercase">CONTRAT AXA DÉCENNALE N°</span>
-              <span class="font-mono text-[7pt] text-white font-bold tracking-wider">0000010862089504</span>
-            </div>
-          </div>
         </div>
 
-        <!-- Colonne 4 Métriques d'Envergure -->
-        <div class="col-span-5 space-y-3">
+        <div class="space-y-4 font-sans text-[10pt] text-gray-300 leading-relaxed font-light">
+          <p>
+            Créée pour répondre aux exigences des maîtres d'ouvrage les plus scrupuleux, <strong>LBR CONCEPT</strong> réinvente l'approche de l'entreprise générale en éliminant les zones de friction traditionnelles du BTP : dilution des responsabilités, dérives budgétaires imprévues et reports de livraison.
+          </p>
+          <p>
+            En tant que <strong>Contractant Général unique</strong>, nous prenons en charge l'intégralité du cycle de vie de votre opération — de l'analyse rigoureuse du Dossier de Consultation des Entreprises (DCE) jusqu'à la levée complète des réserves et la Garantie de Parfait Achèvement (GPA).
+          </p>
+          <p>
+            Nos équipes d'ingénieurs travaux, métreurs et compagnons hautement qualifiés interviennent en site occupé comme en réhabilitation lourde avec un leitmotiv constant : l'excellence de la finition, la tenue des jalons et la conformité RE2020.
+          </p>
+        </div>
+
+        <!-- Grille des 4 Engagements Fermes -->
+        <div class="grid grid-cols-2 gap-3.5 pt-2">
           
-          <div class="p-3.5 bg-[#121419] border border-white/10 rounded-sm hover:border-[#c5a059]/50 transition-colors">
-            <div class="flex items-baseline justify-between">
-              <span class="font-syne font-extrabold text-[20pt] text-[#c5a059] leading-none">85 000 m²</span>
-              <span class="font-mono text-[6.5pt] text-gray-400 uppercase tracking-widest">Surfaces Livrées</span>
-            </div>
-            <p class="font-sans text-[6.8pt] text-gray-300 mt-1 leading-normal">
-              Bureaux certifiés, sièges corporate, immeubles complets et logements de grand luxe réhabilités à Paris et en première couronne.
+          <div class="p-4 bg-[#13151c] border border-white/10 rounded-sm">
+            <span class="font-syne font-extrabold text-[17pt] text-[#c5a059] block leading-none">85 000 m²</span>
+            <span class="font-syne font-bold text-[8.5pt] text-white uppercase block mt-1">Surfaces Livrées</span>
+            <p class="font-sans text-[8pt] text-gray-300 mt-1 leading-snug">
+              Bureaux certifiés, sièges corporate et immeubles complets réhabilités à Paris et en première couronne.
             </p>
           </div>
 
-          <div class="p-3.5 bg-[#121419] border border-white/10 rounded-sm hover:border-[#c5a059]/50 transition-colors">
-            <div class="flex items-baseline justify-between">
-              <span class="font-syne font-extrabold text-[20pt] text-white leading-none">15+ Ans</span>
-              <span class="font-mono text-[6.5pt] text-gray-400 uppercase tracking-widest">Antériorité & Rigueur</span>
-            </div>
-            <p class="font-sans text-[6.8pt] text-gray-300 mt-1 leading-normal">
-              Plus d'une décennie et demie de présence continue sur le marché francilien, forgée sur la confiance renouvelée des donneurs d'ordre.
+          <div class="p-4 bg-[#13151c] border border-white/10 rounded-sm">
+            <span class="font-syne font-extrabold text-[17pt] text-white block leading-none">15+ Ans</span>
+            <span class="font-syne font-bold text-[8.5pt] text-white uppercase block mt-1">Antériorité & Rigueur</span>
+            <p class="font-sans text-[8pt] text-gray-300 mt-1 leading-snug">
+              Plus d'une décennie et demie de présence continue, forgée sur la confiance renouvelée des donneurs d'ordre.
             </p>
           </div>
 
-          <div class="p-3.5 bg-[#121419] border border-white/10 rounded-sm hover:border-[#c5a059]/50 transition-colors">
-            <div class="flex items-baseline justify-between">
-              <span class="font-syne font-extrabold text-[20pt] text-[#c5a059] leading-none">0 Dépassement</span>
-              <span class="font-mono text-[6.5pt] text-gray-400 uppercase tracking-widest">Discipline Budgétaire</span>
-            </div>
-            <p class="font-sans text-[6.8pt] text-gray-300 mt-1 leading-normal">
-              Chiffrage au métré contractuel ferme. Les aléas de chantier sont absorbés par notre ingénierie sans répercussion abusive sur le client.
+          <div class="p-4 bg-[#13151c] border border-white/10 rounded-sm">
+            <span class="font-syne font-extrabold text-[17pt] text-[#c5a059] block leading-none">0 Dépassement</span>
+            <span class="font-syne font-bold text-[8.5pt] text-white uppercase block mt-1">Discipline Budgétaire</span>
+            <p class="font-sans text-[8pt] text-gray-300 mt-1 leading-snug">
+              Chiffrage au métré contractuel ferme. Les aléas sont absorbés par notre ingénierie sans surcoût abusif.
             </p>
           </div>
 
-          <div class="p-3.5 bg-[#121419] border border-white/10 rounded-sm hover:border-[#c5a059]/50 transition-colors">
-            <div class="flex items-baseline justify-between">
-              <span class="font-syne font-extrabold text-[20pt] text-white leading-none">100% Dédié</span>
-              <span class="font-mono text-[6.5pt] text-gray-400 uppercase tracking-widest">Conducteur Dédié</span>
-            </div>
-            <p class="font-sans text-[6.8pt] text-gray-300 mt-1 leading-normal">
-              Un interlocuteur technique unique joignable en direct, réunion hebdomadaire et compte-rendu formalisé à chaque jalon.
+          <div class="p-4 bg-[#13151c] border border-white/10 rounded-sm">
+            <span class="font-syne font-extrabold text-[17pt] text-white block leading-none">100% Dédié</span>
+            <span class="font-syne font-bold text-[8.5pt] text-white uppercase block mt-1">Conducteur Dédié</span>
+            <p class="font-sans text-[8pt] text-gray-300 mt-1 leading-snug">
+              Un interlocuteur technique unique joignable directement, réunion hebdomadaire et compte-rendu formalisé.
             </p>
           </div>
 
+        </div>
+
+        <div class="p-3.5 bg-[#171922] border border-[#c5a059]/40 rounded-sm flex items-center justify-between">
+          <div>
+            <span class="font-syne font-bold text-[9pt] text-white uppercase block">Direction Générale & Travaux</span>
+            <span class="font-sans text-[8pt] text-gray-300">477 Rue Marcel Paul, 94500 Champigny-sur-Marne</span>
+          </div>
+          <div class="text-right font-mono text-[8pt]">
+            <span class="text-gray-400 block uppercase">Contrat AXA Décennale N°</span>
+            <span class="text-[#c5a059] font-bold">0000010862089504</span>
+          </div>
         </div>
 
       </div>
 
-      <!-- Footer Page 2 -->
-      <div class="border-t border-white/10 pt-3 flex items-center justify-between text-[6.2pt] font-mono tracking-widest text-gray-400 uppercase">
-        <span class="text-[#c5a059]">LBR CONCEPT • MÉMOIRE TECHNIQUE ET INSTITUTIONNEL</span>
-        <span>PAGE 02 / 06 • VISION STRATÉGIQUE</span>
+      <!-- Pied de Page 2 -->
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[7.5pt] font-mono tracking-wider text-gray-400 uppercase">
+        <span class="text-[#c5a059] font-bold">LBR CONCEPT • ENGAGEMENTS STRATÉGIQUES</span>
+        <span>PAGE 02 / 06</span>
       </div>
 
     </div>
@@ -317,108 +262,85 @@
     <!-- ========================================================================= -->
     <!-- PAGE 3 : PÔLE TERTIAIRE & ESPACES DÉCISIONNELS -->
     <!-- ========================================================================= -->
-    <div class="a4-landscape-page w-[297mm] h-[210mm] tactile-paper text-white border border-[#c5a059]/40 relative flex flex-col justify-between p-[12mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)]">
+    <div class="a4-portrait-page w-[210mm] h-[297mm] luxury-dark text-white relative flex flex-col justify-between p-[14mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)] border border-white/10 rounded-sm">
       
-      <!-- Repères d'imprimerie -->
-      <div class="crop-mark crop-tl"></div>
-      <div class="crop-mark crop-tr"></div>
-      <div class="crop-mark crop-bl"></div>
-      <div class="crop-mark crop-br"></div>
-
-      <!-- Header Page 3 -->
-      <div class="flex items-center justify-between border-b border-white/10 pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-sm bg-[#c5a059]"></span>
-          <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-white uppercase">02 • PÔLE TERTIAIRE & AGENCEMENT CORPORATE</span>
-        </div>
-        <span class="font-mono text-[6.5pt] text-[#c5a059] uppercase tracking-widest">PLATEAUX, BOARDROOMS & ESPACES ERGONOMIQUES</span>
+      <!-- En-tête -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-[#c5a059] uppercase">02 • PÔLE TERTIAIRE & AGENCEMENT CORPORATE</span>
+        <span class="font-mono text-[7.5pt] text-gray-400 uppercase tracking-widest font-bold">BUREAUX & BOARDROOMS</span>
       </div>
 
       <!-- Corps Page 3 -->
-      <div class="grid grid-cols-12 gap-8 my-auto items-center">
+      <div class="my-auto space-y-5">
         
-        <div class="col-span-5 space-y-3">
-          <span class="font-mono text-[6.5pt] tracking-[0.25em] text-[#c5a059] uppercase block font-semibold">
+        <div>
+          <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-[#c5a059] uppercase block mb-1">
             BUREAUX DU FUTUR & CONFORMITÉ BREEAM / HQE
           </span>
-          <h2 class="font-syne font-extrabold text-[16pt] leading-tight text-white uppercase">
+          <h2 class="font-syne font-extrabold text-[19pt] leading-tight text-white uppercase tracking-tight">
             ENVIRONNEMENTS DE TRAVAIL HAUTE PERFORMANCE
           </h2>
-          
-          <p class="font-sans text-[7.8pt] text-gray-300 leading-relaxed font-light">
-            Nous transformons les mètres carrés tertiaires en espaces de décision et de productivité stimulants, alliant acoustique feutrée, modularité des cloisons vitrées coupe-feu et intégration invisible des fluides.
+          <p class="font-sans text-[9.5pt] text-gray-300 font-light mt-1.5 leading-relaxed">
+            Nous transformons les mètres carrés tertiaires en espaces de décision et de collaboration performants : acoustique maîtrisée (Rw 48 dB), cloisons vitrées coupe-feu et intégration invisible des fluides.
           </p>
+        </div>
 
-          <!-- Fiche Technique Spécifications Tertiaires -->
-          <div class="p-3 bg-[#121419] border border-[#c5a059]/30 rounded-sm space-y-2">
-            <span class="font-mono text-[6pt] text-[#c5a059] uppercase tracking-wider block font-bold border-b border-white/10 pb-1">
-              FICHE TECHNIQUE RÉSEAUX & SECOND ŒUVRE :
-            </span>
-            <ul class="space-y-1.5 font-sans text-[6.8pt] text-gray-300">
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-[#c5a059] text-[6pt] mt-1"></i>
-                <span><strong>Génie Climatique & CVC :</strong> Cassettes réversibles gainées, VMC double flux silencieuse, GTB connectée.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-[#c5a059] text-[6pt] mt-1"></i>
-                <span><strong>Courants Faibles & DATA :</strong> Baies de brassage climatisées, câblage RJ45 Cat 6A / 7, fibre optique sécurisée.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-[#c5a059] text-[6pt] mt-1"></i>
-                <span><strong>Cloisonnement & Acoustique :</strong> Cloisons bord à bord double vitrage 44.2 (Rw 48 dB), baffles acoustiques suspendus.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-check text-[#c5a059] text-[6pt] mt-1"></i>
-                <span><strong>Intervention en Milieu Occupé :</strong> Phasage acoustique, confinement antipoussière, horaires décalés sur demande.</span>
-              </li>
-            </ul>
+        <!-- 2 Grandes Photos Tertiaires -->
+        <div class="grid grid-cols-2 gap-3.5">
+          <div class="h-[65mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative shadow-md">
+            <img src="images/open%20spaceee.webp" alt="Plateau tertiaire" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-3">
+              <div>
+                <span class="font-syne font-bold text-[9pt] text-white uppercase block">Open Spaces & Ergonomie</span>
+                <span class="font-sans text-[7.5pt] text-gray-300">Distribution encastrée & dalles LED basse conso</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-[65mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative shadow-md">
+            <img src="images/salle%20reunion.webp" alt="Salle de conseil" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-3">
+              <div>
+                <span class="font-syne font-bold text-[9pt] text-white uppercase block">Boardrooms & Conseils</span>
+                <span class="font-sans text-[7.5pt] text-gray-300">Confort acoustique & visioconférence intégrée</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col-span-7 grid grid-cols-2 gap-3">
-          
-          <div class="space-y-2">
-            <div class="h-[52mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative">
-              <img src="images/open%20spaceee.webp" alt="Plateau tertiaire vue globale" class="w-full h-full object-cover">
-              <div class="absolute bottom-0 inset-x-0 bg-black/80 p-2 text-left">
-                <span class="font-syne font-bold text-[7pt] text-white uppercase block">Open Spaces & Ergonomie</span>
-                <span class="font-mono text-[5.5pt] text-[#c5a059]">Distribution au sol encastrée</span>
-              </div>
-            </div>
-            <div class="h-[52mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative">
-              <img src="images/salle%20reunion.webp" alt="Boardroom contemporaine" class="w-full h-full object-cover">
-              <div class="absolute bottom-0 inset-x-0 bg-black/80 p-2 text-left">
-                <span class="font-syne font-bold text-[7pt] text-white uppercase block">Salles de Réunion & Conseil</span>
-                <span class="font-mono text-[5.5pt] text-[#c5a059]">Visio intégrée & confort acoustique</span>
-              </div>
+        <!-- 2 Autres Photos Secondaires -->
+        <div class="grid grid-cols-2 gap-3.5">
+          <div class="h-[48mm] rounded-sm overflow-hidden border border-white/10 relative">
+            <img src="images/boxes%20reu.webp" alt="Cabines acoustiques" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5">
+              <span class="font-syne font-bold text-[8.5pt] text-white uppercase">Cabines Acoustiques & Pods</span>
             </div>
           </div>
 
-          <div class="space-y-2">
-            <div class="h-[52mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative">
-              <img src="images/boxes%20reu.webp" alt="Cabines acoustiques confidentielles" class="w-full h-full object-cover">
-              <div class="absolute bottom-0 inset-x-0 bg-black/80 p-2 text-left">
-                <span class="font-syne font-bold text-[7pt] text-white uppercase block">Cabines & Pods Confidentiels</span>
-                <span class="font-mono text-[5.5pt] text-[#c5a059]">Isolation phonique certifiée</span>
-              </div>
-            </div>
-            <div class="h-[52mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative">
-              <img src="images/resto.webp" alt="Espace cafétéria & lounge entreprise" class="w-full h-full object-cover">
-              <div class="absolute bottom-0 inset-x-0 bg-black/80 p-2 text-left">
-                <span class="font-syne font-bold text-[7pt] text-white uppercase block">Espaces Lounge & Cafétéria</span>
-                <span class="font-mono text-[5.5pt] text-[#c5a059]">Convivialité & matériaux nobles</span>
-              </div>
+          <div class="h-[48mm] rounded-sm overflow-hidden border border-white/10 relative">
+            <img src="images/resto.webp" alt="Espace cafétéria" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5">
+              <span class="font-syne font-bold text-[8.5pt] text-white uppercase">Espaces Lounge & Cafétéria</span>
             </div>
           </div>
+        </div>
 
+        <!-- Synthèse Technique -->
+        <div class="p-3.5 bg-[#13151c] border border-white/10 rounded-sm">
+          <span class="font-syne font-bold text-[8.5pt] text-[#c5a059] uppercase block mb-1">
+            SPÉCIFICATIONS TECHNIQUES TERTIAIRES
+          </span>
+          <p class="font-sans text-[8.5pt] text-gray-300 leading-snug">
+            Génie climatique CVC réversible, baies de brassage et câblage RJ45 Cat 6A, cloisons amovibles double vitrage 44.2 et intervention phasée en milieu tertiaire occupé.
+          </p>
         </div>
 
       </div>
 
-      <!-- Footer Page 3 -->
-      <div class="border-t border-white/10 pt-3 flex items-center justify-between text-[6.2pt] font-mono tracking-widest text-gray-400 uppercase">
-        <span class="text-[#c5a059]">LBR CONCEPT • CONCEPTION & AMÉNAGEMENT TERTIAIRE</span>
-        <span>PAGE 03 / 06 • PÔLE BUREAUX</span>
+      <!-- Pied de Page 3 -->
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[7.5pt] font-mono tracking-wider text-gray-400 uppercase">
+        <span class="text-[#c5a059] font-bold">LBR CONCEPT • PÔLE TERTIAIRE</span>
+        <span>PAGE 03 / 06</span>
       </div>
 
     </div>
@@ -427,85 +349,78 @@
     <!-- ========================================================================= -->
     <!-- PAGE 4 : RÉHABILITATION LOURDE & GROS ŒUVRE IMMEUBLES -->
     <!-- ========================================================================= -->
-    <div class="a4-landscape-page w-[297mm] h-[210mm] tactile-paper text-white border border-[#c5a059]/40 relative flex flex-col justify-between p-[12mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)]">
+    <div class="a4-portrait-page w-[210mm] h-[297mm] luxury-dark text-white relative flex flex-col justify-between p-[14mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)] border border-white/10 rounded-sm">
       
-      <!-- Repères d'imprimerie -->
-      <div class="crop-mark crop-tl"></div>
-      <div class="crop-mark crop-tr"></div>
-      <div class="crop-mark crop-bl"></div>
-      <div class="crop-mark crop-br"></div>
-
-      <!-- Header Page 4 -->
-      <div class="flex items-center justify-between border-b border-white/10 pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-sm bg-[#c5a059]"></span>
-          <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-white uppercase">03 • RÉHABILITATION LOURDE & PATRIMOINE BÂTI</span>
-        </div>
-        <span class="font-mono text-[6.5pt] text-[#c5a059] uppercase tracking-widest">IMMEUBLES HAUSSMANNIENS & RESTRUCTURATION STRUCTURELLE</span>
+      <!-- En-tête -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-[#c5a059] uppercase">03 • RÉHABILITATION LOURDE & PATRIMOINE BÂTI</span>
+        <span class="font-mono text-[7.5pt] text-gray-400 uppercase tracking-widest font-bold">IMMEUBLES HAUSSMANNIENS</span>
       </div>
 
       <!-- Corps Page 4 -->
-      <div class="grid grid-cols-12 gap-8 my-auto items-center">
+      <div class="my-auto space-y-5">
         
-        <div class="col-span-6">
-          <div class="relative w-full h-[112mm] rounded-sm overflow-hidden border border-[#c5a059]/50 shadow-2xl">
-            <img src="images/escaliers%20immeuble%20luxe.webp" alt="Restructuration monumentale d'immeuble" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent flex flex-col justify-end p-5">
-              <span class="font-mono text-[6pt] text-[#c5a059] uppercase tracking-widest">Restauration d'Apparat</span>
-              <h3 class="font-syne font-bold text-[11pt] text-white uppercase">Cage d'Escalier Hélicoïdale & Staff d'Époque</h3>
-              <p class="font-sans text-[7pt] text-gray-300 mt-1 font-light">
-                Reprise en sous-œuvre des limons en pierre de taille, dorure à la feuille des ferronneries et intégration d'éclairage architectural LED invisible.
-              </p>
-            </div>
+        <div>
+          <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-[#c5a059] uppercase block mb-1">
+            VALORISATION FONCIÈRE & MAÎTRISE STRUCTURELLE
+          </span>
+          <h2 class="font-syne font-extrabold text-[19pt] leading-tight text-white uppercase tracking-tight">
+            RÉVÉLER LE CACHET HISTORIQUE, ÉLEVER LES PERFORMANCES
+          </h2>
+          <p class="font-sans text-[9.5pt] text-gray-300 font-light mt-1.5 leading-relaxed">
+            Intervenir sur le bâti ancien exige un équilibre absolu entre le respect des techniques traditionnelles (pierre de taille, parquets massifs, staff) et les exigences contemporaines d'isolation (RE2020), de sécurité incendie et de confort.
+          </p>
+        </div>
+
+        <!-- Grande Photo Restauration Immeuble -->
+        <div class="w-full h-[95mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative shadow-xl">
+          <img src="images/escaliers%20immeuble%20luxe.webp" alt="Cage d'escalier monumentale" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex flex-col justify-end p-5">
+            <span class="font-syne font-bold text-[8.5pt] text-[#c5a059] uppercase">Chantier d'Apparat • Paris 8e</span>
+            <h3 class="font-syne font-bold text-[12pt] text-white uppercase mt-0.5">Cage d'Escalier Monumentale & Staff d'Époque</h3>
+            <p class="font-sans text-[8.5pt] text-gray-300 mt-0.5 font-light">
+              Reprise en sous-œuvre des limons en pierre, restauration des ferronneries et intégration d'éclairage architectural.
+            </p>
           </div>
         </div>
 
-        <div class="col-span-6 space-y-3.5">
-          <span class="font-mono text-[6.5pt] tracking-[0.25em] text-[#c5a059] uppercase block font-semibold">
-            VALORISATION FONCIÈRE & MAÎTRISE STRUCTURELLE
-          </span>
-          <h2 class="font-syne font-extrabold text-[16pt] leading-tight text-white uppercase">
-            RÉVÉLER LE CACHET HISTORIQUE, ÉLEVER LES PERFORMANCES
-          </h2>
-          
-          <p class="font-sans text-[7.8pt] text-gray-300 leading-relaxed font-light">
-            Intervenir sur le bâti ancien exige un équilibre absolu entre le respect scrupuleux des techniques traditionnelles (pierre de taille, plâtre au panier, parquets Versailles) et les exigences contemporaines d'isolation thermique (RE2020), de sécurité incendie et d'accessibilité PMR.
-          </p>
+        <!-- 4 Blocs Savoir-Faire Gros Œuvre -->
+        <div class="grid grid-cols-2 gap-3.5">
+          <div class="p-3.5 bg-[#13151c] border border-white/10 rounded-sm">
+            <h4 class="font-syne font-bold text-[9pt] text-[#c5a059] uppercase">Reprise en Sous-Œuvre</h4>
+            <p class="font-sans text-[8pt] text-gray-300 mt-1 leading-snug">
+              Création de trémies, percement de murs porteurs, portiques métalliques IPN/HEA validés par BET structure.
+            </p>
+          </div>
 
-          <div class="grid grid-cols-2 gap-2.5 pt-1">
-            <div class="p-2.5 bg-[#121419] border border-white/10 rounded-sm">
-              <span class="font-mono text-[6pt] text-[#c5a059] uppercase block font-bold">REPRISE SOUS-ŒUVRE</span>
-              <p class="font-sans text-[6.5pt] text-gray-300 mt-0.5 leading-normal">
-                Création de trémies, percements de murs porteurs, portiques métalliques IPN/HEA certifiés par bureau d'études structure (BET).
-              </p>
-            </div>
-            <div class="p-2.5 bg-[#121419] border border-white/10 rounded-sm">
-              <span class="font-mono text-[6pt] text-[#c5a059] uppercase block font-bold">RÉHABILITATION THERMIQUE</span>
-              <p class="font-sans text-[6.5pt] text-gray-300 mt-0.5 leading-normal">
-                Isolation par l'intérieur sous avis technique (laine de roche dense / chaux-chanvre), menuiseries bois à gueule de loup double vitrage phonique.
-              </p>
-            </div>
-            <div class="p-2.5 bg-[#121419] border border-white/10 rounded-sm">
-              <span class="font-mono text-[6pt] text-[#c5a059] uppercase block font-bold">PARTIES COMMUNES DE PRESTIGE</span>
-              <p class="font-sans text-[6.5pt] text-gray-300 mt-0.5 leading-normal">
-                Perrons d'entrée en marbre, contrôle d'accès biométrique VIGIK, boiseries vernies et lustrerie monumentale sur mesure.
-              </p>
-            </div>
-            <div class="p-2.5 bg-[#121419] border border-white/10 rounded-sm">
-              <span class="font-mono text-[6pt] text-[#c5a059] uppercase block font-bold">COUVERTURE & ZINGUERIE</span>
-              <p class="font-sans text-[6.5pt] text-gray-300 mt-0.5 leading-normal">
-                Restauration des toits en zinc parisien et ardoise naturelle, réfection complète des descentes pluviales et étanchéité terrasses.
-              </p>
-            </div>
+          <div class="p-3.5 bg-[#13151c] border border-white/10 rounded-sm">
+            <h4 class="font-syne font-bold text-[9pt] text-[#c5a059] uppercase">Rénovation Thermique RE2020</h4>
+            <p class="font-sans text-[8pt] text-gray-300 mt-1 leading-snug">
+              Isolation sous avis technique, menuiseries bois à gueule de loup double vitrage phonique conforme ABF.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-[#13151c] border border-white/10 rounded-sm">
+            <h4 class="font-syne font-bold text-[9pt] text-[#c5a059] uppercase">Parties Communes d'Apparat</h4>
+            <p class="font-sans text-[8pt] text-gray-300 mt-1 leading-snug">
+              Halls en marbre, contrôle d'accès biométrique VIGIK, boiseries vernies et lustrerie sur mesure.
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-[#13151c] border border-white/10 rounded-sm">
+            <h4 class="font-syne font-bold text-[9pt] text-[#c5a059] uppercase">Couverture & Zinguerie</h4>
+            <p class="font-sans text-[8pt] text-gray-300 mt-1 leading-snug">
+              Réfection toitures zinc parisien et ardoise naturelle, descentes pluviales et étanchéité terrasses.
+            </p>
           </div>
         </div>
 
       </div>
 
-      <!-- Footer Page 4 -->
-      <div class="border-t border-white/10 pt-3 flex items-center justify-between text-[6.2pt] font-mono tracking-widest text-gray-400 uppercase">
-        <span class="text-[#c5a059]">LBR CONCEPT • RÉHABILITATION LOURDE D'IMMEUBLES</span>
-        <span>PAGE 04 / 06 • GROS ŒUVRE & PATRIMOINE</span>
+      <!-- Pied de Page 4 -->
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[7.5pt] font-mono tracking-wider text-gray-400 uppercase">
+        <span class="text-[#c5a059] font-bold">LBR CONCEPT • RÉHABILITATION LOURDE D'IMMEUBLES</span>
+        <span>PAGE 04 / 06</span>
       </div>
 
     </div>
@@ -514,271 +429,207 @@
     <!-- ========================================================================= -->
     <!-- PAGE 5 : RÉSIDENTIEL D'ÉLITE & MATÉRIAUX NOBLES -->
     <!-- ========================================================================= -->
-    <div class="a4-landscape-page w-[297mm] h-[210mm] tactile-paper text-white border border-[#c5a059]/40 relative flex flex-col justify-between p-[12mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)]">
+    <div class="a4-portrait-page w-[210mm] h-[297mm] luxury-dark text-white relative flex flex-col justify-between p-[14mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)] border border-white/10 rounded-sm">
       
-      <!-- Repères d'imprimerie -->
-      <div class="crop-mark crop-tl"></div>
-      <div class="crop-mark crop-tr"></div>
-      <div class="crop-mark crop-bl"></div>
-      <div class="crop-mark crop-br"></div>
-
-      <!-- Header Page 5 -->
-      <div class="flex items-center justify-between border-b border-white/10 pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-sm bg-[#c5a059]"></span>
-          <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-white uppercase">04 • RÉSIDENTIEL D'EXCEPTION & MATÉRIAUX RARES</span>
-        </div>
-        <span class="font-mono text-[6.5pt] text-[#c5a059] uppercase tracking-widest">HÔTELS PARTICULIERS, PENTHOUSES & FINITIONS JOAILLERIE</span>
+      <!-- En-tête -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-[#c5a059] uppercase">04 • RÉSIDENTIEL D'EXCEPTION & MATÉRIAUX NOBLES</span>
+        <span class="font-mono text-[7.5pt] text-gray-400 uppercase tracking-widest font-bold">FINITIONS JOAILLERIE</span>
       </div>
 
       <!-- Corps Page 5 -->
-      <div class="grid grid-cols-12 gap-8 my-auto items-center">
+      <div class="my-auto space-y-5">
         
-        <div class="col-span-5 space-y-3">
-          <span class="font-mono text-[6.5pt] tracking-[0.25em] text-[#c5a059] uppercase block font-semibold">
+        <div>
+          <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-[#c5a059] uppercase block mb-1">
             LE PRIVILÈGE DU DÉTAIL INVISIBLE
           </span>
-          <h2 class="font-syne font-extrabold text-[16pt] leading-tight text-white uppercase">
+          <h2 class="font-syne font-extrabold text-[19pt] leading-tight text-white uppercase tracking-tight">
             L'EXCELLENCE ARTISANALE AU MILLIMÈTRE PRÈS
           </h2>
-          
-          <p class="font-sans text-[7.8pt] text-gray-300 leading-relaxed font-light">
-            Pour les résidences de haute volée, nous mobilisons un réseau d'artisans d'art d'élite : compagnons ébénistes, marbriers, ferronniers et domoticiens. Chaque élément est façonné sur mesure pour dialoguer harmonieusement avec la signature architecturale des lieux.
+          <p class="font-sans text-[9.5pt] text-gray-300 font-light mt-1.5 leading-relaxed">
+            Pour les résidences de haute volée et hôtels particuliers, nous mobilisons des compagnons marbriers, ébénistes et ferronniers d'art pour des finitions sur-mesure d'un standing absolu.
           </p>
+        </div>
 
-          <div class="p-3 bg-[#121419] border border-[#c5a059]/30 rounded-sm space-y-2">
-            <span class="font-mono text-[6pt] text-[#c5a059] uppercase tracking-wider block font-bold border-b border-white/10 pb-1">
-              SAVOIR-FAIRE DE TRÈS HAUT STANDING :
-            </span>
-            <ul class="space-y-1.5 font-sans text-[6.8pt] text-gray-300">
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-gem text-[#c5a059] text-[6pt] mt-1"></i>
-                <span><strong>Marbrerie Monolithe :</strong> Calacatta Oro, Nero Marquina, taille dans la masse, bookmatching parfait des veines.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-gem text-[#c5a059] text-[6pt] mt-1"></i>
-                <span><strong>Ébénisterie sur-Mesure :</strong> Dressings rétroéclairés, claustras noyer d'Amérique, portes toute hauteur sous plafond avec paumelles invisibles.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-gem text-[#c5a059] text-[6pt] mt-1"></i>
-                <span><strong>Éclairage Architectural :</strong> Scénographies lumineuses DALI, gorges lumineuses indirectes, appareillages laiton brossé.</span>
-              </li>
-            </ul>
+        <!-- 2 Grandes Photos Résidentielles -->
+        <div class="grid grid-cols-2 gap-3.5">
+          <div class="h-[65mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative shadow-md">
+            <img src="images/cuisine%20luxe.webp" alt="Cuisine marbre et laiton" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-3">
+              <div>
+                <span class="font-syne font-bold text-[9pt] text-white uppercase block">Cuisines Monolithes</span>
+                <span class="font-sans text-[7.5pt] text-gray-300">Marbres rares taillés dans la masse & laiton</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-[65mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative shadow-md">
+            <img src="images/salle%20de%20bain%20luxe.webp" alt="Salle de bain luxe marbre" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-3">
+              <div>
+                <span class="font-syne font-bold text-[9pt] text-white uppercase block">Suites de Maître & Marbre</span>
+                <span class="font-sans text-[7.5pt] text-gray-300">Bookmatching des veines & douches à l'italienne</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col-span-7 grid grid-cols-2 gap-3">
-          
-          <div class="space-y-2">
-            <div class="h-[52mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative">
-              <img src="images/cuisine%20luxe.webp" alt="Cuisine d'exception marbre et laiton" class="w-full h-full object-cover">
-              <div class="absolute bottom-0 inset-x-0 bg-black/80 p-2 text-left">
-                <span class="font-syne font-bold text-[7pt] text-white uppercase block">Cuisines Monolithes</span>
-                <span class="font-mono text-[5.5pt] text-[#c5a059]">Marbres rares & électroménager Gaggenau</span>
-              </div>
-            </div>
-            <div class="h-[52mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative">
-              <img src="images/salle%20de%20bain%20luxe.webp" alt="Suite parentale marbre" class="w-full h-full object-cover">
-              <div class="absolute bottom-0 inset-x-0 bg-black/80 p-2 text-left">
-                <span class="font-syne font-bold text-[7pt] text-white uppercase block">Suites de Maître & Salles d'Eau</span>
-                <span class="font-mono text-[5.5pt] text-[#c5a059]">Robinetterie encastrée & douches hammam</span>
-              </div>
+        <!-- 2 Photos Salon & Salle à Manger -->
+        <div class="grid grid-cols-2 gap-3.5">
+          <div class="h-[48mm] rounded-sm overflow-hidden border border-white/10 relative">
+            <img src="images/sympaa.webp" alt="Salon de réception" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5">
+              <span class="font-syne font-bold text-[8.5pt] text-white uppercase">Salons de Réception Privés</span>
             </div>
           </div>
 
-          <div class="space-y-2">
-            <div class="h-[52mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative">
-              <img src="images/sympaa.webp" alt="Salon de réception rénové" class="w-full h-full object-cover">
-              <div class="absolute bottom-0 inset-x-0 bg-black/80 p-2 text-left">
-                <span class="font-syne font-bold text-[7pt] text-white uppercase block">Salons de Réception</span>
-                <span class="font-mono text-[5.5pt] text-[#c5a059]">Parquet point de Hongrie & moulures</span>
-              </div>
-            </div>
-            <div class="h-[52mm] rounded-sm overflow-hidden border border-[#c5a059]/40 relative">
-              <img src="images/salle%20a%20manger%20luxe.webp" alt="Salle a manger privee contemporaine" class="w-full h-full object-cover">
-              <div class="absolute bottom-0 inset-x-0 bg-black/80 p-2 text-left">
-                <span class="font-syne font-bold text-[7pt] text-white uppercase block">Espaces Dînatoires Privés</span>
-                <span class="font-mono text-[5.5pt] text-[#c5a059]">Lustrerie sculpturale & acoustique</span>
-              </div>
+          <div class="h-[48mm] rounded-sm overflow-hidden border border-white/10 relative">
+            <img src="images/salle%20a%20manger%20luxe.webp" alt="Salle a manger luxe" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-2.5">
+              <span class="font-syne font-bold text-[8.5pt] text-white uppercase">Espaces Dînatoires d'Apparat</span>
             </div>
           </div>
+        </div>
 
+        <!-- Synthèse Savoir-Faire -->
+        <div class="p-3.5 bg-[#13151c] border border-white/10 rounded-sm">
+          <span class="font-syne font-bold text-[8.5pt] text-[#c5a059] uppercase block mb-1">
+            MATÉRIAUX NOBLES & ÉBÉNISTERIE D'ART
+          </span>
+          <p class="font-sans text-[8.5pt] text-gray-300 leading-snug">
+            Calacatta Oro, Nero Marquina, parquets point de Hongrie en chêne de France, menuiseries toute hauteur sous plafond avec paumelles invisibles et scénographies lumineuses DALI.
+          </p>
         </div>
 
       </div>
 
-      <!-- Footer Page 5 -->
-      <div class="border-t border-white/10 pt-3 flex items-center justify-between text-[6.2pt] font-mono tracking-widest text-gray-400 uppercase">
-        <span class="text-[#c5a059]">LBR CONCEPT • RÉSIDENTIEL HAUTE COUTURE</span>
-        <span>PAGE 05 / 06 • MATÉRIAUX & FINITIONS</span>
+      <!-- Pied de Page 5 -->
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[7.5pt] font-mono tracking-wider text-gray-400 uppercase">
+        <span class="text-[#c5a059] font-bold">LBR CONCEPT • RÉSIDENTIEL HAUTE COUTURE</span>
+        <span>PAGE 05 / 06</span>
       </div>
 
     </div>
 
 
     <!-- ========================================================================= -->
-    <!-- PAGE 6 : MÉTHODOLOGIE EN 4 PHASES, NORMES & CONTACT CONSULTATION -->
+    <!-- PAGE 6 : MÉTHODOLOGIE EN 4 PHASES & MODALITÉS DE CONSULTATION -->
     <!-- ========================================================================= -->
-    <div class="a4-landscape-page w-[297mm] h-[210mm] tactile-paper text-white border border-[#c5a059]/40 relative flex flex-col justify-between p-[12mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)]">
+    <div class="a4-portrait-page w-[210mm] h-[297mm] luxury-dark text-white relative flex flex-col justify-between p-[14mm] shadow-[0_30px_70px_rgba(0,0,0,0.9)] border border-white/10 rounded-sm">
       
-      <!-- Repères d'imprimerie -->
-      <div class="crop-mark crop-tl"></div>
-      <div class="crop-mark crop-tr"></div>
-      <div class="crop-mark crop-bl"></div>
-      <div class="crop-mark crop-br"></div>
-
-      <!-- Header Page 6 -->
-      <div class="flex items-center justify-between border-b border-white/10 pb-3">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-sm bg-[#c5a059]"></span>
-          <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-white uppercase">05 • MÉTHODOLOGIE CONTRACTUELLE & CONSULTATION</span>
-        </div>
-        <span class="font-mono text-[6.5pt] text-[#c5a059] uppercase tracking-widest">LE DÉROULÉ RIGOUROUX D'UNE OPÉRATION LBR CONCEPT</span>
+      <!-- En-tête -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-[#c5a059] uppercase">05 • MÉTHODOLOGIE CONTRACTUELLE & CONSULTATION</span>
+        <span class="font-mono text-[7.5pt] text-gray-400 uppercase tracking-widest font-bold">PROCESSUS 4 PHASES</span>
       </div>
 
-      <!-- Corps Page 6 : Les 4 Phases Opérationnelles & Encart Consultation -->
-      <div class="my-auto space-y-4">
+      <!-- Corps Page 6 -->
+      <div class="my-auto space-y-6">
         
-        <!-- Les 4 Phases du Projet -->
-        <div class="grid grid-cols-4 gap-3">
+        <div>
+          <span class="font-syne font-bold text-[9pt] tracking-[0.2em] text-[#c5a059] uppercase block mb-1">
+            LE DÉROULÉ RIGOUREUX D'UNE OPÉRATION LBR CONCEPT
+          </span>
+          <h2 class="font-syne font-extrabold text-[19pt] leading-tight text-white uppercase tracking-tight">
+            DE L'ÉTUDE DCE À LA LIVRAISON PARFAITE
+          </h2>
+          <p class="font-sans text-[9.5pt] text-gray-300 font-light mt-1.5 leading-relaxed">
+            Chaque opération fait l'objet d'un phasage méthodique sans faille pour garantir le respect strict des délais et l'absence totale de dérive budgétaire.
+          </p>
+        </div>
+
+        <!-- 4 Phases en format vertical aéré -->
+        <div class="space-y-3">
           
-          <div class="p-3 bg-[#121419] border border-white/10 rounded-sm flex flex-col justify-between">
+          <div class="p-3.5 bg-[#13151c] border border-white/10 rounded-sm flex items-start gap-4">
+            <span class="font-syne font-extrabold text-[13pt] text-[#c5a059] w-12 shrink-0">01</span>
             <div>
-              <div class="flex items-center justify-between border-b border-white/10 pb-1 mb-2">
-                <span class="font-syne font-bold text-[8.5pt] text-[#c5a059]">PHASE 01</span>
-                <span class="font-mono text-[5.5pt] text-gray-400 uppercase">Semaines 1-2</span>
+              <div class="flex items-center justify-between">
+                <h3 class="font-syne font-bold text-[10pt] text-white uppercase">Audit & Chiffrage Ferme</h3>
+                <span class="font-mono text-[7.5pt] text-gray-400 uppercase">Semaines 1-2</span>
               </div>
-              <h3 class="font-syne font-bold text-[8.5pt] text-white uppercase">Audit & Chiffrage Ferme</h3>
-              <p class="font-sans text-[6.5pt] text-gray-300 mt-1 leading-normal">
-                Visite technique in situ, métrés laser 3D, analyse critique des CCTP et remise d'un devis forfaitaire non révisable.
+              <p class="font-sans text-[8.5pt] text-gray-300 mt-1 leading-snug">
+                Visite sur site, métrés laser 3D, analyse des CCTP et remise d'un devis forfaitaire contractuel non révisable.
               </p>
             </div>
-            <span class="font-mono text-[5.5pt] text-[#c5a059] mt-2 block">• Engagement contractuel</span>
           </div>
 
-          <div class="p-3 bg-[#121419] border border-white/10 rounded-sm flex flex-col justify-between">
+          <div class="p-3.5 bg-[#13151c] border border-white/10 rounded-sm flex items-start gap-4">
+            <span class="font-syne font-extrabold text-[13pt] text-[#c5a059] w-12 shrink-0">02</span>
             <div>
-              <div class="flex items-center justify-between border-b border-white/10 pb-1 mb-2">
-                <span class="font-syne font-bold text-[8.5pt] text-[#c5a059]">PHASE 02</span>
-                <span class="font-mono text-[5.5pt] text-gray-400 uppercase">Semaines 3-4</span>
+              <div class="flex items-center justify-between">
+                <h3 class="font-syne font-bold text-[10pt] text-white uppercase">Préparation & Plans EXE</h3>
+                <span class="font-mono text-[7.5pt] text-gray-400 uppercase">Semaines 3-4</span>
               </div>
-              <h3 class="font-syne font-bold text-[8.5pt] text-white uppercase">Préparation & Plans EXE</h3>
-              <p class="font-sans text-[6.5pt] text-gray-300 mt-1 leading-normal">
-                Plans d'exécution synthétisés, fiches techniques matériaux, validation des échantillons et calendrier d'avancement cadencé.
+              <p class="font-sans text-[8.5pt] text-gray-300 mt-1 leading-snug">
+                Plans d'exécution synthétisés, fiches techniques matériaux, validation des échantillons et rétroplanning détaillé.
               </p>
             </div>
-            <span class="font-mono text-[5.5pt] text-[#c5a059] mt-2 block">• Zéro zone d'ombre</span>
           </div>
 
-          <div class="p-3 bg-[#121419] border border-white/10 rounded-sm flex flex-col justify-between">
+          <div class="p-3.5 bg-[#13151c] border border-white/10 rounded-sm flex items-start gap-4">
+            <span class="font-syne font-extrabold text-[13pt] text-[#c5a059] w-12 shrink-0">03</span>
             <div>
-              <div class="flex items-center justify-between border-b border-white/10 pb-1 mb-2">
-                <span class="font-syne font-bold text-[8.5pt] text-[#c5a059]">PHASE 03</span>
-                <span class="font-mono text-[5.5pt] text-gray-400 uppercase">Phase Travaux</span>
+              <div class="flex items-center justify-between">
+                <h3 class="font-syne font-bold text-[10pt] text-white uppercase">Pilotage TCE & Reporting</h3>
+                <span class="font-mono text-[7.5pt] text-gray-400 uppercase">Phase Travaux</span>
               </div>
-              <h3 class="font-syne font-bold text-[8.5pt] text-white uppercase">Pilotage TCE & Reporting</h3>
-              <p class="font-sans text-[6.5pt] text-gray-300 mt-1 leading-normal">
-                Conducteur de travaux dédié sur site. Réunion hebdomadaire avec PV formel, contrôle continu des normes et respect strict du planning.
+              <p class="font-sans text-[8.5pt] text-gray-300 mt-1 leading-snug">
+                Conducteur dédié sur site. Réunion hebdomadaire avec PV formel, contrôle continu des normes et respect du planning.
               </p>
             </div>
-            <span class="font-mono text-[5.5pt] text-[#c5a059] mt-2 block">• Transparence totale</span>
           </div>
 
-          <div class="p-3 bg-[#121419] border border-white/10 rounded-sm flex flex-col justify-between">
+          <div class="p-3.5 bg-[#13151c] border border-white/10 rounded-sm flex items-start gap-4">
+            <span class="font-syne font-extrabold text-[13pt] text-[#c5a059] w-12 shrink-0">04</span>
             <div>
-              <div class="flex items-center justify-between border-b border-white/10 pb-1 mb-2">
-                <span class="font-syne font-bold text-[8.5pt] text-[#c5a059]">PHASE 04</span>
-                <span class="font-mono text-[5.5pt] text-gray-400 uppercase">Livraison & Suivi</span>
+              <div class="flex items-center justify-between">
+                <h3 class="font-syne font-bold text-[10pt] text-white uppercase">Réception & Garantie GPA</h3>
+                <span class="font-mono text-[7.5pt] text-gray-400 uppercase">Livraison</span>
               </div>
-              <h3 class="font-syne font-bold text-[8.5pt] text-white uppercase">Réception & Garantie GPA</h3>
-              <p class="font-sans text-[6.5pt] text-gray-300 mt-1 leading-normal">
+              <p class="font-sans text-[8.5pt] text-gray-300 mt-1 leading-snug">
                 OPR préalables, levée intégrale des réserves, remise du Dossier des Ouvrages Exécutés (DOE) et activation Décennale AXA.
               </p>
             </div>
-            <span class="font-mono text-[5.5pt] text-[#c5a059] mt-2 block">• Sérénité pérenne</span>
           </div>
 
         </div>
 
-        <!-- Encart Consultation DCE & Contact Direction -->
-        <div class="p-4 bg-gradient-to-r from-[#14161f] via-[#181a24] to-[#14161f] border border-[#c5a059]/60 rounded-sm flex items-center justify-between gap-6">
-          
-          <div class="space-y-1.5 max-w-[170mm]">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-[#c5a059] animate-pulse"></span>
-              <span class="font-mono text-[6.5pt] uppercase tracking-widest text-[#c5a059] font-bold">SOUMISSION DE CONSULTATIONS & DOSSIERS DCE</span>
-            </div>
-            <h3 class="font-syne font-extrabold text-[12pt] text-white uppercase leading-none">
-              Solliciter notre Direction Technique pour vos Consultations en Île-de-France
+        <!-- Encart Consultation sous 48h -->
+        <div class="p-4 bg-[#171922] border border-[#c5a059]/60 rounded-sm flex items-center justify-between gap-5">
+          <div class="space-y-1">
+            <span class="font-syne font-bold text-[8pt] text-[#c5a059] uppercase tracking-wider block">
+              SOUMISSION DE CONSULTATIONS & DOSSIERS DCE
+            </span>
+            <h3 class="font-syne font-bold text-[11.5pt] text-white uppercase leading-tight">
+              Visite Technique & Devis sous 48h
             </h3>
-            <p class="font-sans text-[7.5pt] text-gray-300 font-light leading-relaxed">
-              Nous répondons avec rigueur sous 48 heures à l'ensemble des consultations privées et appels d'offres pour des opérations de 100 000 € à plusieurs millions d'euros.
+            <p class="font-sans text-[8.5pt] text-gray-300 font-light">
+              Nous répondons avec rigueur à l'ensemble des consultations privées et appels d'offres en Île-de-France.
             </p>
           </div>
 
-          <!-- Coordonnées Directes & QR Code -->
-          <div class="flex items-center gap-4 shrink-0 border-l border-white/15 pl-4">
-            <div class="text-right space-y-1 font-mono text-[7.2pt]">
-              <div class="text-white font-bold flex items-center justify-end gap-1.5">
-                <i class="fa-solid fa-phone text-[#c5a059]"></i>
-                <span>+33 (0)1 48 81 00 00</span>
-              </div>
-              <div class="text-gray-300 flex items-center justify-end gap-1.5">
-                <i class="fa-solid fa-envelope text-[#c5a059]"></i>
-                <span>contact@lbrconcept.fr</span>
-              </div>
-              <div class="text-gray-400 text-[6pt]">
-                477 Rue Marcel Paul, 94500 Champigny
-              </div>
-              <div class="text-[#c5a059] font-semibold text-[6.8pt]">
-                nyzer94.github.io/lbrconcept
-              </div>
+          <div class="text-right shrink-0 border-l border-white/15 pl-4 font-mono text-[9pt]">
+            <div class="text-white font-bold flex items-center justify-end gap-2">
+              <i class="fa-solid fa-phone text-[#c5a059]"></i>
+              <span>01 48 81 00 00</span>
             </div>
-
-            <div class="p-1 bg-white rounded-sm shadow-md">
-              <svg class="w-12 h-12" viewBox="0 0 29 29" fill="black">
-                <path d="M0,0h7v7H0z M2,2v3h3V2z M1,1h5v5H1z"/>
-                <path d="M22,0h7v7h-7z M24,2v3h3V2z M23,1h5v5h-5z"/>
-                <path d="M0,22h7v7H0z M2,24v3h3v-3z M1,23h5v5H1z"/>
-                <rect x="3" y="3" width="1" height="1"/>
-                <rect x="25" y="3" width="1" height="1"/>
-                <rect x="3" y="25" width="1" height="1"/>
-                <rect x="9" y="1" width="2" height="1"/>
-                <rect x="13" y="1" width="1" height="2"/>
-                <rect x="16" y="2" width="2" height="1"/>
-                <rect x="19" y="1" width="1" height="1"/>
-                <rect x="8" y="4" width="1" height="3"/>
-                <rect x="11" y="5" width="3" height="1"/>
-                <rect x="16" y="4" width="1" height="3"/>
-                <rect x="18" y="6" width="3" height="1"/>
-                <rect x="0" y="8" width="8" height="1"/>
-                <rect x="10" y="8" width="1" height="2"/>
-                <rect x="14" y="8" width="3" height="1"/>
-                <rect x="20" y="8" width="2" height="2"/>
-                <rect x="24" y="8" width="4" height="1"/>
-                <rect x="9" y="11" width="2" height="1"/>
-                <rect x="13" y="11" width="3" height="2"/>
-                <rect x="17" y="12" width="2" height="1"/>
-                <rect x="21" y="11" width="1" height="3"/>
-                <rect x="23" y="12" width="3" height="1"/>
-                <rect x="27" y="10" width="2" height="2"/>
-                <rect x="8" y="14" width="3" height="1"/>
-                <rect x="12" y="14" width="1" height="2"/>
-                <rect x="17" y="14" width="3" height="1"/>
-                <rect x="22" y="15" width="3" height="1"/>
-                <rect x="26" y="14" width="2" height="2"/>
-              </svg>
+            <div class="text-gray-300 mt-1 text-[8pt]">
+              contact@lbrconcept.fr
+            </div>
+            <div class="text-[#c5a059] font-bold text-[8.5pt] mt-1">
+              www.lbrconcept.fr
             </div>
           </div>
-
         </div>
 
       </div>
 
-      <!-- Footer Page 6 -->
-      <div class="border-t border-white/10 pt-3 flex items-center justify-between text-[6.2pt] font-mono tracking-widest text-gray-400 uppercase">
-        <span class="text-[#c5a059]">ASSURANCE DÉCENNALE AXA FRANCE • POLICE N° 0000010862089504 • RCS CRÉTEIL</span>
-        <span>PAGE 06 / 06 • CONTRAT & CLÔTURE</span>
+      <!-- Pied de Page 6 -->
+      <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[7.5pt] font-mono tracking-wider text-gray-400 uppercase">
+        <span class="text-[#c5a059] font-bold">ASSURANCE DÉCENNALE AXA FRANCE • POLICE N° 0000010862089504</span>
+        <span>PAGE 06 / 06</span>
       </div>
 
     </div>
