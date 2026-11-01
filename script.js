@@ -181,12 +181,20 @@ window.handleFormSubmit = async function(event) {
 
     clearTimeout(timeoutId);
 
-    const result = await response.json().catch(() => ({ success: "true" }));
+    const isSuccess = response.ok && (result.success === "true" || result.success === true);
+    const isNeedsActivation = result.message && result.message.includes('needs Activation');
 
-    if (response.ok || result.success === "true" || result.success === true) {
+    if (isSuccess || isNeedsActivation) {
       btn.innerHTML = `<i class="fa-solid fa-check"></i> Dossier Transmis`;
       btn.classList.add('bg-emerald-600', 'text-white');
-      if (successMsg) successMsg.classList.remove('hidden');
+      if (successMsg) {
+        if (isNeedsActivation) {
+          successMsg.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Formulaire transmis ! Un lien d'activation FormSubmit a été envoyé à votre adresse pour valider la première réception.`;
+        } else {
+          successMsg.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Votre demande et vos pièces ont été transmises avec succès à notre direction. Un ingénieur travaux vous contacte sous 24h.`;
+        }
+        successMsg.classList.remove('hidden');
+      }
       form.reset();
 
       const otherContainer = document.getElementById('otherProjectTypeContainer');
