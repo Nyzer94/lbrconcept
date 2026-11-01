@@ -1,0 +1,102 @@
+/* ==========================================================================
+   LBR CONCEPT — DESIGN SYSTEM & LUXURY ARCHITECTURAL STYLES
+   Minimalisme radical, Swiss Design moderne, nuances minérales & laiton
+   ========================================================================== */
+
+@charset "UTF-8";
+
+:root {
+  --color-gold: #c5a059;
+  --color-gold-light: #dfbe76;
+  --color-gold-dark: #9b7d3a;
+  --color-bg: #0b0c0e;
+  --color-bg-secondary: #121419;
+  --color-card: #15171e;
+  --color-border: rgba(255, 255, 255, 0.08);
+}
+
+/* Base resets & smooth rendering */
+html {
+  background-color: var(--color-bg);
+  color: #e2e4e9;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle noise overlay texture using CSS data URI */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Cinematic Slow Zoom for Hero image */
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+.animate-slow-zoom {
+  animation: slowZoom 26s ease-in-out infinite;
+}
+
+/* Navbar blur effect on scroll */
+#navbar.scrolled {
+  background-color: rgba(11, 12, 14, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+}
+
+/* Interactive Project Typology Labels */
+.project-type-label.selected {
+  border-color: var(--color-gold);
+  background-color: #1f222d;
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.18);
+}
+
+/* Luxury Metallic Gold Gradient & Statutory Typography */
+.gold-gradient {
+  background: linear-gradient(135deg, #d8ba82 0%, #e6cb96 28%, #dfbe76 50%, #c5a059 75%, #9b7d3a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.font-syne-statut {
+  display: inline-block;
+  transform: scaleY(1.08);
+  transform-origin: center bottom;
+}
+
+/* Gallery Hover Vignette & Image scale */
+.gallery-item {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(197, 160, 89, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0c0e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2e38;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}

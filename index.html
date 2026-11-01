@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LBR CONCEPT — Entreprise Générale de Bâtiment & Rénovation de Prestige</title>
+  <meta name="description" content="LBR CONCEPT - Ingénierie, réhabilitation lourde et rénovation tous corps d'état d'immeubles, sièges tertiaires et résidences de prestige. 477 Rue Marcel Paul, Champigny-sur-Marne.">
+
+  <!-- Fonts: Syne, Plus Jakarta Sans, Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#c5a059',
+            'primary-light': '#dfbe76',
+            'primary-dark': '#9b7d3a',
+            'bg-dark': '#0b0c0e',
+            'card-dark': '#121419',
+          },
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0b0c0e] text-[#e2e4e9] antialiased selection:bg-[#c5a059] selection:text-black font-sans">
+
+  <!-- Noise Texture -->
+  <div class="fixed inset-0 pointer-events-none opacity-[0.035] z-50 bg-repeat noise-overlay"></div>
+
+  <!-- HEADER NAVIGATION -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 py-4 px-6 md:px-12 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="#hero" class="group flex items-center gap-3.5 focus:outline-none">
+      <div class="relative h-12 flex items-center justify-center p-1 bg-white/95 border border-white/20 rounded-sm shadow-[0_0_15px_rgba(197,160,89,0.15)] overflow-hidden">
+        <img src="logo.png" alt="LBR CONCEPT Logo" class="h-10 w-auto object-contain">
+      </div>
+      <div class="flex flex-col">
+        <span class="font-syne font-extrabold tracking-[0.25em] text-white text-base leading-none font-syne-statut">LBR CONCEPT</span>
+        <span class="font-mono text-[9px] tracking-[0.3em] text-[#c5a059] uppercase mt-1">Entreprise Générale • BTP & Rénovation</span>
+      </div>
+    </a>
+
+    <!-- Header Direct CTA -->
+    <div class="flex items-center gap-4">
+      <a href="tel:+33148810000" class="hidden xl:inline-flex items-center gap-2 font-mono text-xs text-gray-300 hover:text-[#c5a059] transition-colors">
+        <i class="fa-solid fa-phone text-[#c5a059] text-xs"></i>
+        <span>01 48 81 00 00</span>
+      </a>
+
+      <a href="#contact" class="relative group overflow-hidden inline-flex items-center gap-2.5 px-6 py-2.5 rounded-sm bg-gradient-to-r from-[#c5a059] via-[#dfbe76] to-[#b38e44] text-[#0b0c0e] font-syne font-bold text-xs uppercase tracking-[0.15em] transition-all duration-300 shadow-[0_4px_20px_rgba(197,160,89,0.3)] hover:shadow-[0_4px_30px_rgba(197,160,89,0.6)]">
+        <span>Nous contacter / Devis</span>
+        <i class="fa-solid fa-arrow-right-long text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" aria-label="Menu" class="md:hidden w-10 h-10 border border-white/10 flex flex-col justify-center items-center gap-1.5 text-white">
+        <span class="w-5 h-[1.5px] bg-[#c5a059]"></span>
+        <span class="w-5 h-[1.5px] bg-white"></span>
+        <span class="w-3.5 self-start ml-2.5 h-[1.5px] bg-[#c5a059]"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div id="mobileMenu" class="fixed inset-0 z-30 bg-[#090a0d]/98 backdrop-blur-2xl transition-all duration-300 opacity-0 pointer-events-none flex flex-col justify-center px-10">
+    <div class="space-y-8 text-center">
+      <div>
+        <a href="#realisations" class="mobile-nav-link font-syne text-2xl font-bold uppercase tracking-widest text-white hover:text-[#c5a059]">Opérations & Chantiers</a>
+      </div>
+      <div>
+        <a href="#engagements" class="mobile-nav-link font-syne text-2xl font-bold uppercase tracking-widest text-white hover:text-[#c5a059]">Garanties & Preuves</a>
+      </div>
+      <div>
+        <a href="#chiffres" class="mobile-nav-link font-syne text-2xl font-bold uppercase tracking-widest text-white hover:text-[#c5a059]">Chiffres Clés</a>
+      </div>
+      <div>
+        <a href="#contact" class="mobile-nav-link font-syne text-2xl font-bold uppercase tracking-widest text-[#c5a059]">Nous contacter / Devis</a>
+      </div>
+      <div class="pt-6 border-t border-white/10 text-xs font-mono text-gray-400">
+        477 Rue Marcel Paul — 94500 Champigny-sur-Marne
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION : 2 BOUTONS D'ACTION ÉPURÉS -->
+    <section id="hero" class="relative min-h-[92vh] flex items-center justify-center px-6 md:px-12 pt-28 pb-16 overflow-hidden">
+      <!-- Background Image Realization -->
+      <div class="absolute inset-0 z-0">
+        <img src="images/escaliers%20immeuble%20luxe.webp" alt="Réhabilitation LBR CONCEPT" class="w-full h-full object-cover scale-105 animate-slow-zoom">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0b0c0e] via-[#0b0c0e]/85 to-[#0b0c0e]/60"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(11,12,14,0.85)_100%)]"></div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="relative z-20 max-w-6xl mx-auto w-full pt-8">
+        
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#c5a059]/40 bg-[#121316]/90 backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-[#c5a059] animate-pulse"></span>
+            <span class="font-mono text-xs text-gray-200 uppercase tracking-widest font-semibold">Garantie Décennale AXA</span>
+            <span class="text-[#c5a059]">•</span>
+            <span class="font-mono text-xs text-gray-300 uppercase tracking-widest">Normes RE2020</span>
+          </div>
+        </div>
+
+        <h1 class="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] text-white uppercase mb-6">
+          <span class="font-syne-statut">Rénovation Lourde &</span> <br>
+          <span class="font-syne-statut">Bâtiment <span class="gold-gradient">d'Envergure.</span></span>
+        </h1>
+
+        <p class="font-sans text-base sm:text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-3xl mb-8">
+          Entreprise générale dédiée aux <strong class="text-white font-semibold">décideurs, foncières, collectivités et maîtres d'ouvrage exigeants</strong>. Réhabilitation globale d'immeubles, aménagement de sièges d'entreprise et rénovation de résidences d'exception.
+        </p>
+
+        <!-- Direct Action Bar : Uniquement 2 boutons d'action épurés -->
+        <div class="flex flex-wrap items-center gap-4 pt-2 pb-8 border-b border-white/10">
+          <a href="#contact" class="px-8 py-4 bg-gradient-to-r from-[#c5a059] via-[#dfbe76] to-[#b38e44] text-[#0b0c0e] font-syne font-bold text-xs uppercase tracking-[0.2em] rounded-sm hover:shadow-[0_4px_30px_rgba(197,160,89,0.5)] transition-all flex items-center gap-3">
+            <span>Nous contacter / Devis</span>
+            <i class="fa-solid fa-arrow-right-long text-xs"></i>
+          </a>
+          <a href="#realisations" class="px-8 py-4 bg-[#14161c]/80 border border-white/20 text-white font-syne font-bold text-xs uppercase tracking-[0.2em] rounded-sm hover:border-[#c5a059] hover:text-[#c5a059] transition-all flex items-center gap-3 backdrop-blur-sm">
+            <i class="fa-regular fa-folder-open text-xs"></i>
+            <span>Découvrir nos opérations</span>
+          </a>
+        </div>
+
+        <!-- 3 Piliers Décideurs Directs -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 text-xs text-gray-300">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-sm bg-[#161820] border border-[#c5a059]/40 flex items-center justify-center text-[#c5a059] shrink-0 font-bold">✓</div>
+            <div>
+              <strong class="text-white font-syne uppercase tracking-wider block">Contractant Général Unique</strong>
+              <span class="text-gray-400">1 seul interlocuteur, planning et budget verrouillés</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-sm bg-[#161820] border border-[#c5a059]/40 flex items-center justify-center text-[#c5a059] shrink-0 font-bold">✓</div>
+            <div>
+              <strong class="text-white font-syne uppercase tracking-wider block">Gros Œuvre & Second Œuvre</strong>
+              <span class="text-gray-400">Immeubles entiers, plateaux tertiaires, ERP</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-sm bg-[#161820] border border-[#c5a059]/40 flex items-center justify-center text-[#c5a059] shrink-0 font-bold">✓</div>
+            <div>
+              <strong class="text-white font-syne uppercase tracking-wider block">Siège à Champigny-sur-Marne</strong>
+              <span class="text-gray-400">Intervention rapide Paris & Toute l'Île-de-France</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CHIFFRES & MÉTRIQUES DÉCIDEURS -->
+    <section id="chiffres" class="py-16 bg-[#0e0f13] border-y border-white/[0.08]">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+          
+          <div class="border-l-2 border-[#c5a059] pl-5">
+            <div class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight flex items-baseline">
+              <span class="counter" data-target="15">0</span>
+              <span class="text-[#c5a059] text-2xl font-light ml-1">+</span>
+            </div>
+            <p class="font-mono text-xs uppercase tracking-widest text-gray-300 mt-1">Années d'Expérience</p>
+            <p class="text-[11px] text-gray-500 mt-0.5">Marchés publics & privés</p>
+          </div>
+
+          <div class="border-l-2 border-[#c5a059] pl-5">
+            <div class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight flex items-baseline">
+              <span class="counter" data-target="85">0</span>
+              <span class="text-[#c5a059] text-xl font-light ml-1">k m²</span>
+            </div>
+            <p class="font-mono text-xs uppercase tracking-widest text-gray-300 mt-1">Surfaces Livrées</p>
+            <p class="text-[11px] text-gray-500 mt-0.5">Immeubles et plateaux tertiaires</p>
+          </div>
+
+          <div class="border-l-2 border-[#c5a059] pl-5">
+            <div class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight flex items-baseline">
+              <span class="counter" data-target="320">0</span>
+              <span class="text-[#c5a059] text-2xl font-light ml-1">+</span>
+            </div>
+            <p class="font-mono text-xs uppercase tracking-widest text-gray-300 mt-1">Chantiers Réceptionnés</p>
+            <p class="text-[11px] text-gray-500 mt-0.5">Zéro dépassement de délais</p>
+          </div>
+
+          <div class="border-l-2 border-[#c5a059] pl-5">
+            <div class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight flex items-baseline">
+              <span class="counter" data-target="100">0</span>
+              <span class="text-[#c5a059] text-2xl font-light ml-1">%</span>
+            </div>
+            <p class="font-mono text-xs uppercase tracking-widest text-gray-300 mt-1">Conformité Technique</p>
+            <p class="text-[11px] text-gray-500 mt-0.5">Garantie Décennale AXA France</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION OPÉRATIONS & CHANTIERS LIVRÉS (TITRE SOBRE, SANS BARRE D'ONGLETS, SANS MODALE) -->
+    <section id="realisations" class="py-24 bg-[#090a0d]">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        
+        <div class="mb-14">
+          <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-[#c5a059] mb-2">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Portfolio d'Excellence</span>
+          </div>
+          <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white uppercase tracking-tight">
+            <span class="font-syne-statut">Sélection d'<span class="gold-gradient">Opérations</span> & <span class="gold-gradient">Chantiers</span> Livrés</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-400 mt-2 font-light max-w-2xl">
+            Aperçu des chantiers conduits et livrés par LBR CONCEPT en Île-de-France, illustrant la maîtrise tous corps d'état du gros œuvre jusqu'aux finitions architecturales.
+          </p>
+        </div>
+
+        <!-- Galerie Massive : 12 Opérations en affichage direct sans onglet ni modale -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start" id="galleryGrid">
+          
+          <!-- Chantier 1: Immeuble Complet / Escalier Monumental -->
+          <div class="gallery-item group relative md:col-span-8 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="images/escaliers%20immeuble%20luxe.webp" alt="Réhabilitation complète escalier immeuble de prestige" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent flex flex-col justify-end p-6 md:p-8">
+              <div class="flex items-center gap-3 font-mono text-xs text-[#c5a059] uppercase tracking-wider mb-1">
+                <span>Immeuble Complet</span>
+                <span>•</span>
+                <span>1 450 m²</span>
+                <span>•</span>
+                <span>Tous Corps d'État</span>
+              </div>
+              <h3 class="font-syne font-bold text-xl md:text-2xl text-white">Rénovation d'Immeuble Haussmannien & Cage d'Escalier</h3>
+              <p class="text-xs text-gray-300 mt-1 max-w-xl hidden sm:block">Restauration des structures, ferronneries d'art, consolidation des planchers et luminaires architecturaux intégrés.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 2: Espace Lounge VIP / Restaurant d'Entreprise -->
+          <div class="gallery-item group relative md:col-span-4 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[4/5] overflow-hidden">
+              <img src="images/resto.webp" alt="Restaurant d'entreprise prestige" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent flex flex-col justify-end p-6">
+              <div class="font-mono text-[11px] text-[#c5a059] uppercase tracking-wider mb-1">Siège Corporate • 380 m²</div>
+              <h3 class="font-syne font-bold text-lg md:text-xl text-white">Espace Réceptif & Restaurant Privatif</h3>
+              <p class="text-xs text-gray-300 mt-1">Finitions acoustiques bois thermo-traité et éclairage scénographié.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 3: Plateau Open Space Tertiaire -->
+          <div class="gallery-item group relative md:col-span-4 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="images/open%20spaceee.webp" alt="Plateau de bureaux contemporains" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5">
+              <span class="font-mono text-[10px] uppercase text-[#c5a059] tracking-widest">Tertiaire • 850 m²</span>
+              <h4 class="font-syne font-bold text-base text-white mt-0.5">Plateau de Bureaux Collaboratif</h4>
+              <p class="text-[11px] text-gray-400">Réseaux RJ45 Cat 6A, faux plafonds modulaires.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 4: Salle de Réunion Boardroom VIP -->
+          <div class="gallery-item group relative md:col-span-4 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="images/salle%20reunion.webp" alt="Salle de réunion prestige" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5">
+              <span class="font-mono text-[10px] uppercase text-[#c5a059] tracking-widest">Espace Décisionnel</span>
+              <h4 class="font-syne font-bold text-base text-white mt-0.5">Salle du Conseil & Visio VIP</h4>
+              <p class="text-[11px] text-gray-400">Cloisonnement vitré bord à bord double vitrage.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 5: Bureaux de Direction & Verrières -->
+          <div class="gallery-item group relative md:col-span-4 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="images/bureau.webp" alt="Bureau exécutif avec verrière" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5">
+              <span class="font-mono text-[10px] uppercase text-[#c5a059] tracking-widest">Direction</span>
+              <h4 class="font-syne font-bold text-base text-white mt-0.5">Bureau Exécutif Verrière Acier</h4>
+              <p class="text-[11px] text-gray-400">Agencement boiserie & intégration courant faible.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 6: Cuisine Architecturale Monolithe -->
+          <div class="gallery-item group relative md:col-span-6 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="images/cuisine%20luxe.webp" alt="Cuisine contemporaine luxe" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+              <span class="font-mono text-[10px] uppercase text-[#c5a059] tracking-widest">Résidentiel d'Élite • 260 m²</span>
+              <h4 class="font-syne font-bold text-xl text-white mt-1">Cuisine Architecturale Monolithe</h4>
+              <p class="text-xs text-gray-300 mt-1">Plans de travail marbre de Carrare et électroménager affleurant.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 7: Suite Salle de Bain Marbre Calacatta -->
+          <div class="gallery-item group relative md:col-span-6 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="images/salle%20de%20bain%20luxe.webp" alt="Salle de bain haut de gamme" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+              <span class="font-mono text-[10px] uppercase text-[#c5a059] tracking-widest">Haute Résidence</span>
+              <h4 class="font-syne font-bold text-xl text-white mt-1">Salle d'Eau Minérale & Laiton Brossé</h4>
+              <p class="text-xs text-gray-300 mt-1">Marbrerie sur-mesure et gorges lumineuses rétroéclairées.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 8: Boxes Réunion Acoustiques (AJUSTÉ RÉALITÉ D'INTERVENTION) -->
+          <div class="gallery-item group relative md:col-span-4 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="images/boxes%20reu.webp" alt="Intégration & pose cabines acoustiques" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5">
+              <span class="font-mono text-[10px] uppercase text-[#c5a059] tracking-widest">Aménagement Tertiaire</span>
+              <h4 class="font-syne font-bold text-base text-white mt-0.5">Intégration & Pose de Cabines Acoustiques</h4>
+              <p class="text-[11px] text-gray-400">Raccordements réseaux, intégration électrique et pose d'îlots de travail confidentiels en milieu tertiaire occupé.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 9: Grand Salon de Réception -->
+          <div class="gallery-item group relative md:col-span-4 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="images/sympaa.webp" alt="Salon de prestige rénové" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5">
+              <span class="font-mono text-[10px] uppercase text-[#c5a059] tracking-widest">Résidentiel • 310 m²</span>
+              <h4 class="font-syne font-bold text-base text-white mt-0.5">Grand Salon de Réception</h4>
+              <p class="text-[11px] text-gray-400">Alliance du cachet classique et du confort RE2020.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 10: Salle à Manger Contemporaine -->
+          <div class="gallery-item group relative md:col-span-4 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[4/3] overflow-hidden">
+              <img src="images/salle%20a%20manger%20luxe.webp" alt="Salle a manger d'exception" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-5">
+              <span class="font-mono text-[10px] uppercase text-[#c5a059] tracking-widest">Résidentiel</span>
+              <h4 class="font-syne font-bold text-base text-white mt-0.5">Espace Dînatoire Privé</h4>
+              <p class="text-[11px] text-gray-400">Ébénisterie sur-mesure et finitions d'exception.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 11: Deuxième Angle Open Space Tertiaire -->
+          <div class="gallery-item group relative md:col-span-6 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="images/open%20space.webp" alt="Plateau tertiaire vue globale" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+              <span class="font-mono text-[10px] uppercase text-[#c5a059] tracking-widest">Tertiaire</span>
+              <h4 class="font-syne font-bold text-lg text-white mt-1">Espaces Ouverts & Ergonomie BREEAM</h4>
+              <p class="text-xs text-gray-300 mt-0.5">Distribution électrique encastrée au sol et luminaires LED basse consommation.</p>
+            </div>
+          </div>
+
+          <!-- Chantier 12: Bureau de Direction Moderne -->
+          <div class="gallery-item group relative md:col-span-6 overflow-hidden rounded-sm bg-[#121316] border border-white/10 shadow-lg">
+            <div class="aspect-[16/10] overflow-hidden">
+              <img src="images/bure.webp" alt="Bureau executive" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6">
+              <span class="font-mono text-[10px] uppercase text-[#c5a059] tracking-widest">Direction Générale</span>
+              <h4 class="font-syne font-bold text-lg text-white mt-1">Bureau Présidence & Mobilier Intégré</h4>
+              <p class="text-xs text-gray-300 mt-0.5">Conception épurée, isolation thermique renforcée.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION ENGAGEMENTS & GARANTIES FERMES (Pour Chefs d'Entreprise) -->
+    <section id="engagements" class="py-20 bg-[#0e1015] border-t border-white/[0.08]">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        
+        <div class="text-center max-w-5xl mx-auto mb-16 px-4">
+          <span class="font-mono text-xs uppercase tracking-[0.25em] text-[#c5a059]">Sécurité & Sérénité Maître d'Ouvrage</span>
+          <h2 class="font-syne font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] text-white uppercase tracking-tight mt-3 leading-tight">
+            <span class="font-syne-statut block md:whitespace-nowrap">Pourquoi les Dirigeants</span>
+            <span class="font-syne-statut block md:whitespace-nowrap mt-1">Choisissent <span class="gold-gradient">LBR CONCEPT</span></span>
+          </h2>
+          <p class="text-xs sm:text-sm text-gray-400 mt-3 font-light max-w-2xl mx-auto">
+            Sur un chantier de plusieurs centaines de milliers ou millions d'euros, l'erreur n'a pas sa place. Nous apportons des garanties juridiques et techniques totales.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          
+          <div class="p-6 bg-[#13151b] border border-white/10 rounded-sm">
+            <div class="w-10 h-10 rounded-sm bg-[#1c1f28] text-[#c5a059] flex items-center justify-center text-lg mb-4">
+              <i class="fa-solid fa-file-contract"></i>
+            </div>
+            <h3 class="font-syne font-bold text-base text-white">Prix Ferme & Définitif</h3>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+              Devis détaillé poste par poste après audit technique. Zéro mauvaise surprise en cours de chantier.
+            </p>
+          </div>
+
+          <div class="p-6 bg-[#13151b] border border-white/10 rounded-sm">
+            <div class="w-10 h-10 rounded-sm bg-[#1c1f28] text-[#c5a059] flex items-center justify-center text-lg mb-4">
+              <i class="fa-solid fa-stopwatch-20"></i>
+            </div>
+            <h3 class="font-syne font-bold text-base text-white">Délais Contractualisés</h3>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+              Planning d'intervention GANTT verrouillé avec pénalités de retard applicables. Livraison à la date convenue.
+            </p>
+          </div>
+
+          <div class="p-6 bg-[#13151b] border border-white/10 rounded-sm">
+            <div class="w-10 h-10 rounded-sm bg-[#1c1f28] text-[#c5a059] flex items-center justify-center text-lg mb-4">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="font-syne font-bold text-base text-white">Garantie Décennale AXA</h3>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+              Assurance responsabilité civile professionnelle et décennale tous corps d'état avec attestation immédiate.
+            </p>
+          </div>
+
+          <div class="p-6 bg-[#13151b] border border-white/10 rounded-sm">
+            <div class="w-10 h-10 rounded-sm bg-[#1c1f28] text-[#c5a059] flex items-center justify-center text-lg mb-4">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+            <h3 class="font-syne font-bold text-base text-white">Conducteur Dédié</h3>
+            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+              Un interlocuteur unique sur votre chantier, joignable directement avec reporting photo hebdomadaire.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION CONTACT & CHIFFRAGE RAPIDE AVEC SELECT MODERNE & UPLOAD DCE -->
+    <section id="contact" class="py-24 bg-[#0a0b0d] border-t border-white/[0.08]">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Contact Direct Left : Engagements & Coordonnées directes -->
+          <div class="lg:col-span-5 space-y-6">
+            <div>
+              <div class="inline-flex items-center gap-2 h-12 mb-4 bg-white/95 px-3 py-1 rounded-sm border border-white/20 shadow-md">
+                <img src="logo.png" alt="Logo LBR CONCEPT" class="h-9 w-auto object-contain">
+              </div>
+              <span class="font-mono text-xs uppercase tracking-[0.25em] text-[#c5a059] block">Ligne Directe Direction</span>
+              <h2 class="font-syne font-extrabold text-2xl sm:text-3xl lg:text-4xl text-white uppercase tracking-tight mt-1">
+                <span class="font-syne-statut">Consultation & Chiffrage</span>
+              </h2>
+            </div>
+
+            <!-- Bloc 1: Engagements & Promesses -->
+            <div class="space-y-3.5">
+              <div class="p-4 bg-[#121419] border border-white/10 rounded-sm hover:border-[#c5a059]/40 transition-colors">
+                <div class="flex items-start gap-3.5">
+                  <div class="w-8 h-8 rounded-sm bg-[#1a1d26] border border-[#c5a059]/30 flex items-center justify-center text-[#c5a059] shrink-0 mt-0.5">
+                    <i class="fa-solid fa-bolt text-xs"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-syne font-bold text-sm text-white uppercase tracking-wide">Réactivité garantie</h4>
+                    <p class="text-xs text-gray-300 mt-1 leading-relaxed">
+                      Prise en charge et retour technique assuré sous 48h.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 bg-[#121419] border border-white/10 rounded-sm hover:border-[#c5a059]/40 transition-colors">
+                <div class="flex items-start gap-3.5">
+                  <div class="w-8 h-8 rounded-sm bg-[#1a1d26] border border-[#c5a059]/30 flex items-center justify-center text-[#c5a059] shrink-0 mt-0.5">
+                    <i class="fa-solid fa-user-check text-xs"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-syne font-bold text-sm text-white uppercase tracking-wide">Équipe à votre écoute</h4>
+                    <p class="text-xs text-gray-300 mt-1 leading-relaxed">
+                      Un interlocuteur unique dédié à l'analyse de votre cahier des charges et de vos plans.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 bg-[#121419] border border-white/10 rounded-sm hover:border-[#c5a059]/40 transition-colors">
+                <div class="flex items-start gap-3.5">
+                  <div class="w-8 h-8 rounded-sm bg-[#1a1d26] border border-[#c5a059]/30 flex items-center justify-center text-[#c5a059] shrink-0 mt-0.5">
+                    <i class="fa-solid fa-shield-halved text-xs"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-syne font-bold text-sm text-white uppercase tracking-wide">Engagement contractuel</h4>
+                    <p class="text-xs text-gray-300 mt-1 leading-relaxed">
+                      Chiffrage rigoureux et respect strict des normes de construction.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coordonnées directes en pied de colonne -->
+            <div class="space-y-4 pt-4 border-t border-white/10 text-xs">
+              <div class="flex items-center gap-3.5">
+                <div class="w-9 h-9 rounded-sm bg-[#14151a] border border-[#c5a059]/40 flex items-center justify-center text-[#c5a059] shrink-0">
+                  <i class="fa-solid fa-phone text-xs"></i>
+                </div>
+                <div>
+                  <span class="font-mono text-[10px] text-gray-400 uppercase tracking-widest block">Téléphone</span>
+                  <a href="tel:+33148810000" class="font-syne font-bold text-white hover:text-[#c5a059] transition-colors text-sm">+33 (0)1 48 81 00 00</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3.5">
+                <div class="w-9 h-9 rounded-sm bg-[#14151a] border border-[#c5a059]/40 flex items-center justify-center text-[#c5a059] shrink-0">
+                  <i class="fa-solid fa-envelope text-xs"></i>
+                </div>
+                <div>
+                  <span class="font-mono text-[10px] text-gray-400 uppercase tracking-widest block">Email</span>
+                  <a href="mailto:contact@lbrconcept.fr" class="font-mono text-white hover:text-[#c5a059] transition-colors">contact@lbrconcept.fr</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3.5">
+                <div class="w-9 h-9 rounded-sm bg-[#14151a] border border-[#c5a059]/40 flex items-center justify-center text-[#c5a059] shrink-0">
+                  <i class="fa-solid fa-location-dot text-xs"></i>
+                </div>
+                <div>
+                  <span class="font-mono text-[10px] text-gray-400 uppercase tracking-widest block">Siège</span>
+                  <p class="text-white font-medium">477 Rue Marcel Paul, 94500 Champigny-sur-Marne</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulaire Rapide & Précis Right -->
+          <div class="lg:col-span-7 bg-[#121418] border border-white/10 p-6 md:p-10 rounded-sm shadow-2xl">
+            <h3 class="font-syne font-bold text-xl md:text-2xl text-white uppercase tracking-wide mb-1">
+              Demande de Chiffrage / Visite Chantier
+            </h3>
+            <p class="text-xs text-gray-400 mb-6 font-light">Remplissez ces quelques lignes pour être contacté directement par la direction technique.</p>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+              
+              <!-- Menu Déroulant (Select) Moderne : Type d'Opération -->
+              <div>
+                <label for="projectTypeSelect" class="block font-mono text-[11px] text-gray-300 uppercase tracking-widest mb-2">Nature de l'Opération *</label>
+                <div class="relative">
+                  <select id="projectTypeSelect" name="project_type" required class="w-full bg-[#181a22] border border-white/10 px-4 py-3 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059] transition-colors appearance-none cursor-pointer">
+                    <option value="" disabled selected>Sélectionnez la typologie de votre projet...</option>
+                    <option value="Bureaux / Aménagement Tertiaire">Bureaux / Aménagement Tertiaire</option>
+                    <option value="Immeuble Entier / Réhabilitation Lourde">Immeuble Entier / Réhabilitation Lourde</option>
+                    <option value="Résidentiel d'Exception">Résidentiel d'Exception</option>
+                    <option value="autre">Autre (à préciser)</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#c5a059]">
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Champ dynamique affiché uniquement si "Autre (à préciser)" est choisi -->
+              <div id="otherProjectTypeContainer" class="hidden transition-all duration-300">
+                <label for="otherProjectTypeInput" class="block font-mono text-[10px] text-[#c5a059] uppercase tracking-widest mb-1.5">Précisez la nature de votre besoin *</label>
+                <input type="text" id="otherProjectTypeInput" name="custom_project_type" placeholder="ex: Réhabilitation ERP, surélévation, local commercial..." class="w-full bg-[#1c1f2a] border border-[#c5a059]/50 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+              </div>
+
+              <!-- Inputs Nom & Société -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="fullName" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Nom, Prénom & Fonction *</label>
+                  <input type="text" id="fullName" name="name" required placeholder="ex: Marc Delmas, Dirigeant" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                </div>
+
+                <div>
+                  <label for="company" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Société / Entité *</label>
+                  <input type="text" id="company" name="company" required placeholder="ex: Groupe Immo ou Privé" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                </div>
+              </div>
+
+              <!-- Inputs Téléphone & Email -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="phone" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Téléphone *</label>
+                  <input type="tel" id="phone" name="phone" required placeholder="06 00 00 00 00" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                </div>
+
+                <div>
+                  <label for="email" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Email Professionnel *</label>
+                  <input type="email" id="email" name="email" required placeholder="contact@entreprise.com" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                </div>
+              </div>
+
+              <!-- Inputs Localisation & Surface -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="location" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Localisation du Projet</label>
+                  <input type="text" id="location" name="location" placeholder="ex: Paris 8e ou 94" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                </div>
+
+                <div>
+                  <label for="surface" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Surface Approximative (m²)</label>
+                  <input type="text" id="surface" name="surface" placeholder="ex: 600 m²" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div>
+                <label for="message" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Brève Description du Chantier *</label>
+                <textarea id="message" name="message" rows="3" required placeholder="Indiquez l'état actuel, les corps d'état requis et la date souhaitée de démarrage..." class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]"></textarea>
+              </div>
+
+              <!-- Champ DCE / Pièces jointes Stylisé -->
+              <div>
+                <label class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Plans & Pièces Techniques (Optionnel)</label>
+                <label for="dceUpload" class="group flex items-center justify-between p-3.5 bg-[#181a22] border border-dashed border-white/15 rounded-sm hover:border-[#c5a059]/60 cursor-pointer transition-colors">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-sm bg-[#121419] border border-white/10 flex items-center justify-center text-[#c5a059] group-hover:scale-110 transition-transform">
+                      <i class="fa-solid fa-cloud-arrow-up text-xs"></i>
+                    </div>
+                    <div>
+                      <span id="dceUploadLabel" class="text-xs text-gray-300 font-medium group-hover:text-white transition-colors block">Déposer vos plans ou DCE (PDF, DWG, ZIP — max 25 Mo)</span>
+                      <span class="text-[10px] text-gray-500 font-mono">Glissez-déposez ou cliquez pour parcourir</span>
+                    </div>
+                  </div>
+                  <span class="text-xs font-mono text-[#c5a059] uppercase tracking-wider hidden sm:inline group-hover:underline">Parcourir</span>
+                  <input type="file" id="dceUpload" name="attachment" multiple accept=".pdf,.dwg,.dxf,.zip,.rar,.png,.jpg,.jpeg" class="hidden">
+                </label>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-[#c5a059] via-[#dfbe76] to-[#b38e44] text-[#0b0c0e] font-syne font-bold text-xs uppercase tracking-[0.2em] rounded-sm hover:shadow-[0_4px_30px_rgba(197,160,89,0.5)] transition-all flex items-center justify-center gap-3">
+                <span>Transmettre la Demande d'Étude</span>
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+              </button>
+
+              <div id="formSuccessMessage" class="hidden p-4 bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 text-xs text-center rounded-sm">
+                <i class="fa-solid fa-circle-check mr-2"></i> Votre demande et vos pièces ont été transmises avec succès à notre direction. Un ingénieur travaux vous contacte sous 24h.
+              </div>
+
+              <div id="formErrorMessage" class="hidden p-4 bg-red-950/40 border border-red-500/40 text-red-300 text-xs text-center rounded-sm">
+                <i class="fa-solid fa-triangle-exclamation mr-2"></i> <span id="formErrorText">Une erreur est survenue lors de l'envoi. Veuillez nous contacter directement au 01 48 81 00 00 ou par email à contact@lbrconcept.fr.</span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#07080a] border-t border-white/[0.08] text-gray-400 py-12 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-4">
+        <div class="h-10 flex items-center justify-center bg-white/95 border border-white/10 px-2 py-1 rounded-sm">
+          <img src="logo.png" alt="Logo LBR CONCEPT" class="h-8 w-auto object-contain">
+        </div>
+        <div>
+          <span class="font-syne font-bold text-white text-sm tracking-wider font-syne-statut">LBR CONCEPT</span>
+          <p class="text-xs text-gray-400">477 Rue Marcel Paul, 94500 Champigny-sur-Marne</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs font-mono text-gray-500">
+        <span>Décennale AXA</span>
+        <span>•</span>
+        <span>RCS Créteil</span>
+        <span>•</span>
+        <span>RE2020</span>
+      </div>
+
+      <div class="text-xs font-mono text-gray-500">
+        © 2026 LBR CONCEPT. Tous droits réservés.
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
