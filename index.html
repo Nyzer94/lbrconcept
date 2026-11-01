@@ -557,7 +557,7 @@
             </h3>
             <p class="text-xs text-gray-400 mb-6 font-light">Remplissez ces quelques lignes pour être contacté directement par la direction technique.</p>
 
-            <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+            <form id="contactForm" onsubmit="handleFormSubmit(event)" enctype="multipart/form-data" class="space-y-5">
               
               <!-- Menu Déroulant (Select) Moderne : Type d'Opération -->
               <div>
@@ -641,7 +641,7 @@
                     </div>
                   </div>
                   <span class="text-xs font-mono text-[#c5a059] uppercase tracking-wider hidden sm:inline group-hover:underline">Parcourir</span>
-                  <input type="file" id="dceUpload" name="attachment" multiple accept=".pdf,.dwg,.dxf,.zip,.rar,.png,.jpg,.jpeg" class="hidden">
+                  <input type="file" id="dceUpload" name="files[]" multiple accept=".pdf,.dwg,.dxf,.zip,.rar,.png,.jpg,.jpeg" class="hidden">
                 </label>
               </div>
 

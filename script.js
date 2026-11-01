@@ -155,64 +155,30 @@ window.handleFormSubmit = async function(event) {
   const customVal = document.getElementById('otherProjectTypeInput')?.value?.trim();
   const projectType = (selectVal === 'autre' && customVal) ? `Autre: ${customVal}` : (selectVal || 'Non spécifié');
 
-  const subject = `Demande de devis depuis le site : ${company}`;
-
-  const formData = new FormData();
-  formData.append('subject', subject);
-  formData.append('to_email', 'rayanchennaoui@gmail.com');
-  formData.append('Société', company);
-  formData.append('Nom et Fonction', fullName);
-  formData.append('Email', email);
-  formData.append('Téléphone', phone);
-  formData.append('Type d\'opération', projectType);
-  formData.append('Localisation', location);
-  formData.append('Surface estimée', surface);
-  formData.append('Description du projet', message);
-
-  // Gestion des fichiers joints (DCE / Plans)
-  const fileInput = document.getElementById('dceUpload');
-  if (fileInput && fileInput.files && fileInput.files.length > 0) {
-    for (let i = 0; i < fileInput.files.length; i++) {
-      formData.append('attachment', fileInput.files[i]);
-    }
-  }
+  // Construction du FormData pour FormBackend (support natif des fichiers)
+  const formData = new FormData(form);
+  
+  // Précision du type d'opération si personnalisé
+  formData.set('Type d\'opération', projectType);
+  formData.set('subject', subject);
 
   try {
-    const WEB3FORMS_ACCESS_KEY = '928f773a-acf8-4977-bde5-1cfed2aa814d';
+    /**
+     * CONFIGURATION FORMBACKEND :
+     * Endpoint FormBackend gratuit avec gestion native des fichiers PDF / DCE.
+     * Remplacez l'URL ci-dessous par l'URL de votre formulaire créé sur https://www.formbackend.com/
+     */
+    const FORMBACKEND_ENDPOINT = 'https://app.formbackend.com/f/votre-form-id';
 
-    const payload = {
-      access_key: WEB3FORMS_ACCESS_KEY,
-      subject: subject,
-      from_name: 'LBR CONCEPT — Site Web',
-      Société: company,
-      Nom_et_Fonction: fullName,
-      Email: email,
-      Téléphone: phone,
-      Type_operation: projectType,
-      Localisation: location,
-      Surface: surface,
-      Message: message
-    };
-
-    // Gestion du fichier joint : mention du nom de fichier dans le message
-    const fileInput = document.getElementById('dceUpload');
-    if (fileInput && fileInput.files && fileInput.files.length > 0) {
-      const fileNames = Array.from(fileInput.files).map(f => `${f.name} (${(f.size/1024/1024).toFixed(2)} Mo)`).join(', ');
-      payload.Fichiers_annonces = fileNames;
-    }
-
-    const response = await fetch('https://api.web3forms.com/submit', {
+    const response = await fetch(FORMBACKEND_ENDPOINT, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify(payload)
+      body: formData
     });
 
-    const result = await response.json();
-
-    if (response.ok && result.success) {
+    if (response.ok) {
       btn.innerHTML = `<i class="fa-solid fa-check"></i> Dossier Transmis`;
       btn.classList.add('bg-emerald-600', 'text-white');
       if (successMsg) successMsg.classList.remove('hidden');
@@ -232,13 +198,14 @@ window.handleFormSubmit = async function(event) {
         btn.classList.remove('bg-emerald-600', 'text-white');
       }, 5000);
     } else {
-      console.warn('Web3Forms message:', result);
-      throw new Error(result.message || 'Échec de transmission');
+      const result = await response.json().catch(() => ({}));
+      console.warn('FormBackend response:', result);
+      throw new Error(result.error || 'Échec de transmission');
     }
   } catch (err) {
     console.error('Erreur transmission formulaire:', err);
     if (errorMsg) {
-      if (errorText) errorText.textContent = err.message || "Erreur de transmission. Veuillez nous contacter au 01 48 81 00 00.";
+      if (errorText) errorText.textContent = "Erreur d'envoi. Veuillez vérifier la connexion ou contacter le 01 48 81 00 00.";
       errorMsg.classList.remove('hidden');
     }
     btn.disabled = false;
