@@ -157,21 +157,20 @@ window.handleFormSubmit = async function(event) {
 
   const subject = `Demande de devis depuis le site : ${company}`;
 
-  // Construction du FormData pour FormBackend (support natif des fichiers)
+  // Mettre à jour l'objet pour l'email
+  const subjectInput = document.getElementById('formSubmitSubject');
+  if (subjectInput) subjectInput.value = subject;
+
+  // Construction du FormData
   const formData = new FormData(form);
-  
-  // Précision du type d'opération si personnalisé
-  formData.set('Type d\'opération', projectType);
-  formData.set('subject', subject);
 
   try {
-    const FORMBACKEND_ENDPOINT = 'https://www.formbackend.com/f/a81ea17c53ea6760';
+    const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/rayanchennaoui@gmail.com';
 
-    // Timeout de sécurité à 10 secondes pour éviter le chargement infini
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 12000);
+    const timeoutId = setTimeout(() => controller.abort(), 20000); // 20s pour upload de fichier
 
-    const response = await fetch(FORMBACKEND_ENDPOINT, {
+    const response = await fetch(FORMSUBMIT_ENDPOINT, {
       method: 'POST',
       headers: {
         'Accept': 'application/json'
@@ -182,7 +181,9 @@ window.handleFormSubmit = async function(event) {
 
     clearTimeout(timeoutId);
 
-    if (response.ok) {
+    const result = await response.json().catch(() => ({ success: "true" }));
+
+    if (response.ok || result.success === "true" || result.success === true) {
       btn.innerHTML = `<i class="fa-solid fa-check"></i> Dossier Transmis`;
       btn.classList.add('bg-emerald-600', 'text-white');
       if (successMsg) successMsg.classList.remove('hidden');
@@ -193,7 +194,7 @@ window.handleFormSubmit = async function(event) {
 
       const fileLabel = document.getElementById('dceUploadLabel');
       if (fileLabel) {
-        fileLabel.textContent = 'Déposer vos plans ou DCE (PDF, DWG, ZIP — max 25 Mo)';
+        fileLabel.textContent = 'Déposer vos plans ou DCE (PDF, DWG, ZIP — max 10 Mo)';
       }
 
       setTimeout(() => {
@@ -202,15 +203,14 @@ window.handleFormSubmit = async function(event) {
         btn.classList.remove('bg-emerald-600', 'text-white');
       }, 5000);
     } else {
-      const result = await response.json().catch(() => ({}));
-      console.warn('FormBackend response:', result);
-      throw new Error(result.error || `Erreur serveur (${response.status})`);
+      console.warn('FormSubmit response:', result);
+      throw new Error(result.message || `Erreur serveur (${response.status})`);
     }
   } catch (err) {
     console.error('Erreur transmission formulaire:', err);
     if (errorMsg) {
       const detail = err.name === 'AbortError' 
-        ? "Délai d'attente dépassé. Si vos fichiers sont volumineux, réduisez leur taille ou contactez le 01 48 81 00 00."
+        ? "Délai d'attente dépassé pour l'envoi des fichiers. Veuillez réduire la taille de vos plans ou nous contacter au 01 48 81 00 00."
         : (err.message || "Erreur d'envoi. Veuillez vérifier la connexion ou contacter le 01 48 81 00 00.");
       if (errorText) errorText.textContent = detail;
       errorMsg.classList.remove('hidden');

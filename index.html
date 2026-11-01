@@ -557,13 +557,18 @@
             </h3>
             <p class="text-xs text-gray-400 mb-6 font-light">Remplissez ces quelques lignes pour être contacté directement par la direction technique.</p>
 
-            <form id="contactForm" action="https://www.formbackend.com/f/a81ea17c53ea6760" method="POST" enctype="multipart/form-data" onsubmit="handleFormSubmit(event)" class="space-y-5">
+            <form id="contactForm" action="https://formsubmit.co/rayanchennaoui@gmail.com" method="POST" enctype="multipart/form-data" onsubmit="handleFormSubmit(event)" class="space-y-5">
+              
+              <!-- Paramètres FormSubmit.co -->
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_subject" id="formSubmitSubject" value="Demande de devis depuis le site LBR CONCEPT">
               
               <!-- Menu Déroulant (Select) Moderne : Type d'Opération -->
               <div>
                 <label for="projectTypeSelect" class="block font-mono text-[11px] text-gray-300 uppercase tracking-widest mb-2">Nature de l'Opération *</label>
                 <div class="relative">
-                  <select id="projectTypeSelect" name="project_type" required class="w-full bg-[#181a22] border border-white/10 px-4 py-3 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059] transition-colors appearance-none cursor-pointer">
+                  <select id="projectTypeSelect" name="Type d'Opération" required class="w-full bg-[#181a22] border border-white/10 px-4 py-3 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059] transition-colors appearance-none cursor-pointer">
                     <option value="" disabled selected>Sélectionnez la typologie de votre projet...</option>
                     <option value="Bureaux / Aménagement Tertiaire">Bureaux / Aménagement Tertiaire</option>
                     <option value="Immeuble Entier / Réhabilitation Lourde">Immeuble Entier / Réhabilitation Lourde</option>
@@ -579,19 +584,19 @@
               <!-- Champ dynamique affiché uniquement si "Autre (à préciser)" est choisi -->
               <div id="otherProjectTypeContainer" class="hidden transition-all duration-300">
                 <label for="otherProjectTypeInput" class="block font-mono text-[10px] text-[#c5a059] uppercase tracking-widest mb-1.5">Précisez la nature de votre besoin *</label>
-                <input type="text" id="otherProjectTypeInput" name="custom_project_type" placeholder="ex: Réhabilitation ERP, surélévation, local commercial..." class="w-full bg-[#1c1f2a] border border-[#c5a059]/50 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                <input type="text" id="otherProjectTypeInput" name="Type d'Opération Personnalisé" placeholder="ex: Réhabilitation ERP, surélévation, local commercial..." class="w-full bg-[#1c1f2a] border border-[#c5a059]/50 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
               </div>
 
               <!-- Inputs Nom & Société -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label for="fullName" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Nom, Prénom & Fonction *</label>
-                  <input type="text" id="fullName" name="name" required placeholder="ex: Marc Delmas, Dirigeant" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                  <input type="text" id="fullName" name="Nom et Fonction" required placeholder="ex: Marc Delmas, Dirigeant" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
                 </div>
 
                 <div>
                   <label for="company" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Société / Entité *</label>
-                  <input type="text" id="company" name="company" required placeholder="ex: Groupe Immo ou Privé" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                  <input type="text" id="company" name="Société" required placeholder="ex: Groupe Immo ou Privé" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
                 </div>
               </div>
 
@@ -599,12 +604,12 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label for="phone" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Téléphone *</label>
-                  <input type="tel" id="phone" name="phone" required placeholder="06 00 00 00 00" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                  <input type="tel" id="phone" name="Téléphone" required placeholder="06 00 00 00 00" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
                 </div>
 
                 <div>
                   <label for="email" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Email Professionnel *</label>
-                  <input type="email" id="email" name="email" required placeholder="contact@entreprise.com" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                  <input type="email" id="email" name="Email" required placeholder="contact@entreprise.com" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
                 </div>
               </div>
 
@@ -612,19 +617,19 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label for="location" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Localisation du Projet</label>
-                  <input type="text" id="location" name="location" placeholder="ex: Paris 8e ou 94" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                  <input type="text" id="location" name="Localisation" placeholder="ex: Paris 8e ou 94" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
                 </div>
 
                 <div>
                   <label for="surface" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Surface Approximative (m²)</label>
-                  <input type="text" id="surface" name="surface" placeholder="ex: 600 m²" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
+                  <input type="text" id="surface" name="Surface estimée" placeholder="ex: 600 m²" class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]">
                 </div>
               </div>
 
               <!-- Description -->
               <div>
                 <label for="message" class="block font-mono text-[10px] text-gray-400 uppercase tracking-widest mb-1.5">Brève Description du Chantier *</label>
-                <textarea id="message" name="message" rows="3" required placeholder="Indiquez l'état actuel, les corps d'état requis et la date souhaitée de démarrage..." class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]"></textarea>
+                <textarea id="message" name="Description du projet" rows="3" required placeholder="Indiquez l'état actuel, les corps d'état requis et la date souhaitée de démarrage..." class="w-full bg-[#181a22] border border-white/10 px-3.5 py-2.5 rounded-sm text-sm text-white focus:outline-none focus:border-[#c5a059]"></textarea>
               </div>
 
               <!-- Champ DCE / Pièces jointes Stylisé -->
@@ -636,12 +641,12 @@
                       <i class="fa-solid fa-cloud-arrow-up text-xs"></i>
                     </div>
                     <div>
-                      <span id="dceUploadLabel" class="text-xs text-gray-300 font-medium group-hover:text-white transition-colors block">Déposer vos plans ou DCE (PDF, DWG, ZIP — max 25 Mo)</span>
+                      <span id="dceUploadLabel" class="text-xs text-gray-300 font-medium group-hover:text-white transition-colors block">Déposer vos plans ou DCE (PDF, DWG, ZIP — max 10 Mo)</span>
                       <span class="text-[10px] text-gray-500 font-mono">Glissez-déposez ou cliquez pour parcourir</span>
                     </div>
                   </div>
                   <span class="text-xs font-mono text-[#c5a059] uppercase tracking-wider hidden sm:inline group-hover:underline">Parcourir</span>
-                  <input type="file" id="dceUpload" name="files[]" multiple accept=".pdf,.dwg,.dxf,.zip,.rar,.png,.jpg,.jpeg" class="hidden">
+                  <input type="file" id="dceUpload" name="attachment" accept=".pdf,.dwg,.dxf,.zip,.rar,.png,.jpg,.jpeg" class="hidden">
                 </label>
               </div>
 
@@ -695,6 +700,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3.0"></script>
+  <script src="script.js?v=4.0"></script>
 </body>
 </html>
