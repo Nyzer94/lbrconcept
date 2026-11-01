@@ -165,10 +165,9 @@ window.handleFormSubmit = async function(event) {
   try {
     /**
      * CONFIGURATION FORMBACKEND :
-     * Endpoint FormBackend gratuit avec gestion native des fichiers PDF / DCE.
-     * Remplacez l'URL ci-dessous par l'URL de votre formulaire créé sur https://www.formbackend.com/
+     * Endpoint FormBackend officiel de LBR CONCEPT -> rayanchennaoui@gmail.com
      */
-    const FORMBACKEND_ENDPOINT = 'https://app.formbackend.com/f/votre-form-id';
+    const FORMBACKEND_ENDPOINT = 'https://www.formbackend.com/f/a81ea17c53ea6760';
 
     const response = await fetch(FORMBACKEND_ENDPOINT, {
       method: 'POST',
