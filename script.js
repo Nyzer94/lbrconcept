@@ -178,22 +178,41 @@ window.handleFormSubmit = async function(event) {
   }
 
   try {
-    /**
-     * ARCHITECTURE ENVOI EMAIL & PIÈCES JOINTES (GitHub Pages / Static friendly) :
-     * Clé officielle Web3Forms liée au formulaire 'Contact LBR' -> rayanchennaoui@gmail.com
-     */
     const WEB3FORMS_ACCESS_KEY = '928f773a-acf8-4977-bde5-1cfed2aa814d';
-    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-    formData.append('from_name', 'LBR CONCEPT — Site Web');
+
+    const payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: subject,
+      from_name: 'LBR CONCEPT — Site Web',
+      Société: company,
+      Nom_et_Fonction: fullName,
+      Email: email,
+      Téléphone: phone,
+      Type_operation: projectType,
+      Localisation: location,
+      Surface: surface,
+      Message: message
+    };
+
+    // Gestion du fichier joint : mention du nom de fichier dans le message
+    const fileInput = document.getElementById('dceUpload');
+    if (fileInput && fileInput.files && fileInput.files.length > 0) {
+      const fileNames = Array.from(fileInput.files).map(f => `${f.name} (${(f.size/1024/1024).toFixed(2)} Mo)`).join(', ');
+      payload.Fichiers_annonces = fileNames;
+    }
 
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      body: formData
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
     });
 
-    const result = await response.json().catch(() => ({ success: true }));
+    const result = await response.json();
 
-    if (response.ok || result.success) {
+    if (response.ok && result.success) {
       btn.innerHTML = `<i class="fa-solid fa-check"></i> Dossier Transmis`;
       btn.classList.add('bg-emerald-600', 'text-white');
       if (successMsg) successMsg.classList.remove('hidden');
@@ -213,20 +232,16 @@ window.handleFormSubmit = async function(event) {
         btn.classList.remove('bg-emerald-600', 'text-white');
       }, 5000);
     } else {
-      throw new Error(result.message || 'Erreur lors de la transmission');
+      console.warn('Web3Forms message:', result);
+      throw new Error(result.message || 'Échec de transmission');
     }
   } catch (err) {
     console.error('Erreur transmission formulaire:', err);
-    // En cas de blocage réseau ou clé, validation garantie avec feedback direct
-    btn.innerHTML = `<i class="fa-solid fa-check"></i> Dossier Transmis`;
-    btn.classList.add('bg-emerald-600', 'text-white');
-    if (successMsg) successMsg.classList.remove('hidden');
-    form.reset();
-
-    setTimeout(() => {
-      btn.disabled = false;
-      btn.innerHTML = originalHtml;
-      btn.classList.remove('bg-emerald-600', 'text-white');
-    }, 5000);
+    if (errorMsg) {
+      if (errorText) errorText.textContent = err.message || "Erreur de transmission. Veuillez nous contacter au 01 48 81 00 00.";
+      errorMsg.classList.remove('hidden');
+    }
+    btn.disabled = false;
+    btn.innerHTML = originalHtml;
   }
 };
