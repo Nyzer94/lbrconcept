@@ -180,11 +180,9 @@ window.handleFormSubmit = async function(event) {
   try {
     /**
      * ARCHITECTURE ENVOI EMAIL & PIÈCES JOINTES (GitHub Pages / Static friendly) :
-     * 1. Rendez-vous sur https://web3forms.com ou https://formspree.io
-     * 2. Entrez votre email (rayanchennaoui@gmail.com) pour générer votre clé gratuite d'envoi.
-     * 3. Remplacez simplement la clé ci-dessous :
+     * Clé officielle Web3Forms liée au formulaire 'Contact LBR' -> rayanchennaoui@gmail.com
      */
-    const WEB3FORMS_ACCESS_KEY = '928f773a-acf8-4977-bde5-1cfed2aa814d'; // <-- Remplacez par votre clé Web3Forms liée à rayanchennaoui@gmail.com
+    const WEB3FORMS_ACCESS_KEY = '928f773a-acf8-4977-bde5-1cfed2aa814d';
     formData.append('access_key', WEB3FORMS_ACCESS_KEY);
     formData.append('from_name', 'LBR CONCEPT — Site Web');
 
