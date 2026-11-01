@@ -163,19 +163,22 @@ window.handleFormSubmit = async function(event) {
   formData.set('subject', subject);
 
   try {
-    /**
-     * CONFIGURATION FORMBACKEND :
-     * Endpoint FormBackend officiel de LBR CONCEPT -> rayanchennaoui@gmail.com
-     */
     const FORMBACKEND_ENDPOINT = 'https://www.formbackend.com/f/a81ea17c53ea6760';
+
+    // Timeout de sécurité à 10 secondes pour éviter le chargement infini
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 12000);
 
     const response = await fetch(FORMBACKEND_ENDPOINT, {
       method: 'POST',
       headers: {
         'Accept': 'application/json'
       },
-      body: formData
+      body: formData,
+      signal: controller.signal
     });
+
+    clearTimeout(timeoutId);
 
     if (response.ok) {
       btn.innerHTML = `<i class="fa-solid fa-check"></i> Dossier Transmis`;
@@ -199,12 +202,15 @@ window.handleFormSubmit = async function(event) {
     } else {
       const result = await response.json().catch(() => ({}));
       console.warn('FormBackend response:', result);
-      throw new Error(result.error || 'Échec de transmission');
+      throw new Error(result.error || `Erreur serveur (${response.status})`);
     }
   } catch (err) {
     console.error('Erreur transmission formulaire:', err);
     if (errorMsg) {
-      if (errorText) errorText.textContent = "Erreur d'envoi. Veuillez vérifier la connexion ou contacter le 01 48 81 00 00.";
+      const detail = err.name === 'AbortError' 
+        ? "Délai d'attente dépassé. Si vos fichiers sont volumineux, réduisez leur taille ou contactez le 01 48 81 00 00."
+        : (err.message || "Erreur d'envoi. Veuillez vérifier la connexion ou contacter le 01 48 81 00 00.");
+      if (errorText) errorText.textContent = detail;
       errorMsg.classList.remove('hidden');
     }
     btn.disabled = false;
