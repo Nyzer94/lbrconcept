@@ -120,14 +120,96 @@
           </div>
         </div>
 
-        <h1 class="font-syne font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-white uppercase mb-6">
-          <span class="font-syne-statut">Rénovation &</span> <br>
-          <span class="font-syne-statut">Projets <span class="gold-gradient">d'Envergure.</span></span>
-        </h1>
+        <!-- Grille Héro : Titre & Paragraphe à Gauche + Carrousel Sobre à Droite -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-6">
+          
+          <!-- Colonne Gauche : Titre et Description (7 cols) -->
+          <div class="lg:col-span-7">
+            <h1 class="font-syne font-extrabold text-3xl sm:text-5xl md:text-5xl lg:text-6xl tracking-tight leading-[1.08] text-white uppercase mb-5">
+              <span class="font-syne-statut">Rénovation &</span> <br>
+              <span class="font-syne-statut">Projets <span class="gold-gradient">d'Envergure.</span></span>
+            </h1>
 
-        <p class="font-sans text-base sm:text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-3xl mb-8">
-          Entreprise générale dédiée aux <strong class="text-white font-semibold">décideurs, foncières, copropriétés, syndics de copropriété et maîtres d'ouvrage exigeants</strong>. Réhabilitation globale d'immeubles, aménagement de sièges d'entreprise et rénovation de résidences d'exception.
-        </p>
+            <p class="font-sans text-base sm:text-lg text-gray-300 font-light leading-relaxed">
+              Entreprise générale dédiée aux <strong class="text-white font-semibold">décideurs, foncières, copropriétés, syndics de copropriété et maîtres d'ouvrage exigeants</strong>. Réhabilitation globale d'immeubles, aménagement de sièges d'entreprise et rénovation de résidences d'exception.
+            </p>
+          </div>
+
+          <!-- Colonne Droite : Carrousel Propre & Sobre (5 cols) -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative rounded-sm overflow-hidden border border-[#c5a059]/40 shadow-[0_20px_50px_rgba(0,0,0,0.85)] bg-[#101217] group">
+              
+              <!-- Conteneur Slides -->
+              <div class="relative w-full aspect-[4/3] overflow-hidden" id="heroCarousel">
+                
+                <!-- Slide 1 : Escaliers Monumentaux -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
+                  <img src="images/escaliers%20immeuble%20luxe.webp" alt="Rénovation Immeuble Haussmannien" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4">
+                    <span class="font-mono text-[9px] text-[#c5a059] uppercase tracking-wider font-bold">Immeuble Haussmannien • Paris 8e</span>
+                    <span class="font-syne font-bold text-sm text-white uppercase mt-0.5">Parties Communes & Escalier Monumental</span>
+                  </div>
+                </div>
+
+                <!-- Slide 2 : Plateau Bureaux Open Space -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none">
+                  <img src="images/open%20spaceee.webp" alt="Plateau Collaboratif Tertiaire" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4">
+                    <span class="font-mono text-[9px] text-[#c5a059] uppercase tracking-wider font-bold">Siège Tertiaire • 850 m²</span>
+                    <span class="font-syne font-bold text-sm text-white uppercase mt-0.5">Plateaux Collaboratifs & Réseaux RJ45</span>
+                  </div>
+                </div>
+
+                <!-- Slide 3 : Espace Lounge & Restaurant -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none">
+                  <img src="images/resto.webp" alt="Restaurant d'Entreprise & Lounge" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4">
+                    <span class="font-mono text-[9px] text-[#c5a059] uppercase tracking-wider font-bold">Espace Réceptif VIP • 380 m²</span>
+                    <span class="font-syne font-bold text-sm text-white uppercase mt-0.5">Restaurant d'Entreprise & Acoustique Bois</span>
+                  </div>
+                </div>
+
+                <!-- Slide 4 : Bureau de Direction -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none">
+                  <img src="images/bure.webp" alt="Bureau Direction Générale" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4">
+                    <span class="font-mono text-[9px] text-[#c5a059] uppercase tracking-wider font-bold">Direction Générale • Prestige</span>
+                    <span class="font-syne font-bold text-sm text-white uppercase mt-0.5">Espace Présidence & Boiseries Nobles</span>
+                  </div>
+                </div>
+
+                <!-- Slide 5 : Résidentiel de Grand Luxe -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none">
+                  <img src="images/cuisine%20luxe.webp" alt="Résidence d'Exception" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4">
+                    <span class="font-mono text-[9px] text-[#c5a059] uppercase tracking-wider font-bold">Résidentiel d'Élite • Marbres Rares</span>
+                    <span class="font-syne font-bold text-sm text-white uppercase mt-0.5">Haute Rénovation & Matériaux Nobles</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Commandes discrètes du carrousel (Précédent / Suivant) -->
+              <button onclick="prevHeroSlide()" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:border-[#c5a059] hover:text-[#c5a059]" aria-label="Précédent">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+              </button>
+              <button onclick="nextHeroSlide()" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:border-[#c5a059] hover:text-[#c5a059]" aria-label="Suivant">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+              </button>
+
+              <!-- Indicateurs Points (Dots) -->
+              <div class="absolute bottom-2.5 right-4 flex items-center gap-1.5 z-10" id="heroDots">
+                <span class="hero-dot w-2 h-2 rounded-full bg-[#c5a059] transition-all cursor-pointer" onclick="goToHeroSlide(0)"></span>
+                <span class="hero-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all cursor-pointer" onclick="goToHeroSlide(1)"></span>
+                <span class="hero-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all cursor-pointer" onclick="goToHeroSlide(2)"></span>
+                <span class="hero-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all cursor-pointer" onclick="goToHeroSlide(3)"></span>
+                <span class="hero-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all cursor-pointer" onclick="goToHeroSlide(4)"></span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
 
         <!-- PARTENAIRES & CLIENTS DE PRESTIGE EN DORÉ (Sous la description, au-dessus du CTA) -->
         <div class="my-7 pt-4 border-t border-white/10 max-w-3xl">
@@ -150,7 +232,7 @@
             </div>
             <!-- PÔLE EMPLOI -->
             <div class="flex items-center justify-center h-12 p-1.5 group">
-              <img src="images/pole-emploi-logo.png" alt="Pôle Emploi" class="max-h-9 max-w-full object-contain gold-logo-filter" title="Pôle Emploi (France Travail)">
+              <img src="images/pole emploi.png" alt="France Travail / Pôle Emploi" class="max-h-10 max-w-full object-contain gold-logo-filter" title="France Travail / Pôle Emploi">
             </div>
             <!-- PRIMARK -->
             <div class="flex items-center justify-center h-12 p-1.5 group">
@@ -772,6 +854,69 @@
 
     </div>
   </footer>
+
+  <!-- SCRIPT DU CARROUSEL HÉRO SOBRE -->
+  <script>
+    let currentHeroSlide = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.hero-dot');
+    let heroInterval = null;
+
+    function showHeroSlide(index) {
+      if (!heroSlides.length) return;
+      if (index >= heroSlides.length) currentHeroSlide = 0;
+      else if (index < 0) currentHeroSlide = heroSlides.length - 1;
+      else currentHeroSlide = index;
+
+      heroSlides.forEach((slide, i) => {
+        if (i === currentHeroSlide) {
+          slide.classList.remove('opacity-0', 'pointer-events-none');
+          slide.classList.add('opacity-100');
+        } else {
+          slide.classList.remove('opacity-100');
+          slide.classList.add('opacity-0', 'pointer-events-none');
+        }
+      });
+
+      heroDots.forEach((dot, i) => {
+        if (i === currentHeroSlide) {
+          dot.className = 'hero-dot w-2 h-2 rounded-full bg-[#c5a059] transition-all cursor-pointer';
+        } else {
+          dot.className = 'hero-dot w-2 h-2 rounded-full bg-white/40 hover:bg-white/80 transition-all cursor-pointer';
+        }
+      });
+    }
+
+    function nextHeroSlide() {
+      showHeroSlide(currentHeroSlide + 1);
+      resetHeroAutoplay();
+    }
+
+    function prevHeroSlide() {
+      showHeroSlide(currentHeroSlide - 1);
+      resetHeroAutoplay();
+    }
+
+    function goToHeroSlide(index) {
+      showHeroSlide(index);
+      resetHeroAutoplay();
+    }
+
+    function startHeroAutoplay() {
+      heroInterval = setInterval(() => {
+        showHeroSlide(currentHeroSlide + 1);
+      }, 4500);
+    }
+
+    function resetHeroAutoplay() {
+      clearInterval(heroInterval);
+      startHeroAutoplay();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      startHeroAutoplay();
+    });
+  </script>
 
   <script src="script.js?v=8.0"></script>
 </body>

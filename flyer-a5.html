@@ -55,6 +55,10 @@
       -webkit-text-fill-color: transparent;
     }
 
+    .gold-logo-filter {
+      filter: brightness(0) saturate(100%) invert(73%) sepia(26%) saturate(786%) hue-rotate(7deg) brightness(92%) contrast(88%);
+    }
+
     .gold-glow {
       box-shadow: 0 0 25px rgba(197, 160, 89, 0.35);
     }
@@ -130,6 +134,20 @@
         </div>
       </div>
 
+      <!-- RUBRIQUE ILS NOUS ONT FAIT CONFIANCE (LOGOS PARTENAIRES DORÉS) -->
+      <div class="pt-1.5 pb-1 border-b border-white/10 flex items-center justify-between gap-2">
+        <span class="font-mono text-[6.5pt] text-[#c5a059] uppercase tracking-widest font-extrabold shrink-0">
+          ILS NOUS ONT FAIT CONFIANCE :
+        </span>
+        <div class="flex items-center justify-end gap-3.5 flex-1">
+          <img src="images/Louis_Vuitton_LV_logo.png" alt="Louis Vuitton" class="h-3.5 w-auto object-contain gold-logo-filter" title="Louis Vuitton">
+          <img src="images/chanel.png" alt="Chanel" class="h-3 w-auto object-contain gold-logo-filter" title="Chanel">
+          <img src="images/Société_Générale.png" alt="Société Générale" class="h-2.5 w-auto object-contain gold-logo-filter" title="Société Générale">
+          <img src="images/pole emploi.png" alt="France Travail / Pôle Emploi" class="h-3.5 w-auto object-contain gold-logo-filter" title="Pôle Emploi">
+          <img src="images/Primark_Logo_03.2024.png" alt="Primark" class="h-2.5 w-auto object-contain gold-logo-filter" title="Primark">
+        </div>
+      </div>
+
       <!-- Accroche Majeure Impactante & Flashy -->
       <div class="my-1.5">
         <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#c5a059]/20 border border-[#c5a059]/60 mb-1.5">
@@ -164,57 +182,62 @@
         </div>
       </div>
 
-      <!-- Les 3 Piliers Contractuels Flashy -->
-      <div class="grid grid-cols-3 gap-2 my-1">
+      <!-- Les 3 Piliers Unis (Séparés uniquement par une fine ligne verticale) -->
+      <div class="my-1.5 p-2 bg-[#12141c] border border-white/15 rounded-sm grid grid-cols-3 divide-x divide-white/20">
         
-        <div class="p-2.5 bg-[#14161f] border border-[#c5a059]/50 rounded-sm">
-          <div class="text-[#c5a059] text-[13pt] mb-0.5">
-            <i class="fa-solid fa-user-check"></i>
+        <div class="px-2">
+          <div class="flex items-center gap-1.5 text-[#c5a059] mb-0.5">
+            <i class="fa-solid fa-user-check text-[10pt]"></i>
+            <h4 class="font-syne font-extrabold text-[8.5pt] text-white uppercase leading-tight">Pilote Unique</h4>
           </div>
-          <h4 class="font-syne font-extrabold text-[9pt] text-white uppercase leading-tight">Pilote Unique</h4>
-          <p class="font-sans text-[7.5pt] text-gray-200 mt-0.5 leading-snug">
-            1 seul interlocuteur TCE : conception, autorisations et travaux sans dilution.
+          <p class="font-sans text-[7pt] text-gray-300 leading-snug">
+            1 interlocuteur TCE : études, autorisations et exécution sans dilution.
           </p>
         </div>
 
-        <div class="p-2.5 bg-[#14161f] border border-[#c5a059]/50 rounded-sm">
-          <div class="text-[#c5a059] text-[13pt] mb-0.5">
-            <i class="fa-solid fa-clock-check"></i>
+        <div class="px-2">
+          <div class="flex items-center gap-1.5 text-[#c5a059] mb-0.5">
+            <i class="fa-solid fa-clock-check text-[10pt]"></i>
+            <h4 class="font-syne font-extrabold text-[8.5pt] text-white uppercase leading-tight">Prix & Délais Fermes</h4>
           </div>
-          <h4 class="font-syne font-extrabold text-[9pt] text-white uppercase leading-tight">Prix & Délais Fermes</h4>
-          <p class="font-sans text-[7.5pt] text-gray-200 mt-0.5 leading-snug">
-            Budget forfaitaire contractuel sans avenant abusif. Pénalités de retard fermes.
+          <p class="font-sans text-[7pt] text-gray-300 leading-snug">
+            Budget forfaitaire contractuel sans surcoût. Pénalités de retard fermes.
           </p>
         </div>
 
-        <div class="p-2.5 bg-[#14161f] border border-[#c5a059]/50 rounded-sm">
-          <div class="text-[#c5a059] text-[13pt] mb-0.5">
-            <i class="fa-solid fa-shield-halved"></i>
+        <div class="px-2">
+          <div class="flex items-center gap-1.5 text-[#c5a059] mb-0.5">
+            <i class="fa-solid fa-shield-halved text-[10pt]"></i>
+            <h4 class="font-syne font-extrabold text-[8.5pt] text-white uppercase leading-tight">Décennale AXA</h4>
           </div>
-          <h4 class="font-syne font-extrabold text-[9pt] text-white uppercase leading-tight">Décennale AXA</h4>
-          <p class="font-sans text-[7.5pt] text-gray-200 mt-0.5 leading-snug">
-            Assurance décennale capitalisée, solvabilité solide & conformité RE2020.
+          <p class="font-sans text-[7pt] text-gray-300 leading-snug">
+            Assurance décennale capitalisée, solvabilité solide & normes RE2020.
           </p>
         </div>
 
       </div>
 
-      <!-- CTA RECTO FLASHY & PERCUTANT -->
-      <div class="p-2.5 bg-gradient-to-r from-[#171922] via-[#202433] to-[#171922] border-2 border-[#c5a059] rounded-sm flex items-center justify-between shadow-lg">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-[#c5a059] text-black flex items-center justify-center font-bold text-sm shrink-0">
-            <i class="fa-solid fa-phone"></i>
-          </div>
-          <div>
-            <span class="font-syne font-black text-[9pt] text-white uppercase block leading-none">
-              CONSULTATION RAPIDE & VISITE TECHNIQUE
-            </span>
-            <span class="font-sans text-[7.5pt] text-gray-300">Chiffrage sous 48h sur plans ou visite de chantier</span>
-          </div>
+      <!-- CTA RECTO IDENTIQUE AU VERSO (OR LUXE & IMPACT DIRECT) -->
+      <div class="p-2.5 bg-gradient-to-r from-[#c5a059] via-[#dfbe76] to-[#b38e44] text-black rounded-sm flex items-center justify-between shadow-xl">
+        <div class="pr-2">
+          <span class="font-syne font-black text-[10.5pt] uppercase tracking-wide block leading-none text-black">
+            UN CHANTIER ? UN DEVIS ? PARLONS-EN
+          </span>
+          <span class="font-sans text-[7.5pt] text-black/85 font-semibold mt-1 block">
+            Déplacement sur site et chiffrage d'expert sous 48 heures ouvrées
+          </span>
         </div>
-        <div class="text-right">
-          <span class="font-mono font-black text-[11pt] text-[#c5a059] block leading-none">01 48 81 00 00</span>
-          <span class="font-mono text-[7pt] text-white uppercase">contact@lbrconcept.fr</span>
+
+        <div class="text-right shrink-0 border-l border-black/30 pl-3">
+          <div class="font-mono font-black text-[11.5pt] text-black leading-none">
+            01 48 81 00 00
+          </div>
+          <div class="font-mono font-bold text-[7.5pt] text-black/90 mt-0.5">
+            06 66 99 19 71
+          </div>
+          <div class="font-mono text-[7pt] font-extrabold uppercase mt-0.5 text-black">
+            www.lbrconcept.fr
+          </div>
         </div>
       </div>
 
@@ -331,7 +354,7 @@
 
       <!-- Footer Verso -->
       <div class="border-t border-white/10 pt-1.5 flex items-center justify-between text-[7pt] font-mono tracking-wider text-gray-400 uppercase">
-        <span class="text-[#c5a059] font-bold">ASSURANCE DÉCENNALE AXA FRANCE • POLICE N° 0000010862089504</span>
+        <span class="text-[#c5a059] font-bold">ASSURANCE DÉCENNALE AXA FRANCE</span>
         <span>477 RUE MARCEL PAUL, 94500 CHAMPIGNY</span>
       </div>
 
