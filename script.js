@@ -246,6 +246,8 @@ function escapeHtml(text) {
 }
 
 window.handleFormSubmit = async function(event) {
+  event.preventDefault();
+
   const form = document.getElementById('contactForm');
   const successMsg = document.getElementById('formSuccessMessage');
   const errorMsg = document.getElementById('formErrorMessage');
@@ -256,18 +258,20 @@ window.handleFormSubmit = async function(event) {
 
   // Récupération des données du formulaire
   const company = document.getElementById('company')?.value?.trim() || 'Prospect';
-  const subject = `Demande de devis depuis le site : ${company}`;
+  const fullName = document.getElementById('fullName')?.value?.trim() || 'Client';
+  const subject = `[LBR CONCEPT] Demande de devis : ${company} (${fullName})`;
 
   // Mettre à jour l'objet pour l'email
   const subjectInput = document.getElementById('formSubmitSubject');
   if (subjectInput) subjectInput.value = subject;
 
+  if (successMsg) successMsg.classList.add('hidden');
+  if (errorMsg) errorMsg.classList.add('hidden');
+
   // Si des fichiers ont été ajoutés par l'utilisateur
   if (uploadedFiles.length > 0) {
-    // Vérifier la limite totale de taille (10 Mo max pour FormSubmit)
     const totalBytes = uploadedFiles.reduce((acc, f) => acc + (f.size || 0), 0);
     if (totalBytes > 10 * 1024 * 1024) {
-      event.preventDefault();
       alert("Le poids total des pièces jointes dépasse 10 Mo. Veuillez réduire ou compresser vos documents avant l'envoi.");
       return false;
     }
@@ -282,7 +286,6 @@ window.handleFormSubmit = async function(event) {
       dt.items.add(renamedFile);
     });
 
-    // Mettre à jour le champ de fichier principal dceUpload avec les fichiers renommés
     const dceInput = document.getElementById('dceUpload');
     if (dceInput) {
       dceInput.name = 'attachment';
@@ -297,67 +300,101 @@ window.handleFormSubmit = async function(event) {
       form.appendChild(hiddenInput);
     }
 
-    // Soumission native standard pour que FormSubmit attache tous les fichiers dans le mail
     btn.disabled = true;
     btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transmission du dossier (${uploadedFiles.length} pièce${uploadedFiles.length > 1 ? 's' : ''})...`;
-    return true; // continue la soumission native HTML sans erreur 500
+
+    // Soumission native pour multipart
+    form.action = 'https://shipmyform.com/to/rayanchennaoui@gmail.com';
+    HTMLFormElement.prototype.submit.call(form);
+    return;
   }
 
-  // Sinon (pas de fichier), envoi AJAX fluide sans rechargement
-  event.preventDefault();
-
-  if (successMsg) successMsg.classList.add('hidden');
-  if (errorMsg) errorMsg.classList.add('hidden');
-
+  // Envoi sans fichier (flux AJAX ultra-rapide et résilient)
   btn.disabled = true;
   btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transmission en cours...`;
 
-  const formData = new FormData(form);
+  function showSuccess() {
+    btn.innerHTML = `<i class="fa-solid fa-check"></i> Dossier Transmis`;
+    btn.classList.add('bg-emerald-600', 'text-white');
+    if (successMsg) successMsg.classList.remove('hidden');
+    form.reset();
 
+    const otherContainer = document.getElementById('otherProjectTypeContainer');
+    if (otherContainer) otherContainer.classList.add('hidden');
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = originalHtml;
+      btn.classList.remove('bg-emerald-600', 'text-white');
+    }, 6000);
+  }
+
+  // 1. Tentative n°1 : ShipMyForm en direct (ultra-rapide, très haute disponibilité)
   try {
-    const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/rayanchennaoui@gmail.com';
+    const formData = new FormData(form);
+    const controller1 = new AbortController();
+    const timeout1 = setTimeout(() => controller1.abort(), 6000);
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000);
-
-    const response = await fetch(FORMSUBMIT_ENDPOINT, {
+    const res1 = await fetch('https://shipmyform.com/to/rayanchennaoui@gmail.com', {
       method: 'POST',
       headers: {
         'Accept': 'application/json'
       },
       body: formData,
-      signal: controller.signal
+      signal: controller1.signal
     });
+    clearTimeout(timeout1);
 
-    clearTimeout(timeoutId);
-
-    const result = await response.json().catch(() => ({ success: true }));
-    const isSuccess = response.ok && (result.success === "true" || result.success === true);
-
-    if (isSuccess) {
-      btn.innerHTML = `<i class="fa-solid fa-check"></i> Dossier Transmis`;
-      btn.classList.add('bg-emerald-600', 'text-white');
-      if (successMsg) successMsg.classList.remove('hidden');
-      form.reset();
-
-      const otherContainer = document.getElementById('otherProjectTypeContainer');
-      if (otherContainer) otherContainer.classList.add('hidden');
-
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.innerHTML = originalHtml;
-        btn.classList.remove('bg-emerald-600', 'text-white');
-      }, 5000);
-    } else {
-      throw new Error(result.message || `Erreur serveur (${response.status})`);
+    if (res1.ok) {
+      const data1 = await res1.json().catch(() => ({ ok: true }));
+      if (data1.ok) {
+        showSuccess();
+        return;
+      }
     }
-  } catch (err) {
-    console.error('Erreur transmission formulaire:', err);
+  } catch (e1) {
+    console.warn('ShipMyForm indisponible, bascule sur passerelle de secours...', e1);
+  }
+
+  // 2. Tentative n°2 : FormSubmit en fallback AJAX
+  try {
+    const formData2 = new FormData(form);
+    const controller2 = new AbortController();
+    const timeout2 = setTimeout(() => controller2.abort(), 5000);
+
+    const res2 = await fetch('https://formsubmit.co/ajax/rayanchennaoui@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: formData2,
+      signal: controller2.signal
+    });
+    clearTimeout(timeout2);
+
+    if (res2.ok) {
+      const data2 = await res2.json().catch(() => ({ success: true }));
+      if (data2.success === true || data2.success === "true") {
+        showSuccess();
+        return;
+      }
+    }
+  } catch (e2) {
+    console.warn('FormSubmit indisponible, bascule sur soumission native...', e2);
+  }
+
+  // 3. Fallback ultime : Soumission native sans blocage (redirige vers ?sent=success#contact)
+  try {
+    form.action = 'https://shipmyform.com/to/rayanchennaoui@gmail.com';
+    HTMLFormElement.prototype.submit.call(form);
+  } catch (e3) {
+    console.error('Erreur finale soumission:', e3);
     if (errorMsg) {
-      if (errorText) errorText.textContent = "Erreur d'envoi. Veuillez vérifier la connexion ou contacter le 01 48 81 00 00.";
+      if (errorText) errorText.textContent = "Erreur de transmission réseau. Veuillez nous contacter au 01 48 81 00 00.";
       errorMsg.classList.remove('hidden');
     }
     btn.disabled = false;
     btn.innerHTML = originalHtml;
   }
 };
+
