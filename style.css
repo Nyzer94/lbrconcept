@@ -67,21 +67,26 @@ html {
   display: inline-block;
 }
 
-/* Typographie des titres Syne : Élancée, aérée et sans aucune superposition */
+/* Typographie des titres Syne : Allongée verticalement, statutaire et aérée sans collision */
 .font-syne {
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 
 h1.font-syne, h2.font-syne, h3.font-syne, h4.font-syne,
 .font-syne.text-xl, .font-syne.text-2xl, .font-syne.text-3xl, .font-syne.text-4xl, .font-syne.text-5xl {
-  line-height: 1.25 !important;
   letter-spacing: 0.02em;
+  transform: scaleY(1.22);
+  transform-origin: center top;
+  margin-bottom: 0.55em !important;
+  margin-top: 0.15em !important;
+  line-height: 1.35 !important;
 }
 
 .font-syne-statut {
-  display: block;
-  letter-spacing: 0.03em;
-  line-height: 1.35;
+  display: inline-block;
+  transform: scaleY(1.22);
+  transform-origin: center top;
+  letter-spacing: 0.02em;
 }
 
 /* Gallery Hover Vignette & Image scale */
