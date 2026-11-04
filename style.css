@@ -75,16 +75,16 @@ html {
 h1.font-syne, h2.font-syne, h3.font-syne, h4.font-syne,
 .font-syne.text-xl, .font-syne.text-2xl, .font-syne.text-3xl, .font-syne.text-4xl, .font-syne.text-5xl {
   letter-spacing: 0.02em;
-  transform: scaleY(1.22);
+  transform: scaleY(1.30);
   transform-origin: center top;
-  margin-bottom: 0.55em !important;
-  margin-top: 0.15em !important;
-  line-height: 1.35 !important;
+  margin-bottom: 0.42em !important;
+  margin-top: 0.12em !important;
+  line-height: 1.28 !important;
 }
 
 .font-syne-statut {
   display: inline-block;
-  transform: scaleY(1.22);
+  transform: scaleY(1.30);
   transform-origin: center top;
   letter-spacing: 0.02em;
 }
