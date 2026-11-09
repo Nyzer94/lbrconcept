@@ -1,140 +1,266 @@
 /* ==========================================================================
-   LBR CONCEPT — DESIGN SYSTEM & LUXURY ARCHITECTURAL STYLES
-   Minimalisme radical, Swiss Design moderne, nuances minérales & laiton
+   LBR CONCEPT — NOUVELLE IDENTITÉ VISUELLE OFFICIELLE & DESIGN SYSTEM
+   Couleurs de marque officielles (inspirées de la carte de visite & de l'affiche) :
+   - Bleu Profond Nuit : #0b1e36 / #071526 (institutionnel, autorité, statutaire)
+   - Bleu Moyen Ardoise : #1d4ed8 / #23324a (graphismes secondaires, repères)
+   - Lavande / Slate : #6a6b9a / #7c87c5 (accents architecturaux subtils)
+   - Prune / Bordeaux Foncée : #701A45 / #520F30 / #852253 (courbe distinctive, séparateurs, boutons clés)
+   - Blanc & Givré : #ffffff / #f8fafc (espace, respiration, haute lisibilité)
+   Typographie des Titres : Outfit & Plus Jakarta Sans (géométrique, propre, sobre, architecturale)
    ========================================================================== */
 
 @charset "UTF-8";
 
 :root {
-  --color-gold: #c5a059;
-  --color-gold-light: #dfbe76;
-  --color-gold-dark: #9b7d3a;
-  --color-bg: #0b0c0e;
-  --color-bg-secondary: #121419;
-  --color-card: #15171e;
-  --color-border: rgba(255, 255, 255, 0.08);
+  --color-navy: #0b1e36;
+  --color-navy-dark: #071526;
+  --color-navy-light: #132d4e;
+  --color-blue: #1d4ed8;
+  --color-blue-secondary: #0284c7;
+  --color-lavender: #7c87c5;
+  --color-lavender-light: #a5b4fc;
+  --color-magenta: #701A45;
+  --color-magenta-hover: #852253;
+  --color-magenta-dark: #520F30;
+  --color-bordeaux: #701A45;
+  --color-bordeaux-hover: #852253;
+  --color-bordeaux-dark: #520F30;
+  --color-white: #ffffff;
+  --color-bg-light: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-700: #334155;
+  --color-slate-900: #0f172a;
 }
 
 /* Base resets & smooth rendering */
 html {
-  background-color: var(--color-bg);
-  color: #e2e4e9;
+  background-color: #ffffff;
+  color: #0f172a;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle noise overlay texture using CSS data URI */
-.noise-overlay {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  background-color: #ffffff;
 }
 
-/* Cinematic Slow Zoom for Hero image */
-@keyframes slowZoom {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.06); }
-  100% { transform: scale(1); }
+/* Typographies architecturales & institutionnelles propres et épurées */
+.font-syne, .font-heading, .font-outfit {
+  font-family: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.015em;
 }
 
-.animate-slow-zoom {
-  animation: slowZoom 26s ease-in-out infinite;
+.font-mono {
+  font-family: 'Space Grotesk', monospace;
 }
 
-/* Navbar blur effect on scroll */
-#navbar.scrolled {
-  background-color: rgba(11, 12, 14, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 0.85rem;
-  padding-bottom: 0.85rem;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+.font-sans {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Interactive Project Typology Labels */
-.project-type-label.selected {
-  border-color: var(--color-gold);
-  background-color: #1f222d;
-  box-shadow: 0 0 20px rgba(197, 160, 89, 0.18);
-}
-
-/* Luxury Metallic Gold Gradient & Statutory Typography */
-.gold-gradient {
-  background: linear-gradient(135deg, #d8ba82 0%, #e6cb96 28%, #dfbe76 50%, #c5a059 75%, #9b7d3a 100%);
+/* Dégradé Signature LBR : Bleu Profond vers Bordeaux Foncé */
+.lbr-gradient-text {
+  background: linear-gradient(135deg, #0b1e36 0%, #1e293b 45%, #701A45 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
-/* Typographie des titres Syne : Allongée verticalement, statutaire, compacte et SANS collision */
-.font-syne {
-  letter-spacing: 0.02em;
-}
-
-h1.font-syne, h2.font-syne, h3.font-syne, h4.font-syne,
-.font-syne.text-xl, .font-syne.text-2xl, .font-syne.text-3xl, .font-syne.text-4xl, .font-syne.text-5xl {
-  letter-spacing: 0.02em;
-  transform: scaleY(1.30);
-  transform-origin: center top;
-  margin-bottom: calc(0.30em * 1.30 + 1.25rem) !important;
-  margin-top: 0.15em !important;
-  line-height: 1.05 !important;
-}
-
-.hero-main-title {
-  margin-bottom: 2.25rem !important;
-  line-height: 0.98 !important;
-}
-
-.hero-main-title span.block {
-  margin-bottom: 0px !important;
-  padding-bottom: 0px !important;
-  line-height: 1.02 !important;
-}
-
-.font-syne-statut {
+.magenta-gradient-text, .bordeaux-gradient-text {
+  background: linear-gradient(135deg, #701A45 0%, #852253 60%, #9e2a63 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   display: inline-block;
-  transform: scaleY(1.30);
-  transform-origin: center top;
-  letter-spacing: 0.02em;
 }
 
-/* Gallery Hover Vignette & Image scale */
-.gallery-item {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.blue-gradient-text {
+  background: linear-gradient(135deg, #0284c7 0%, #1d4ed8 70%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
-.gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(197, 160, 89, 0.3);
+/* Boutons Signature */
+.btn-primary-lbr {
+  background: linear-gradient(135deg, #0b1e36 0%, #1b2e4b 60%, #701A45 100%);
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(11, 30, 54, 0.25);
+}
+
+.btn-primary-lbr:hover {
+  background: linear-gradient(135deg, #071526 0%, #162a45 50%, #701A45 100%);
+  box-shadow: 0 6px 30px rgba(112, 26, 69, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-magenta-lbr, .btn-bordeaux-lbr {
+  background: linear-gradient(135deg, #701A45 0%, #852253 100%);
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(112, 26, 69, 0.25);
+}
+
+.btn-magenta-lbr:hover, .btn-bordeaux-lbr:hover {
+  background: linear-gradient(135deg, #520F30 0%, #701A45 100%);
+  box-shadow: 0 6px 24px rgba(112, 26, 69, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline-lbr {
+  border: 1.5px solid #0b1e36;
+  color: #0b1e36;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-lbr:hover {
+  background-color: #0b1e36;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(11, 30, 54, 0.2);
+}
+
+/* Navbar Dynamic on Scroll */
+#navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  box-shadow: 0 10px 30px -10px rgba(11, 30, 54, 0.08);
+}
+
+#navbar.scrolled .nav-brand-text {
+  color: #0b1e36;
+}
+
+#navbar.scrolled .nav-link-item {
+  color: #334155;
+}
+
+#navbar.scrolled .nav-link-item:hover {
+  color: #701A45;
+}
+
+/* Subtle architectural grid background */
+.architectural-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(11, 30, 54, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 30, 54, 0.035) 1px, transparent 1px);
+}
+
+.architectural-grid-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Courbes Vectorielles & Séparateurs LBR */
+.wave-separator-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave-separator-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* Ligne décorative signature bicolore LBR */
+.lbr-accent-line {
+  height: 3px;
+  background: linear-gradient(90deg, #0b1e36 0%, #1d4ed8 40%, #701A45 100%);
+  border-radius: 9999px;
+}
+
+/* Cards & Hover Effects */
+.luxury-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(11, 30, 54, 0.04);
+}
+
+.luxury-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(112, 26, 69, 0.4);
+  box-shadow: 0 20px 40px -10px rgba(11, 30, 54, 0.1), 0 0 0 1px rgba(112, 26, 69, 0.2);
+}
+
+.dark-luxury-card {
+  background-color: rgba(19, 45, 78, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark-luxury-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(112, 26, 69, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(112, 26, 69, 0.3);
+}
+
+/* Gallery Hover Image Scale */
+.gallery-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.gallery-card img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(11, 30, 54, 0.25);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b0c0e;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2e38;
-  border-radius: 3px;
+  background: #0b1e36;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c5a059;
+  background: #701A45;
 }
 
-
-/* Filtre or signature pour logos partenaires */
-.gold-logo-filter {
-  filter: brightness(0) saturate(100%) invert(73%) sepia(26%) saturate(786%) hue-rotate(7deg) brightness(92%) contrast(88%);
+/* Client logos authentic rendering */
+.client-logo-item {
   transition: all 0.3s ease;
+  filter: grayscale(100%) opacity(70%);
 }
-.gold-logo-filter:hover {
-  filter: brightness(0) saturate(100%) invert(86%) sepia(21%) saturate(940%) hue-rotate(6deg) brightness(98%) contrast(92%) drop-shadow(0 0 12px rgba(197,160,89,0.5));
-  transform: scale(1.05);
+
+.client-logo-item:hover {
+  filter: grayscale(0%) opacity(100%);
+  transform: scale(1.06);
 }

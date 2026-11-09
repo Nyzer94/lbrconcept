@@ -193,9 +193,9 @@ function initMultiFileManager() {
     let totalBytes = 0;
 
     let html = `
-      <div class="text-[11px] font-mono text-[#c5a059] flex items-center justify-between pb-1 border-b border-white/10">
+      <div class="text-[11px] font-mono text-lbr-navy flex items-center justify-between pb-1 border-b border-slate-200 font-semibold">
         <span>${uploadedFiles.length} document${uploadedFiles.length > 1 ? 's' : ''} joint${uploadedFiles.length > 1 ? 's' : ''} :</span>
-        <button type="button" onclick="clearAllFiles()" class="text-xs text-gray-400 hover:text-red-400 transition-colors">Tout retirer</button>
+        <button type="button" onclick="clearAllFiles()" class="text-xs text-slate-500 hover:text-red-500 transition-colors">Tout retirer</button>
       </div>
     `;
 
@@ -204,21 +204,21 @@ function initMultiFileManager() {
       const sizeMo = (file.size / 1024 / 1024).toFixed(2);
       
       html += `
-        <div class="flex items-center justify-between p-2.5 bg-[#15171f] border border-white/10 rounded-sm text-xs hover:border-[#c5a059]/40 transition-all">
+        <div class="flex items-center justify-between p-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs hover:border-lbr-magenta/50 transition-all">
           <div class="flex items-center gap-2.5 overflow-hidden pr-2">
-            <i class="fa-solid fa-file-pdf text-[#c5a059] shrink-0 text-sm"></i>
+            <i class="fa-solid fa-file-pdf text-lbr-magenta shrink-0 text-sm"></i>
             <div class="truncate">
-              <span class="text-white font-medium truncate block">${escapeHtml(file.name)}</span>
-              <span class="text-[10px] text-gray-400 font-mono">${sizeMo} Mo</span>
+              <span class="text-slate-900 font-medium truncate block">${escapeHtml(file.name)}</span>
+              <span class="text-[10px] text-slate-500 font-mono">${sizeMo} Mo</span>
             </div>
           </div>
           <div class="flex items-center gap-1.5 shrink-0">
             <!-- Bouton Crayon / Renommer -->
-            <button type="button" onclick="renameUploadedFile('${file.id}')" title="Renommer la pièce jointe" class="w-7 h-7 rounded-sm bg-[#1c1f2a] hover:bg-[#c5a059] text-gray-300 hover:text-black transition-colors flex items-center justify-center">
+            <button type="button" onclick="renameUploadedFile('${file.id}')" title="Renommer la pièce jointe" class="w-7 h-7 rounded bg-white hover:bg-lbr-blue hover:text-white border border-slate-200 text-slate-700 transition-colors flex items-center justify-center">
               <i class="fa-solid fa-pen text-[11px]"></i>
             </button>
             <!-- Bouton Poubelle / Supprimer -->
-            <button type="button" onclick="removeUploadedFile('${file.id}')" title="Supprimer la pièce jointe" class="w-7 h-7 rounded-sm bg-[#1c1f2a] hover:bg-red-500/80 text-gray-300 hover:text-white transition-colors flex items-center justify-center">
+            <button type="button" onclick="removeUploadedFile('${file.id}')" title="Supprimer la pièce jointe" class="w-7 h-7 rounded bg-white hover:bg-red-500 hover:text-white border border-slate-200 text-slate-700 transition-colors flex items-center justify-center">
               <i class="fa-solid fa-trash-can text-[11px]"></i>
             </button>
           </div>
@@ -228,7 +228,7 @@ function initMultiFileManager() {
 
     const totalMo = (totalBytes / 1024 / 1024).toFixed(2);
     if (fileLabel) {
-      fileLabel.innerHTML = `<span class="text-[#c5a059] font-mono">${uploadedFiles.length} fichier(s)</span> préparé(s) (${totalMo} Mo)`;
+      fileLabel.innerHTML = `<span class="text-lbr-magenta font-mono font-bold">${uploadedFiles.length} fichier(s)</span> préparé(s) (${totalMo} Mo)`;
     }
 
     fileListContainer.innerHTML = html;
@@ -303,8 +303,12 @@ window.handleFormSubmit = async function(event) {
     btn.disabled = true;
     btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Transmission du dossier (${uploadedFiles.length} pièce${uploadedFiles.length > 1 ? 's' : ''})...`;
 
-    // Soumission native pour multipart
-    form.action = 'https://shipmyform.com/to/rayanchennaoui@gmail.com';
+    // Soumission multipart avec pièces jointes vers l'adresse officielle
+    const nextInput = document.getElementById('formSubmitNext');
+    if (nextInput) {
+      nextInput.value = window.location.origin + window.location.pathname + '?sent=success#contact';
+    }
+    form.action = 'https://formsubmit.co/contact@lbr-concept.fr';
     HTMLFormElement.prototype.submit.call(form);
     return;
   }
@@ -329,72 +333,50 @@ window.handleFormSubmit = async function(event) {
     }, 6000);
   }
 
-  // 1. Tentative n°1 : ShipMyForm en direct (ultra-rapide, très haute disponibilité)
+  // 1. Tentative n°1 : FormSubmit AJAX vers contact@lbr-concept.fr
   try {
     const formData = new FormData(form);
-    const controller1 = new AbortController();
-    const timeout1 = setTimeout(() => controller1.abort(), 6000);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 6000);
 
-    const res1 = await fetch('https://shipmyform.com/to/rayanchennaoui@gmail.com', {
+    const res = await fetch('https://formsubmit.co/ajax/contact@lbr-concept.fr', {
       method: 'POST',
       headers: {
         'Accept': 'application/json'
       },
       body: formData,
-      signal: controller1.signal
+      signal: controller.signal
     });
-    clearTimeout(timeout1);
+    clearTimeout(timeout);
 
-    if (res1.ok) {
-      const data1 = await res1.json().catch(() => ({ ok: true }));
-      if (data1.ok) {
+    if (res.ok) {
+      const data = await res.json().catch(() => ({ success: true }));
+      if (data.success === true || data.success === "true" || data.ok) {
         showSuccess();
         return;
       }
     }
-  } catch (e1) {
-    console.warn('ShipMyForm indisponible, bascule sur passerelle de secours...', e1);
+  } catch (e) {
+    console.warn('FormSubmit AJAX temporairement indisponible, bascule sur soumission standard...', e);
   }
 
-  // 2. Tentative n°2 : FormSubmit en fallback AJAX
+  // 2. Fallback sécurisé : Soumission standard vers l'adresse officielle
   try {
-    const formData2 = new FormData(form);
-    const controller2 = new AbortController();
-    const timeout2 = setTimeout(() => controller2.abort(), 5000);
-
-    const res2 = await fetch('https://formsubmit.co/ajax/rayanchennaoui@gmail.com', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json'
-      },
-      body: formData2,
-      signal: controller2.signal
-    });
-    clearTimeout(timeout2);
-
-    if (res2.ok) {
-      const data2 = await res2.json().catch(() => ({ success: true }));
-      if (data2.success === true || data2.success === "true") {
-        showSuccess();
-        return;
-      }
+    const nextInput = document.getElementById('formSubmitNext');
+    if (nextInput) {
+      nextInput.value = window.location.origin + window.location.pathname + '?sent=success#contact';
     }
-  } catch (e2) {
-    console.warn('FormSubmit indisponible, bascule sur soumission native...', e2);
-  }
-
-  // 3. Fallback ultime : Soumission native sans blocage (redirige vers ?sent=success#contact)
-  try {
-    form.action = 'https://shipmyform.com/to/rayanchennaoui@gmail.com';
+    form.action = 'https://formsubmit.co/contact@lbr-concept.fr';
     HTMLFormElement.prototype.submit.call(form);
-  } catch (e3) {
-    console.error('Erreur finale soumission:', e3);
+  } catch (e2) {
+    console.error('Erreur finale soumission:', e2);
     if (errorMsg) {
-      if (errorText) errorText.textContent = "Erreur de transmission réseau. Veuillez nous contacter au 01 48 81 00 00.";
+      if (errorText) errorText.textContent = "Erreur de transmission réseau. Veuillez nous contacter au 01 45 94 59 89 ou par email à contact@lbr-concept.fr.";
       errorMsg.classList.remove('hidden');
     }
     btn.disabled = false;
     btn.innerHTML = originalHtml;
   }
 };
+
 

@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LBR CONCEPT — Carte de Visite (85 × 55 mm)</title>
+  <title>LBR CONCEPT — Carte de Visite Officielle (85 × 55 mm)</title>
 
-  <!-- Polices Officielles de Prestige -->
+  <!-- Polices Officielles : Outfit & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* Dimensions Réelles : 85mm × 55mm */
+    /* Dimensions Réelles Standard : 85mm × 55mm */
     @page {
       size: 85mm 55mm;
       margin: 0;
@@ -21,7 +21,7 @@
 
     @media print {
       html, body {
-        background: #000 !important;
+        background: #ffffff !important;
         margin: 0 !important;
         padding: 0 !important;
         width: 100% !important;
@@ -60,446 +60,260 @@
       transform: rotateY(180deg);
     }
 
-    .luxury-dark {
-      background-color: #0d0f13;
-    }
-    .gold-logo-filter {
-      filter: brightness(0) saturate(100%) invert(73%) sepia(26%) saturate(786%) hue-rotate(7deg) brightness(92%) contrast(88%);
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* Typographie des titres Syne : Allongée verticalement, statutaire et aérée sans collision */
-    h1.font-syne, h2.font-syne, h3.font-syne, h4.font-syne {
-      letter-spacing: 0.02em;
-      transform: scaleY(1.30);
-      transform-origin: center top;
-      margin-bottom: calc(0.20em * 1.30 + 0.35rem);
-      line-height: 1.12;
+    .font-outfit {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .bordeaux-accent {
+      color: #701A45;
+    }
+
+    .bg-bordeaux {
+      background-color: #701A45;
     }
   </style>
 </head>
-<body class="bg-[#050608] text-[#e2e4e9] min-h-screen flex flex-col items-center justify-start p-4 md:p-8 antialiased selection:bg-[#c5a059] selection:text-black">
+<body class="bg-slate-900 text-slate-800 min-h-screen flex flex-col items-center justify-start p-4 md:p-8 antialiased selection:bg-[#701A45] selection:text-white">
 
   <!-- ================= BARRE DE NAVIGATION ÉCRAN ================= -->
   <header class="w-full max-w-5xl flex flex-wrap items-center justify-between gap-4 mb-8 no-print border-b border-white/10 pb-4">
     <div class="flex items-center gap-3">
-      <a href="index.html" class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gray-400 hover:text-[#c5a059] transition-colors">
+      <a href="index.html" class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
         <i class="fa-solid fa-arrow-left"></i>
         <span>Site Vitrine</span>
       </a>
       <span class="text-gray-600">/</span>
-      <span class="text-xs font-mono text-[#c5a059] uppercase tracking-wider font-semibold">Carte de Visite (85 × 55 mm)</span>
+      <span class="text-xs font-mono text-white uppercase tracking-wider font-semibold">Carte de Visite Officielle (85 × 55 mm)</span>
     </div>
 
     <div class="flex flex-wrap items-center gap-3">
-      <a href="flyer-a5.html" class="px-3.5 py-2 rounded-sm border border-white/10 bg-[#121419] text-xs font-mono text-gray-300 hover:text-white hover:border-[#c5a059] transition-all">
-        <i class="fa-solid fa-file-lines text-[#c5a059] mr-1.5"></i>
-        <span>Flyer A5</span>
+      <a href="brochure-commerciale.html" class="px-3.5 py-2 rounded-sm border border-white/10 bg-[#121419] text-xs font-mono text-gray-300 hover:text-white transition-all">
+        <i class="fa-solid fa-file-pdf text-[#701A45] mr-1.5"></i>
+        <span>Brochure 2026 (26 P.)</span>
       </a>
-      <a href="book-institutionnel.html" class="px-3.5 py-2 rounded-sm border border-white/10 bg-[#121419] text-xs font-mono text-gray-300 hover:text-white hover:border-[#c5a059] transition-all">
-        <i class="fa-solid fa-book-open text-[#c5a059] mr-1.5"></i>
-        <span>Book A4</span>
-      </a>
-      <button onclick="toggleFlip()" class="px-4 py-2 rounded-sm border border-[#c5a059]/40 bg-[#14161d] text-xs font-mono uppercase tracking-widest text-[#c5a059] hover:bg-[#c5a059]/10 transition-all flex items-center gap-2">
-        <i class="fa-solid fa-arrows-rotate"></i>
-        <span>Retourner (3D)</span>
+      <button onclick="toggleFlip()" class="px-4 py-2 rounded-sm border border-[#701A45]/50 bg-white/5 text-xs font-mono uppercase tracking-widest text-white hover:bg-[#701A45]/20 transition-all flex items-center gap-2">
+        <i class="fa-solid fa-arrows-rotate text-[#852253]"></i>
+        <span>Retourner la Carte (3D)</span>
       </button>
-      <button onclick="window.print()" class="px-5 py-2 rounded-sm bg-gradient-to-r from-[#c5a059] via-[#dfbe76] to-[#b38e44] text-[#0b0c0e] text-xs font-syne font-bold uppercase tracking-widest hover:shadow-[0_0_20px_rgba(197,160,89,0.4)] transition-all flex items-center gap-2">
+      <button onclick="window.print()" class="px-5 py-2 rounded-sm bg-[#701A45] hover:bg-[#852253] text-white text-xs font-outfit font-bold uppercase tracking-widest shadow-lg transition-all flex items-center gap-2">
         <i class="fa-solid fa-print"></i>
-        <span>Imprimer PDF (300 DPI)</span>
+        <span>Imprimer PDF (85 × 55 mm)</span>
       </button>
     </div>
   </header>
 
   <!-- ================= MODULE INTERACTIF 3D (ÉCRAN SEULEMENT) ================= -->
   <div class="perspective-1200 mb-12 no-print screen-container">
-    <div id="card3d" class="relative w-[450px] h-[290px] transition-transform duration-700 transform-style-3d cursor-pointer shadow-[0_25px_60px_rgba(0,0,0,0.85)] rounded-sm" onclick="toggleFlip()" title="Cliquez pour retourner">
+    <div id="card3d" class="relative w-[510px] h-[330px] transition-transform duration-700 transform-style-3d cursor-pointer shadow-[0_25px_60px_rgba(0,0,0,0.6)] rounded-lg" onclick="toggleFlip()" title="Cliquez pour retourner">
       
-      <!-- RECTO INTERACTIF (GAUCHE : LOGO & INFOS | DROITE : PHOTO ESCALIERS) -->
-      <div class="card-face absolute inset-0 w-full h-full rounded-sm luxury-dark border border-white/10 backface-hidden flex overflow-hidden shadow-2xl">
+      <!-- RECTO INTERACTIF (CONFORME À LA CARTE PHYSIQUE DE L'UTILISATEUR) -->
+      <div class="card-face absolute inset-0 w-full h-full rounded-lg bg-white backface-hidden flex flex-col justify-between p-7 overflow-hidden shadow-2xl border border-slate-200">
         
-        <!-- Côté Gauche (55%) : Logo, Nom Entreprise, Positionnement -->
-        <div class="w-[55%] p-6 flex flex-col justify-between">
-          <div>
-            <div class="inline-block">
-              <img src="images/logo_luxe.png" alt="LBR CONCEPT" class="h-14 w-auto object-contain">
-            </div>
-            <span class="font-mono text-[10.5px] uppercase tracking-[0.22em] text-[#c5a059] block mt-2 font-bold">PARIS • IDF</span>
-          </div>
-
-          <div class="my-auto py-1">
-            <h2 class="font-syne font-extrabold text-[23px] text-white tracking-[0.1em] uppercase leading-none">
-              LBR CONCEPT
-            </h2>
-            <p class="font-syne font-bold text-[12px] uppercase tracking-wider text-[#c5a059] mt-1.5 leading-snug">
-              Contractant Général
-            </p>
-            <p class="font-sans text-[11.5px] text-gray-200 mt-1 font-normal leading-snug">
-              Bâtiment & Rénovation de Prestige
-            </p>
-          </div>
-
-          <div class="border-t border-white/10 pt-2 flex items-center justify-between text-[9.5px] font-mono tracking-wider text-gray-300 uppercase font-semibold">
-            <span>Entreprise Générale de Bâtiment</span>
-          </div>
-        </div>
-
-        <!-- Côté Droit (45%) : Photo Escalier Haussmannien Plein Cadre -->
-        <div class="w-[45%] h-full relative overflow-hidden border-l border-[#c5a059]/40">
-          <img src="images/escaliers%20immeuble%20luxe.webp" alt="Restauration escaliers de prestige" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-3">
-            <span class="font-syne font-bold text-[10.5px] text-white uppercase tracking-wider">
-              Paris 8e
-            </span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- VERSO INTERACTIF (ELSAID BADR, DIRECTEUR GÉNÉRAL, 0666991971) -->
-      <div class="card-face absolute inset-0 w-full h-full rounded-sm luxury-dark border border-white/10 backface-hidden rotate-y-180 p-7 flex flex-col justify-between overflow-hidden shadow-2xl">
-        
-        <!-- En-tête : Nom du Dirigeant & Fonction -->
-        <div class="flex items-start justify-between border-b border-white/10 pb-3">
-          <div>
-            <h3 class="font-syne font-extrabold text-[23px] text-white uppercase tracking-wide leading-none">
-              ELSAID BADR
-            </h3>
-            <span class="font-syne font-bold text-[14px] text-[#c5a059] uppercase tracking-wider block mt-1.5">
-              Directeur Général
-            </span>
-          </div>
-          <div class="text-right">
-            <span class="font-syne font-extrabold text-[16px] text-white uppercase tracking-wider block leading-none">LBR CONCEPT</span>
-            <span class="font-mono text-[10.5px] text-[#c5a059] font-bold uppercase block mt-1">Contractant Général</span>
-          </div>
-        </div>
-
-        <!-- Coordonnées Agrandies & Claires -->
-        <div class="grid grid-cols-12 gap-3 items-center my-auto">
+        <!-- Partie Haute : Président & Coordonnées / Logo Officiel -->
+        <div class="flex justify-between items-start">
           
-          <div class="col-span-8 space-y-2.5 text-xs font-sans">
-            <!-- Mobile Direct Elsaid Badr -->
-            <div class="flex items-center gap-3 text-white">
-              <i class="fa-solid fa-mobile-screen text-[#c5a059] text-sm w-4"></i>
-              <span class="font-mono text-[16px] font-extrabold tracking-wider text-[#c5a059]">06 66 99 19 71</span>
+          <!-- Haut Gauche : El Saïd BADR Président & Tél -->
+          <div class="space-y-3 pt-1">
+            <div>
+              <h2 class="font-outfit font-bold text-[19px] text-slate-900 tracking-tight leading-tight">
+                El Saïd BADR
+              </h2>
+              <p class="font-sans text-[13px] text-slate-500 font-normal">
+                Président
+              </p>
             </div>
 
-            <!-- Tél Siège -->
-            <div class="flex items-center gap-3 text-gray-200">
-              <i class="fa-solid fa-phone text-[#c5a059] text-sm w-4"></i>
-              <span class="font-mono text-[13.5px] font-semibold tracking-wider">+33 (0)1 48 81 00 00</span>
-            </div>
+            <div class="space-y-1.5 pt-1 font-outfit text-[13.5px] text-slate-800">
+              <div class="flex items-center gap-2.5">
+                <div class="w-5 h-5 rounded-full border border-[#701A45] flex items-center justify-center text-[#701A45] text-[10px]">
+                  <i class="fa-solid fa-mobile-screen"></i>
+                </div>
+                <span class="font-semibold tracking-wide">06 66 99 19 71</span>
+              </div>
 
-            <!-- Email Pro -->
-            <div class="flex items-center gap-3 text-white">
-              <i class="fa-solid fa-envelope text-[#c5a059] text-sm w-4"></i>
-              <span class="font-mono text-[13.5px] font-semibold">contact@lbrconcept.fr</span>
-            </div>
-
-            <!-- Adresse -->
-            <div class="flex items-center gap-3 text-gray-300">
-              <i class="fa-solid fa-location-dot text-[#c5a059] text-sm w-4"></i>
-              <span class="text-[13.5px] leading-tight font-medium">477 Rue Marcel Paul, 94500 Champigny</span>
+              <div class="flex items-center gap-2.5">
+                <div class="w-5 h-5 rounded-full border border-[#701A45] flex items-center justify-center text-[#701A45] text-[10px]">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <span class="font-semibold tracking-wide">01 45 94 59 89</span>
+              </div>
             </div>
           </div>
 
-          <!-- QR Code Vectoriel -->
-          <div class="col-span-4 flex flex-col items-center justify-center border-l border-white/10 pl-3">
-            <div class="p-2 bg-white rounded-sm shadow-md">
-              <svg class="w-20 h-20" viewBox="0 0 29 29" fill="black">
-                <path d="M0,0h7v7H0z M2,2v3h3V2z M1,1h5v5H1z"/>
-                <path d="M22,0h7v7h-7z M24,2v3h3V2z M23,1h5v5h-5z"/>
-                <path d="M0,22h7v7H0z M2,24v3h3v-3z M1,23h5v5H1z"/>
-                <rect x="3" y="3" width="1" height="1"/>
-                <rect x="25" y="3" width="1" height="1"/>
-                <rect x="3" y="25" width="1" height="1"/>
-                <rect x="9" y="1" width="2" height="1"/>
-                <rect x="13" y="1" width="1" height="2"/>
-                <rect x="16" y="2" width="2" height="1"/>
-                <rect x="19" y="1" width="1" height="1"/>
-                <rect x="8" y="4" width="1" height="3"/>
-                <rect x="11" y="5" width="3" height="1"/>
-                <rect x="16" y="4" width="1" height="3"/>
-                <rect x="18" y="6" width="3" height="1"/>
-                <rect x="0" y="8" width="8" height="1"/>
-                <rect x="10" y="8" width="1" height="2"/>
-                <rect x="14" y="8" width="3" height="1"/>
-                <rect x="20" y="8" width="2" height="2"/>
-                <rect x="24" y="8" width="4" height="1"/>
-                <rect x="9" y="11" width="2" height="1"/>
-                <rect x="13" y="11" width="3" height="2"/>
-                <rect x="17" y="12" width="2" height="1"/>
-                <rect x="21" y="11" width="1" height="3"/>
-                <rect x="23" y="12" width="3" height="1"/>
-                <rect x="27" y="10" width="2" height="2"/>
-                <rect x="8" y="14" width="3" height="1"/>
-                <rect x="12" y="14" width="1" height="2"/>
-                <rect x="17" y="14" width="3" height="1"/>
-                <rect x="22" y="15" width="3" height="1"/>
-                <rect x="26" y="14" width="2" height="2"/>
-                <rect x="8" y="17" width="2" height="2"/>
-                <rect x="11" y="17" width="4" height="1"/>
-                <rect x="17" y="17" width="1" height="3"/>
-                <rect x="20" y="18" width="2" height="1"/>
-                <rect x="24" y="17" width="4" height="1"/>
-              </svg>
-            </div>
-            <span class="font-sans text-[9px] text-center text-[#dfbe76] leading-tight mt-1.5 font-semibold">Visitez notre site &<br>demandez un devis gratuit</span>
-          </div>
-
-        </div>
-
-        <!-- Mentions légales sobres -->
-        <div class="border-t border-white/10 pt-2 flex items-center justify-between text-[10.5px] font-mono tracking-wider text-gray-300 uppercase">
-          <span class="text-[#c5a059] font-bold">Garantie Décennale AXA</span>
-          <span>•</span>
-          <span>Tous Corps d'État</span>
-          <span>•</span>
-          <span>RE2020</span>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ================= APERÇU DOUBLE FACE STATIQUE ÉCRAN ================= -->
-  <section class="w-full max-w-5xl no-print border-t border-white/10 pt-8 mb-12">
-    <div class="flex items-center justify-between mb-6">
-      <div>
-        <h3 class="font-syne font-bold text-base text-white uppercase tracking-wider">
-          Planche Recto / Verso (85 × 55 mm)
-        </h3>
-        <p class="text-xs text-gray-400">Recto : Nom & Logo à gauche, Photo Escalier à droite • Verso : Elsaid Badr, Directeur Général, 06 66 99 19 71</p>
-      </div>
-      <span class="px-3 py-1 bg-[#121419] border border-[#c5a059]/40 text-[#c5a059] font-mono text-xs rounded-sm">
-        300 DPI READY
-      </span>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
-      
-      <!-- RECTO STATIQUE -->
-      <div class="w-[410px] h-[265px] rounded-sm luxury-dark border border-white/10 flex overflow-hidden shadow-2xl relative">
-        <div class="w-[55%] p-5 flex flex-col justify-between">
-          <div>
-            <div class="p-1 px-2.5 bg-white rounded-sm inline-block">
-              <img src="images/logo.png" alt="Logo LBR" class="h-7 w-auto object-contain">
-            </div>
-            <span class="font-mono text-[9px] uppercase tracking-wider text-[#c5a059] block mt-1.5">PARIS • IDF</span>
-          </div>
-
-          <div>
-            <h4 class="font-syne font-extrabold text-lg text-white uppercase leading-none">
+          <!-- Haut Droit : Logo Officiel & Baseline -->
+          <div class="text-center flex flex-col items-center">
+            <img src="images/logo.png" alt="LBR CONCEPT" class="h-20 w-auto object-contain">
+            <span class="font-outfit font-extrabold text-[15px] tracking-[0.14em] text-[#0b1e36] uppercase mt-1">
               LBR CONCEPT
-            </h4>
-            <p class="font-syne font-bold text-[10px] uppercase text-[#c5a059] mt-1">
-              Contractant Général
-            </p>
-            <p class="font-sans text-[9px] text-gray-300 mt-0.5 font-light">
-              Bâtiment & Rénovation de Prestige
-            </p>
+            </span>
+            <span class="font-outfit text-[8px] tracking-[0.18em] text-[#701A45] uppercase font-bold mt-0.5">
+              BÂTIMENT - DÉCORATION - RÉNOVATION
+            </span>
           </div>
 
-          <div class="pt-1.5 border-t border-white/10 text-[8pt] font-mono text-gray-400 uppercase">
-            Entreprise Générale de Bâtiment
-          </div>
         </div>
 
-        <div class="w-[45%] h-full relative overflow-hidden border-l border-[#c5a059]/40">
-          <img src="images/escaliers%20immeuble%20luxe.webp" alt="Escaliers" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2.5">
-            <span class="font-syne font-bold text-[9px] text-white uppercase">Paris 8e</span>
+        <!-- Partie Basse : Double Ligne Bicolore & Coordonnées -->
+        <div class="space-y-3">
+          
+          <!-- Double Ligne Distinctive de la Carte : Prune foncé au dessus, Bleu ardoise en dessous -->
+          <div class="w-full space-y-[2px]">
+            <div class="h-[2.5px] bg-[#701A45] w-full"></div>
+            <div class="h-[1.5px] bg-[#23324a] w-full"></div>
           </div>
+
+          <!-- Coordonnées Bas : Adresse & Contact -->
+          <div class="flex justify-between items-center text-[10.5px] font-sans text-slate-700">
+            <!-- Adresse -->
+            <div class="flex items-center gap-2">
+              <div class="w-5 h-5 rounded-full border border-[#701A45] flex items-center justify-center text-[#701A45] text-[10px] shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="leading-tight">
+                <span class="block font-medium">477 Rue Marcel Paul</span>
+                <span class="block text-slate-500">94500 - Champigny-Sur-Marne</span>
+              </div>
+            </div>
+
+            <!-- Email & Site -->
+            <div class="flex items-center gap-2 text-right">
+              <div class="leading-tight">
+                <span class="block font-semibold text-slate-800">b.s@lbr-concept.fr</span>
+                <span class="block font-medium text-slate-600">www.lbrconcept.com</span>
+              </div>
+              <div class="w-5 h-5 rounded-full border border-[#701A45] flex items-center justify-center text-[#701A45] text-[10px] shrink-0">
+                <i class="fa-solid fa-link"></i>
+              </div>
+            </div>
+          </div>
+
         </div>
+
       </div>
 
-      <!-- VERSO STATIQUE -->
-      <div class="w-[410px] h-[265px] rounded-sm luxury-dark border border-white/10 p-5 flex flex-col justify-between shadow-2xl relative">
-        <div class="flex items-start justify-between border-b border-white/10 pb-2">
+      <!-- VERSO INTERACTIF (LOGO MAJESTUEUX & BASELINE CENTRÉS) -->
+      <div class="card-face absolute inset-0 w-full h-full rounded-lg bg-white backface-hidden rotate-y-180 flex flex-col items-center justify-center p-8 overflow-hidden shadow-2xl border border-slate-200">
+        
+        <div class="text-center flex flex-col items-center">
+          <img src="images/logo.png" alt="LBR CONCEPT" class="h-28 w-auto object-contain">
+          <h2 class="font-outfit font-extrabold text-[22px] tracking-[0.16em] text-[#0b1e36] uppercase mt-3">
+            LBR CONCEPT
+          </h2>
+          <div class="w-16 h-[2px] bg-[#701A45] my-2"></div>
+          <span class="font-outfit text-[10.5px] tracking-[0.24em] text-[#701A45] uppercase font-bold">
+            BÂTIMENT - DÉCORATION - RÉNOVATION
+          </span>
+          <span class="font-mono text-[9px] tracking-[0.2em] text-slate-400 uppercase mt-2">
+            PARIS & ÎLE-DE-FRANCE • DEPUIS 2009
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= VUES D'IMPRESSION STRICTES 85 × 55 MM ================= -->
+  <div class="w-full flex flex-col items-center gap-8">
+    
+    <!-- RECTO IMPRESSION -->
+    <div class="print-page bg-white p-[5mm] flex flex-col justify-between border border-slate-300 shadow-md rounded-xs" style="width: 85mm; height: 55mm;">
+      
+      <div class="flex justify-between items-start">
+        <!-- El Said Badr & Tel -->
+        <div class="space-y-[2mm]">
           <div>
-            <h4 class="font-syne font-extrabold text-base text-white uppercase leading-none">ELSAID BADR</h4>
-            <span class="font-syne font-bold text-[10px] text-[#c5a059] uppercase block mt-1">Directeur Général</span>
+            <div class="font-outfit font-bold text-[10pt] text-slate-900 tracking-tight leading-none">El Saïd BADR</div>
+            <div class="font-sans text-[7pt] text-slate-500 font-normal mt-[0.5mm]">Président</div>
           </div>
-          <div class="text-right">
-            <span class="font-syne font-bold text-xs text-white uppercase block leading-none">LBR CONCEPT</span>
-            <span class="font-mono text-[8px] text-gray-400 font-bold uppercase mt-0.5 block">TCE</span>
+
+          <div class="space-y-[1mm] font-outfit text-[7pt] text-slate-800">
+            <div class="flex items-center gap-[1.5mm]">
+              <div class="w-[3.5mm] h-[3.5mm] rounded-full border border-[#701A45] flex items-center justify-center text-[#701A45] text-[5pt]">
+                <i class="fa-solid fa-mobile-screen"></i>
+              </div>
+              <span class="font-semibold">06 66 99 19 71</span>
+            </div>
+            <div class="flex items-center gap-[1.5mm]">
+              <div class="w-[3.5mm] h-[3.5mm] rounded-full border border-[#701A45] flex items-center justify-center text-[#701A45] text-[5pt]">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <span class="font-semibold">01 45 94 59 89</span>
+            </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-12 gap-2 items-center my-auto text-[10.5px]">
-          <div class="col-span-8 space-y-1.5">
-            <div class="flex items-center gap-2 text-white font-mono font-bold">
-              <i class="fa-solid fa-mobile-screen text-[#c5a059]"></i>
-              <span class="text-[#c5a059]">06 66 99 19 71</span>
-            </div>
-            <div class="flex items-center gap-2 text-gray-200 font-mono text-[9.5px]">
-              <i class="fa-solid fa-phone text-[#c5a059]"></i>
-              <span>+33 (0)1 48 81 00 00</span>
-            </div>
-            <div class="flex items-center gap-2 text-gray-200 font-mono text-[9.5px]">
-              <i class="fa-solid fa-envelope text-[#c5a059]"></i>
-              <span>contact@lbrconcept.fr</span>
-            </div>
-            <div class="flex items-center gap-2 text-gray-300 text-[9.5px]">
-              <i class="fa-solid fa-location-dot text-[#c5a059]"></i>
-              <span>477 Rue Marcel Paul, Champigny</span>
-            </div>
-          </div>
-          <div class="col-span-4 flex flex-col items-center justify-center border-l border-white/10 pl-2">
-            <div class="p-1.5 bg-white rounded-sm">
-              <svg class="w-14 h-14" viewBox="0 0 29 29" fill="black">
-                <path d="M0,0h7v7H0z M2,2v3h3V2z M1,1h5v5H1z"/>
-                <path d="M22,0h7v7h-7z M24,2v3h3V2z M23,1h5v5h-5z"/>
-                <path d="M0,22h7v7H0z M2,24v3h3v-3z M1,23h5v5H1z"/>
-                <rect x="3" y="3" width="1" height="1"/>
-                <rect x="25" y="3" width="1" height="1"/>
-                <rect x="3" y="25" width="1" height="1"/>
-                <rect x="9" y="1" width="2" height="1"/>
-                <rect x="13" y="1" width="1" height="2"/>
-                <rect x="16" y="2" width="2" height="1"/>
-                <rect x="19" y="1" width="1" height="1"/>
-                <rect x="8" y="4" width="1" height="3"/>
-                <rect x="11" y="5" width="3" height="1"/>
-                <rect x="16" y="4" width="1" height="3"/>
-                <rect x="18" y="6" width="3" height="1"/>
-                <rect x="0" y="8" width="8" height="1"/>
-                <rect x="10" y="8" width="1" height="2"/>
-                <rect x="14" y="8" width="3" height="1"/>
-                <rect x="20" y="8" width="2" height="2"/>
-                <rect x="24" y="8" width="4" height="1"/>
-              </svg>
-            </div>
-            <span class="font-sans text-[7.5px] text-center text-[#dfbe76] leading-tight mt-1 font-semibold">Visitez notre site &<br>demandez un devis gratuit</span>
-          </div>
+        <!-- Logo -->
+        <div class="text-center flex flex-col items-center">
+          <img src="images/logo.png" alt="LBR CONCEPT" class="h-[14mm] w-auto object-contain">
+          <span class="font-outfit font-extrabold text-[8pt] tracking-[0.14em] text-[#0b1e36] uppercase leading-none mt-[1mm]">
+            LBR CONCEPT
+          </span>
+          <span class="font-outfit text-[4.5pt] tracking-[0.16em] text-[#701A45] uppercase font-bold mt-[0.5mm]">
+            BÂTIMENT - DÉCORATION - RÉNOVATION
+          </span>
+        </div>
+      </div>
+
+      <!-- Bas : Deux traits et Coordonnées -->
+      <div class="space-y-[1.5mm]">
+        <div class="w-full space-y-[0.4mm]">
+          <div class="h-[0.5mm] bg-[#701A45] w-full"></div>
+          <div class="h-[0.3mm] bg-[#23324a] w-full"></div>
         </div>
 
-        <div class="border-t border-white/10 pt-1.5 flex items-center justify-between text-[8px] font-mono tracking-wider text-gray-400 uppercase">
-          <span class="text-[#c5a059]">AXA Décennale</span>
-          <span>•</span>
-          <span>Tous Corps d'État</span>
-          <span>•</span>
-          <span>RE2020</span>
+        <div class="flex justify-between items-center text-[5.5pt] font-sans text-slate-700">
+          <div class="flex items-center gap-[1.5mm]">
+            <div class="w-[3.2mm] h-[3.2mm] rounded-full border border-[#701A45] flex items-center justify-center text-[#701A45] text-[4.5pt]">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="leading-tight">
+              <span class="block font-medium">477 Rue Marcel Paul</span>
+              <span class="block text-slate-500">94500 - Champigny-Sur-Marne</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-[1.5mm] text-right">
+            <div class="leading-tight">
+              <span class="block font-semibold text-slate-800">b.s@lbr-concept.fr</span>
+              <span class="block font-medium text-slate-600">www.lbrconcept.com</span>
+            </div>
+            <div class="w-[3.2mm] h-[3.2mm] rounded-full border border-[#701A45] flex items-center justify-center text-[#701A45] text-[4.5pt]">
+              <i class="fa-solid fa-link"></i>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
-  </section>
 
-  <!-- ================= PLANCHES D'IMPRESSION DIRECTE (85 × 55 mm) ================= -->
-  
-  <!-- IMPRESSION RECTO -->
-  <div class="print-page hidden print:flex luxury-dark text-white relative">
-    <div class="w-[55%] p-[4.5mm] flex flex-col justify-between">
-      <div>
-        <div class="inline-block">
-          <img src="images/logo_luxe.png" alt="LBR CONCEPT" class="h-[10.5mm] w-auto object-contain">
-        </div>
-        <span class="font-mono text-[7.5pt] tracking-[0.2em] text-[#c5a059] uppercase font-bold block mt-1">PARIS • IDF</span>
-      </div>
-
-      <div class="my-auto py-1">
-        <h1 class="font-syne font-extrabold text-[13.5pt] text-white tracking-[0.08em] uppercase leading-none">
+    <!-- VERSO IMPRESSION -->
+    <div class="print-page bg-white p-[5mm] flex flex-col items-center justify-center border border-slate-300 shadow-md rounded-xs" style="width: 85mm; height: 55mm;">
+      <div class="text-center flex flex-col items-center">
+        <img src="images/logo.png" alt="LBR CONCEPT" class="h-[18mm] w-auto object-contain">
+        <span class="font-outfit font-extrabold text-[11pt] tracking-[0.16em] text-[#0b1e36] uppercase leading-none mt-[2mm]">
           LBR CONCEPT
-        </h1>
-        <p class="font-syne font-bold text-[8pt] uppercase tracking-[0.1em] text-[#c5a059] mt-1">
-          Contractant Général
-        </p>
-        <p class="font-sans text-[7pt] text-gray-200 mt-0.5">
-          Bâtiment & Rénovation de Prestige
-        </p>
-      </div>
-
-      <div class="pt-1 border-t border-white/15 text-[6.5pt] font-mono text-gray-300 uppercase">
-        Entreprise Générale de Bâtiment
+        </span>
+        <div class="w-[10mm] h-[0.4mm] bg-[#701A45] my-[1mm]"></div>
+        <span class="font-outfit text-[5.5pt] tracking-[0.2em] text-[#701A45] uppercase font-bold">
+          BÂTIMENT - DÉCORATION - RÉNOVATION
+        </span>
+        <span class="font-mono text-[4.5pt] tracking-[0.15em] text-slate-400 uppercase mt-[1mm]">
+          PARIS & ÎLE-DE-FRANCE • DEPUIS 2009
+        </span>
       </div>
     </div>
 
-    <!-- Photo Escalier Haussmannien Droit -->
-    <div class="w-[45%] h-full relative overflow-hidden border-l border-[#c5a059]">
-      <img src="images/escaliers%20immeuble%20luxe.webp" alt="Escaliers" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
-        <span class="font-syne font-bold text-[6pt] text-white uppercase">Paris 8e</span>
-      </div>
-    </div>
   </div>
 
-  <!-- IMPRESSION VERSO -->
-  <div class="print-page hidden print:flex flex-col justify-between p-[4.5mm] luxury-dark text-white relative">
-    <div class="flex items-start justify-between border-b border-white/20 pb-1">
-      <div>
-        <h2 class="font-syne font-extrabold text-[13.5pt] text-white tracking-[0.05em] uppercase leading-none">ELSAID BADR</h2>
-        <span class="font-syne font-bold text-[8.5pt] text-[#c5a059] uppercase block mt-0.5">Directeur Général</span>
-      </div>
-      <div class="text-right">
-        <span class="font-syne font-bold text-[8.5pt] text-white uppercase block leading-none">LBR CONCEPT</span>
-        <span class="font-mono text-[7pt] text-[#c5a059] font-bold uppercase mt-0.5 block">TCE</span>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-12 gap-2 items-center my-auto text-[7.5pt]">
-      <div class="col-span-8 space-y-1">
-        <div class="flex items-center gap-2 text-white font-mono font-bold">
-          <i class="fa-solid fa-mobile-screen text-[#c5a059] text-[6.5pt]"></i>
-          <span class="text-[9.5pt] text-[#c5a059] font-bold">06 66 99 19 71</span>
-        </div>
-        <div class="flex items-center gap-2 text-gray-200 font-mono text-[8pt]">
-          <i class="fa-solid fa-phone text-[#c5a059] text-[7.5pt]"></i>
-          <span>+33 (0)1 48 81 00 00</span>
-        </div>
-        <div class="flex items-center gap-2 text-gray-200 font-mono text-[8pt]">
-          <i class="fa-solid fa-envelope text-[#c5a059] text-[7.5pt]"></i>
-          <span>contact@lbrconcept.fr</span>
-        </div>
-        <div class="flex items-center gap-2 text-gray-200 text-[7.5pt]">
-          <i class="fa-solid fa-location-dot text-[#c5a059] text-[7.5pt]"></i>
-          <span>477 Rue Marcel Paul, 94500 Champigny</span>
-        </div>
-      </div>
-
-      <div class="col-span-4 flex flex-col items-center justify-center border-l border-white/20 pl-1.5">
-        <div class="p-1 bg-white rounded-sm">
-          <svg class="w-[12mm] h-[12mm]" viewBox="0 0 29 29" fill="black">
-            <path d="M0,0h7v7H0z M2,2v3h3V2z M1,1h5v5H1z"/>
-            <path d="M22,0h7v7h-7z M24,2v3h3V2z M23,1h5v5h-5z"/>
-            <path d="M0,22h7v7H0z M2,24v3h3v-3z M1,23h5v5H1z"/>
-            <rect x="3" y="3" width="1" height="1"/>
-            <rect x="25" y="3" width="1" height="1"/>
-            <rect x="3" y="25" width="1" height="1"/>
-            <rect x="9" y="1" width="2" height="1"/>
-            <rect x="13" y="1" width="1" height="2"/>
-            <rect x="16" y="2" width="2" height="1"/>
-            <rect x="19" y="1" width="1" height="1"/>
-            <rect x="8" y="4" width="1" height="3"/>
-            <rect x="11" y="5" width="3" height="1"/>
-            <rect x="16" y="4" width="1" height="3"/>
-            <rect x="18" y="6" width="3" height="1"/>
-            <rect x="0" y="8" width="8" height="1"/>
-            <rect x="10" y="8" width="1" height="2"/>
-            <rect x="14" y="8" width="3" height="1"/>
-            <rect x="20" y="8" width="2" height="2"/>
-            <rect x="24" y="8" width="4" height="1"/>
-          </svg>
-        </div>
-        <span class="font-sans text-[4.8pt] text-center text-[#c5a059] leading-tight mt-0.5 font-semibold">Visitez notre site &<br>devis gratuit</span>
-      </div>
-    </div>
-
-    <div class="border-t border-white/20 pt-1 flex items-center justify-between text-[6.5pt] font-mono tracking-wider text-gray-200 uppercase">
-      <span class="text-[#c5a059] font-bold">Garantie Décennale AXA</span>
-      <span>•</span>
-      <span>Tous Corps d'État</span>
-      <span>•</span>
-      <span>RE2020</span>
-    </div>
-  </div>
-
-  <!-- Script 3D Flip -->
   <script>
     let isFlipped = false;
     function toggleFlip() {
       const card = document.getElementById('card3d');
-      if (!card) return;
       isFlipped = !isFlipped;
       card.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
     }
