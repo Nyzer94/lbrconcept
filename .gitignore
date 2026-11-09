@@ -1,3 +1,5 @@
 edge-temp/
 calameo_extracted/
 *.log
+page_*.png
+temp_page_*.html
