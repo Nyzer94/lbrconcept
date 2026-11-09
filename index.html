@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,58 +49,56 @@
   </script>
   <link rel="stylesheet" href="style.css?v=9.0">
 </head>
-<body class="bg-white text-slate-900 antialiased selection:bg-lbr-magenta selection:text-white font-sans">
+<body class="bg-white text-slate-900 antialiased selection:bg-lbr-magenta selection:text-white font-sans overflow-x-hidden">
 
   <!-- ================= HEADER & NAVIGATION PRINCIPALE ================= -->
-  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 flex items-center justify-between bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
-    <!-- Brand Logo Officiel -->
-    <a href="#hero" class="group flex items-center gap-3.5 focus:outline-none">
-      <div class="h-12 sm:h-14 flex items-center justify-center p-1 bg-white rounded-md transition-transform group-hover:scale-105">
-        <img src="images/logo.png" alt="LBR CONCEPT Logo Officiel" class="h-10 sm:h-12 w-auto object-contain">
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-2.5 2xl:py-3 px-4 sm:px-6 xl:px-8 2xl:px-12 flex items-center justify-between bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <!-- Brand Logo Officiel Agrandit & Statutaire -->
+    <a href="#hero" class="group flex items-center gap-2 sm:gap-3.5 focus:outline-none shrink-0">
+      <div class="h-11 w-11 sm:h-14 sm:w-14 2xl:h-16 2xl:w-16 shrink-0 flex items-center justify-center p-1 bg-white rounded-lg transition-transform group-hover:scale-105 shadow-sm">
+        <img src="images/logo.png" alt="LBR CONCEPT Logo Officiel" class="h-9 sm:h-12 2xl:h-14 w-auto object-contain shrink-0">
       </div>
-      <div class="flex flex-col">
-        <span class="font-syne font-extrabold tracking-wider text-lbr-navy text-lg sm:text-xl leading-none">LBR CONCEPT</span>
-        <span class="font-mono text-[9px] tracking-[0.16em] text-lbr-magenta uppercase mt-0.5 font-bold">BÂTIMENT • DÉCORATION • RÉNOVATION</span>
-        <span class="font-mono text-[8.5px] tracking-[0.18em] text-slate-500 uppercase font-medium">Contractant Général TCE • Fondée en 2009</span>
+      <div class="flex flex-col whitespace-nowrap">
+        <span class="font-syne font-extrabold tracking-wider text-lbr-navy text-base sm:text-lg 2xl:text-2xl leading-none">LBR CONCEPT</span>
+        <span class="hidden sm:block font-mono text-[8.5px] 2xl:text-[9.5px] tracking-[0.14em] 2xl:tracking-[0.18em] text-lbr-magenta uppercase mt-0.5 2xl:mt-1 font-bold">BÂTIMENT • DÉCORATION • RÉNOVATION</span>
+        <span class="sm:hidden font-mono text-[8px] tracking-[0.1em] text-lbr-magenta uppercase mt-0.5 font-bold">BÂTIMENT & RÉNOVATION TCE</span>
+        <span class="hidden sm:block font-mono text-[7.5px] 2xl:text-[8.5px] tracking-[0.12em] 2xl:tracking-[0.16em] text-slate-500 uppercase font-medium">Contractant Général TCE • Fondée en 2009</span>
       </div>
     </a>
 
-    <!-- Desktop Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-slate-700">
-      <a href="#metiers" class="nav-link-item hover:text-lbr-magenta transition-colors">Nos Métiers</a>
-      <a href="#realisations" class="nav-link-item hover:text-lbr-magenta transition-colors">Réalisations</a>
-      <a href="#methodologie" class="nav-link-item hover:text-lbr-magenta transition-colors">Méthodologie</a>
-      <a href="#certifications" class="nav-link-item hover:text-lbr-magenta transition-colors">Certifications & RSE</a>
-      <a href="#qui-sommes-nous" class="nav-link-item hover:text-lbr-magenta transition-colors">L'Entreprise</a>
-      <a href="brochure-commerciale.html" target="_blank" class="nav-link-item text-lbr-magenta font-bold flex items-center gap-1.5 hover:text-lbr-magenta-hover transition-colors">
+    <!-- Desktop Navigation Links (Invariable sur 1 ligne, sans cassure) -->
+    <nav class="hidden xl:flex items-center gap-3.5 2xl:gap-6 text-[11px] 2xl:text-xs font-mono uppercase tracking-wider text-slate-700 whitespace-nowrap">
+      <a href="#metiers" class="nav-link-item hover:text-lbr-magenta transition-colors whitespace-nowrap">Nos Métiers</a>
+      <a href="#realisations" class="nav-link-item hover:text-lbr-magenta transition-colors whitespace-nowrap">Réalisations</a>
+      <a href="#methodologie" class="nav-link-item hover:text-lbr-magenta transition-colors whitespace-nowrap">Méthodologie</a>
+      <a href="#certifications" class="nav-link-item hover:text-lbr-magenta transition-colors whitespace-nowrap">Certifications & RSE</a>
+      <a href="#qui-sommes-nous" class="nav-link-item hover:text-lbr-magenta transition-colors whitespace-nowrap">L'Entreprise</a>
+      <a href="brochure-commerciale.html" target="_blank" class="nav-link-item text-lbr-magenta font-bold flex items-center gap-1 hover:text-lbr-magenta-hover transition-colors whitespace-nowrap">
         <i class="fa-solid fa-file-pdf"></i>
-        <span>Brochure 2026</span>
+        <span>Consulter notre brochure</span>
       </a>
     </nav>
 
-    <!-- Header Actions Directes -->
-      <div class="hidden 2xl:flex items-center gap-2 shrink-0">
-        <a href="tel:+33145945989" class="inline-flex items-center gap-1.5 font-mono text-xs text-slate-700 hover:text-lbr-magenta transition-colors px-3 py-1.5 rounded-full border border-slate-200 whitespace-nowrap">
-          <i class="fa-solid fa-phone text-lbr-magenta text-xs"></i>
-          <span class="font-semibold">01 45 94 59 89</span>
-        </a>
-        <a href="tel:+33666991971" class="inline-flex items-center gap-1.5 font-mono text-xs text-slate-700 hover:text-lbr-magenta transition-colors px-3 py-1.5 rounded-full border border-slate-200 whitespace-nowrap">
-          <i class="fa-solid fa-mobile-screen text-lbr-magenta text-xs"></i>
-          <span class="font-semibold">06 66 99 19 71</span>
-        </a>
-      </div>
-      <a href="tel:+33145945989" class="hidden xl:inline-flex 2xl:hidden items-center gap-1.5 font-mono text-xs text-slate-700 hover:text-lbr-magenta transition-colors px-3 py-1.5 rounded-full border border-slate-200 whitespace-nowrap shrink-0">
-        <i class="fa-solid fa-phone text-lbr-magenta text-xs"></i>
-        <span class="font-semibold">01 45 94 59 89</span>
+    <!-- Header Actions Directes : Uniquement le 06 et CTA Étudions votre projet -->
+    <div class="flex items-center gap-2 2xl:gap-3 shrink-0">
+      <!-- Phone button on mobile -->
+      <a href="tel:+33666991971" aria-label="Téléphone 06 66 99 19 71" class="inline-flex sm:hidden items-center justify-center w-10 h-10 rounded-md border border-slate-200 bg-slate-50 text-lbr-magenta text-sm shadow-sm">
+        <i class="fa-solid fa-phone"></i>
       </a>
 
-      <a href="#contact" class="btn-magenta-lbr inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-xs font-syne font-bold uppercase tracking-wider transition-all shadow-md whitespace-nowrap shrink-0">
-        <span>Devis / Consultation</span>
-        <i class="fa-solid fa-arrow-right text-[11px]"></i>
+      <!-- Phone pill on tablet & wide desktop -->
+      <a href="tel:+33666991971" class="hidden sm:inline-flex xl:hidden 2xl:inline-flex items-center gap-1.5 2xl:gap-2 font-mono text-[11px] 2xl:text-xs text-slate-800 hover:text-lbr-magenta transition-colors px-2.5 2xl:px-3.5 py-1.5 2xl:py-2 rounded-full border border-slate-200 bg-slate-50/80 whitespace-nowrap shadow-sm">
+        <i class="fa-solid fa-mobile-screen text-lbr-magenta text-xs 2xl:text-sm"></i>
+        <span class="font-bold tracking-wide">06 66 99 19 71</span>
+      </a>
+
+      <a href="#contact" class="btn-magenta-lbr hidden sm:inline-flex items-center gap-1.5 2xl:gap-2 px-3.5 2xl:px-5 py-2 2xl:py-2.5 rounded-md text-[11px] 2xl:text-xs font-syne font-bold uppercase tracking-wider transition-all shadow-md whitespace-nowrap shrink-0">
+        <span>Étudions votre projet</span>
+        <i class="fa-solid fa-arrow-right text-[10px] 2xl:text-[11px]"></i>
       </a>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobileMenuBtn" aria-label="Menu" class="lg:hidden w-10 h-10 border border-slate-200 rounded-md flex flex-col justify-center items-center gap-1.5 text-lbr-navy">
+      <button id="mobileMenuBtn" aria-label="Menu" class="xl:hidden w-10 h-10 border border-slate-200 rounded-md flex flex-col justify-center items-center gap-1.5 text-lbr-navy shrink-0">
         <span class="w-5 h-[2px] bg-lbr-navy"></span>
         <span class="w-5 h-[2px] bg-lbr-magenta"></span>
         <span class="w-3.5 self-start ml-2.5 h-[2px] bg-lbr-blue"></span>
@@ -128,16 +126,16 @@
       </div>
       <div>
         <a href="brochure-commerciale.html" target="_blank" class="mobile-nav-link font-syne text-xl font-bold uppercase tracking-widest text-lbr-magenta flex items-center justify-center gap-2">
-          <i class="fa-solid fa-book-open"></i>
-          <span>Nouvelle Brochure (26 Pages)</span>
+          <i class="fa-solid fa-file-pdf"></i>
+          <span>Consulter notre brochure</span>
         </a>
       </div>
       <div>
-        <a href="#contact" class="mobile-nav-link font-syne text-lg font-bold uppercase tracking-wider text-white bg-lbr-magenta px-6 py-3 rounded-md inline-block">Demander un Devis</a>
+        <a href="#contact" class="mobile-nav-link font-syne text-lg font-bold uppercase tracking-wider text-white bg-lbr-magenta px-6 py-3 rounded-md inline-block">Étudions votre projet</a>
       </div>
       <div class="pt-6 border-t border-white/10 text-xs font-mono text-slate-300 space-y-1">
         <p>477 Rue Marcel Paul — 94500 Champigny-sur-Marne</p>
-        <p>Tél : +33 (0)1 45 94 59 89 • contact@lbr-concept.fr</p>
+        <p>Tél : +33 (0)6 66 99 19 71 • contact@lbr-concept.fr</p>
       </div>
     </div>
   </div>
@@ -162,14 +160,16 @@
 
       <div class="relative z-20 max-w-7xl mx-auto w-full pt-4">
         <!-- Badges d'autorité et certifications -->
-        <div class="flex flex-wrap items-center gap-2.5 mb-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-md">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="font-mono text-xs text-slate-200 uppercase tracking-widest font-semibold">Garantie Décennale AXA</span>
+        <div class="flex flex-wrap items-center gap-2 mb-6">
+          <div class="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-xl sm:rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-[10px] sm:text-xs max-w-full">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="font-mono text-slate-200 uppercase tracking-wider font-semibold whitespace-nowrap">Garantie Décennale AXA</span>
+            </div>
             <span class="text-lbr-lavender">•</span>
-            <span class="font-mono text-xs text-slate-300 uppercase tracking-widest">Qualibat RGE</span>
-            <span class="text-lbr-lavender">•</span>
-            <span class="font-mono text-xs text-slate-300 uppercase tracking-widest">Sous-Section 4 Amiante</span>
+            <span class="font-mono text-slate-300 uppercase tracking-wider whitespace-nowrap">Qualibat RGE</span>
+            <span class="text-lbr-lavender hidden xs:inline">•</span>
+            <span class="font-mono text-slate-300 uppercase tracking-wider whitespace-nowrap">SS4 Amiante</span>
           </div>
         </div>
 
@@ -178,7 +178,7 @@
           
           <!-- Colonne Gauche : Titre Statutaire, Manifeste & Call to Action (7 cols) -->
           <div class="lg:col-span-7 space-y-6">
-            <h1 class="font-syne font-extrabold text-3xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.85rem] text-white tracking-tight leading-[1.15] uppercase break-normal">
+            <h1 class="font-syne font-extrabold text-2xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.85rem] text-white tracking-tight leading-[1.15] uppercase break-normal">
               Conception & <br>
               <span class="magenta-gradient-text">Rénovation d'Espaces</span><br>
               Professionnels.
@@ -187,21 +187,23 @@
             <!-- Ligne séparatrice signature bicolore -->
             <div class="lbr-accent-line w-28 my-4"></div>
 
-            <p class="font-sans text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-xl">
-              Contractant Général d'Excellence pour <strong class="text-white font-semibold">foncières, sièges sociaux, retail de prestige, copropriétés et décideurs institutionnels</strong>. Prise en charge intégrale de vos chantiers Tous Corps d'État en Île-de-France avec engagement contractuel de planning et de budget.
-            </p>
+            <div class="max-w-xl space-y-4">
+              <p class="font-sans text-base sm:text-lg text-slate-300 font-normal leading-relaxed text-left">
+                Contractant Général d'Excellence spécialisé dans <strong class="text-white font-semibold">l'aménagement tertiaire, les sièges sociaux, le retail de prestige et les espaces professionnels d'exception</strong> en Île-de-France. Prise en charge intégrale de vos chantiers Tous Corps d'État avec engagement contractuel ferme de planning et de budget.
+              </p>
 
-            <!-- Boutons d'Action Directe -->
-            <div class="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#contact" class="btn-magenta-lbr px-7 py-3.5 rounded-md font-syne font-bold text-xs uppercase tracking-widest shadow-lg flex items-center gap-2.5">
-                <span>Demander une Étude / Chiffrage</span>
-                <i class="fa-solid fa-arrow-right text-xs"></i>
-              </a>
+              <!-- Boutons d'Action Directe (2 blocs parfaitement alignés avec le texte ci-dessus) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+                <a href="#contact" class="btn-magenta-lbr py-3.5 px-3 sm:px-4 rounded-md font-syne font-bold text-[11px] sm:text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 text-center whitespace-nowrap">
+                  <span>Étudions votre projet</span>
+                  <i class="fa-solid fa-arrow-right text-[11px]"></i>
+                </a>
 
-              <a href="brochure-commerciale.html" target="_blank" class="px-6 py-3.5 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-white font-syne font-bold text-xs uppercase tracking-widest transition-all flex items-center gap-2.5 backdrop-blur-sm">
-                <i class="fa-solid fa-file-pdf text-lbr-magenta text-sm"></i>
-                <span>Consulter la Nouvelle Brochure (26 P.)</span>
-              </a>
+                <a href="brochure-commerciale.html" target="_blank" class="py-3.5 px-3 sm:px-4 rounded-md bg-white/10 hover:bg-white/20 border border-white/20 text-white font-syne font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 backdrop-blur-sm text-center whitespace-nowrap">
+                  <i class="fa-solid fa-file-pdf text-lbr-magenta text-sm"></i>
+                  <span>Consulter notre brochure</span>
+                </a>
+              </div>
             </div>
 
             <!-- 3 Piliers Clés -->
@@ -315,48 +317,109 @@
 
         </div>
 
-        <!-- BANDEAU DES MARQUES & CLIENTS PARTENAIRES -->
+        <!-- BANDEAU DES MARQUES & CLIENTS PARTENAIRES (DOUBLE RANGÉE • PRÉDOMINANCE TERTIAIRE) -->
         <div class="mt-14 pt-8 border-t border-white/15">
-          <div class="flex items-center gap-2 mb-4">
-            <span class="w-2 h-2 rounded-full bg-lbr-magenta"></span>
-            <span class="font-mono text-xs uppercase tracking-[0.25em] text-lbr-lavender font-bold">Ils font confiance à notre savoir-faire</span>
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-lbr-magenta"></span>
+              <span class="font-mono text-xs uppercase tracking-[0.22em] text-lbr-lavender font-bold">Ils font confiance à notre savoir-faire TCE</span>
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[10px] font-mono uppercase text-slate-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span class="font-bold text-white">Cœur d'expertise :</span>
+              <span>Plateaux Tertiaires & Sièges Sociaux</span>
+            </div>
           </div>
-          <div class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-4 items-center bg-white/5 p-4 rounded-lg border border-white/10">
-            <!-- LOUIS VUITTON -->
-            <div class="flex items-center justify-center h-10 p-1 bg-white/95 rounded">
-              <img src="images/Louis_Vuitton_LV_logo.png" alt="Louis Vuitton" class="max-h-8 max-w-full object-contain" title="Louis Vuitton">
+
+          <!-- LIGNE 1 : GRANDS COMPTES TERTIAIRES & SIÈGES SOCIAUX (12 LOGOS) -->
+          <div class="mb-3">
+            <div class="text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-2 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-building text-lbr-magenta text-[10px]"></i>
+              <span>Tertiaire & Sièges Sociaux</span>
             </div>
-            <!-- CHANEL -->
-            <div class="flex items-center justify-center h-10 p-1 bg-white/95 rounded">
-              <img src="images/chanel.png" alt="Chanel" class="max-h-7 max-w-full object-contain" title="Chanel">
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-3 items-center">
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Snapchat">
+                <img src="images/logos/tertiaire/snapchat.png" alt="Snapchat" class="max-h-8 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Sanofi">
+                <img src="images/logos/tertiaire/sanofi.png" alt="Sanofi" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Siemens">
+                <img src="images/logos/tertiaire/siemens.png" alt="Siemens" class="max-h-6 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="L'Oréal Paris">
+                <img src="images/logos/tertiaire/loreal.png" alt="L'Oréal Paris" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Tétris Design x Build">
+                <img src="images/logos/tertiaire/tetris.png" alt="Tétris Design x Build" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Netflix">
+                <img src="images/logos/tertiaire/netflix.png" alt="Netflix" class="max-h-6 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="J.P. Morgan">
+                <img src="images/logos/tertiaire/jp_morgan.png" alt="J.P. Morgan" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Morgan Stanley">
+                <img src="images/logos/tertiaire/morgan_stanley.png" alt="Morgan Stanley" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Hilton Hotels & Resorts">
+                <img src="images/logos/tertiaire/hilton.png" alt="Hilton" class="max-h-8 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Regus">
+                <img src="images/logos/tertiaire/regus.png" alt="Regus" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Ocellis Groupe">
+                <img src="images/logos/tertiaire/ocellis.png" alt="Ocellis Groupe" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="PMU">
+                <img src="images/logos/tertiaire/pmu.png" alt="PMU" class="max-h-7 max-w-full object-contain">
+              </div>
             </div>
-            <!-- SOCIÉTÉ GÉNÉRALE -->
-            <div class="flex items-center justify-center h-10 p-1 bg-white/95 rounded">
-              <img src="images/Société_Générale.png" alt="Société Générale" class="max-h-6 max-w-full object-contain" title="Société Générale">
+          </div>
+
+          <!-- LIGNE 2 : TERTIAIRE SUITE, RETAIL DE LUXE & RÉSIDENTIEL (12 LOGOS) -->
+          <div>
+            <div class="text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-2 font-bold flex items-center gap-1.5">
+              <i class="fa-solid fa-store text-lbr-blue text-[10px]"></i>
+              <span>Tertiaire, Enseignes Retail Prestige & Foncières</span>
             </div>
-            <!-- PRIMARK -->
-            <div class="flex items-center justify-center h-10 p-1 bg-white/95 rounded">
-              <img src="images/Primark_Logo_03.2024.png" alt="Primark" class="max-h-6 max-w-full object-contain" title="Primark">
-            </div>
-            <!-- PÔLE EMPLOI -->
-            <div class="flex items-center justify-center h-10 p-1 bg-white/95 rounded">
-              <img src="images/poleemploi.png" alt="France Travail" class="max-h-8 max-w-full object-contain" title="France Travail">
-            </div>
-            <!-- HERMÈS -->
-            <div class="flex items-center justify-center h-10 p-1 bg-white/95 rounded font-syne font-bold text-xs text-lbr-navy tracking-widest uppercase">
-              HERMÈS
-            </div>
-            <!-- VALENTINO -->
-            <div class="flex items-center justify-center h-10 p-1 bg-white/95 rounded font-syne font-bold text-xs text-lbr-navy tracking-widest uppercase">
-              VALENTINO
-            </div>
-            <!-- SANOFI -->
-            <div class="flex items-center justify-center h-10 p-1 bg-white/95 rounded font-syne font-bold text-xs text-lbr-navy tracking-widest uppercase">
-              SANOFI
-            </div>
-            <!-- SIEMENS -->
-            <div class="flex items-center justify-center h-10 p-1 bg-white/95 rounded font-syne font-bold text-xs text-lbr-navy tracking-widest uppercase">
-              SIEMENS
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-12 gap-3 items-center">
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Sony Music">
+                <img src="images/logos/tertiaire/sony_music.png" alt="Sony Music" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Banque Palatine">
+                <img src="images/logos/tertiaire/banque_palatine.png" alt="Banque Palatine" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Léon Grosse">
+                <img src="images/logos/tertiaire/leon_grosse.png" alt="Léon Grosse" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Spaces. Coworking">
+                <img src="images/logos/tertiaire/spaces.png" alt="Spaces" class="max-h-6 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Europcar">
+                <img src="images/logos/tertiaire/europcar.png" alt="Europcar" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Hermès Paris">
+                <img src="images/logos/retail/hermes.png" alt="Hermès Paris" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Valentino">
+                <img src="images/logos/retail/valentino.png" alt="Valentino" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Gucci">
+                <img src="images/logos/retail/gucci.png" alt="Gucci" class="max-h-5 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Nike">
+                <img src="images/logos/retail/nike.png" alt="Nike" class="max-h-6 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Nexity">
+                <img src="images/logos/residentielle/nexity.png" alt="Nexity" class="max-h-7 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Sergic">
+                <img src="images/logos/residentielle/sergic.png" alt="Sergic" class="max-h-6 max-w-full object-contain">
+              </div>
+              <div class="flex items-center justify-center h-12 p-2 bg-white rounded-lg shadow-sm hover:scale-105 transition-transform" title="Musée du Louvre">
+                <img src="images/logos/tertiaire/louvre.png" alt="Musée du Louvre" class="max-h-6 max-w-full object-contain">
+              </div>
             </div>
           </div>
         </div>
@@ -449,9 +512,12 @@
                 </ul>
               </div>
             </div>
-            <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-lbr-blue font-semibold">
-              <span>Norme NF DTU 25.41</span>
-              <i class="fa-solid fa-arrow-right"></i>
+            <div class="p-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-600">
+              <span class="inline-flex items-center gap-1.5 font-semibold text-slate-700">
+                <i class="fa-solid fa-circle-check text-lbr-magenta text-[11px]"></i>
+                <span>Norme NF DTU 25.41</span>
+              </span>
+              <span class="text-[10px] uppercase font-mono tracking-wider text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded">Expertise TCE</span>
             </div>
           </div>
 
@@ -476,9 +542,12 @@
                 </ul>
               </div>
             </div>
-            <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-lbr-blue font-semibold">
-              <span>Fabrication & Pose Intégrée</span>
-              <i class="fa-solid fa-arrow-right"></i>
+            <div class="p-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-600">
+              <span class="inline-flex items-center gap-1.5 font-semibold text-slate-700">
+                <i class="fa-solid fa-circle-check text-lbr-magenta text-[11px]"></i>
+                <span>Fabrication & Pose Intégrée</span>
+              </span>
+              <span class="text-[10px] uppercase font-mono tracking-wider text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded">Sur-Mesure</span>
             </div>
           </div>
 
@@ -503,9 +572,12 @@
                 </ul>
               </div>
             </div>
-            <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-lbr-blue font-semibold">
-              <span>Qualibat RGE 6111</span>
-              <i class="fa-solid fa-arrow-right"></i>
+            <div class="p-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-600">
+              <span class="inline-flex items-center gap-1.5 font-semibold text-slate-700">
+                <i class="fa-solid fa-circle-check text-lbr-magenta text-[11px]"></i>
+                <span>Qualibat RGE 6111</span>
+              </span>
+              <span class="text-[10px] uppercase font-mono tracking-wider text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded">Labellisé RGE</span>
             </div>
           </div>
 
@@ -530,9 +602,12 @@
                 </ul>
               </div>
             </div>
-            <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-lbr-blue font-semibold">
-              <span>Classement UPEC & ERP</span>
-              <i class="fa-solid fa-arrow-right"></i>
+            <div class="p-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-600">
+              <span class="inline-flex items-center gap-1.5 font-semibold text-slate-700">
+                <i class="fa-solid fa-circle-check text-lbr-magenta text-[11px]"></i>
+                <span>Classement UPEC & ERP</span>
+              </span>
+              <span class="text-[10px] uppercase font-mono tracking-wider text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded">Grand Trafic</span>
             </div>
           </div>
 
@@ -557,9 +632,12 @@
                 </ul>
               </div>
             </div>
-            <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-lbr-blue font-semibold">
-              <span>Échafaudage & Sécurité Intégrés</span>
-              <i class="fa-solid fa-arrow-right"></i>
+            <div class="p-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-600">
+              <span class="inline-flex items-center gap-1.5 font-semibold text-slate-700">
+                <i class="fa-solid fa-circle-check text-lbr-magenta text-[11px]"></i>
+                <span>Échafaudage & Sécurité Intégrés</span>
+              </span>
+              <span class="text-[10px] uppercase font-mono tracking-wider text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded">Ravalement</span>
             </div>
           </div>
 
@@ -584,9 +662,12 @@
                 </ul>
               </div>
             </div>
-            <div class="p-6 pt-0 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-lbr-blue font-semibold">
-              <span>Conformité Consuel & RE2020</span>
-              <i class="fa-solid fa-arrow-right"></i>
+            <div class="p-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono text-slate-600">
+              <span class="inline-flex items-center gap-1.5 font-semibold text-slate-700">
+                <i class="fa-solid fa-circle-check text-lbr-magenta text-[11px]"></i>
+                <span>Conformité Qualigaz & RE2020</span>
+              </span>
+              <span class="text-[10px] uppercase font-mono tracking-wider text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded">Courants F/f</span>
             </div>
           </div>
 
@@ -615,106 +696,96 @@
           </p>
         </div>
 
-        <!-- Les 5 Phases Officielles du Mémoire Technique -->
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mb-16">
+        <!-- Les 5 Phases Officielles Homogénéisées & Épurées (Zéro effet guirlande) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
           
           <!-- Phase 1 -->
-          <div class="dark-luxury-card p-5 rounded-xl relative border-t-4 border-t-lbr-blue flex flex-col justify-between">
+          <div class="bg-white/5 border border-white/10 hover:border-lbr-magenta/60 rounded-xl p-5 flex flex-col justify-between transition-all">
             <div>
-              <div class="w-10 h-10 rounded-lg bg-lbr-navy-light text-white font-syne font-extrabold text-base flex items-center justify-center mb-4 border border-white/10">
+              <div class="w-10 h-10 rounded-lg bg-white/10 text-white font-syne font-extrabold text-sm flex items-center justify-center mb-3">
                 01
               </div>
               <span class="font-mono text-[10px] text-lbr-lavender uppercase tracking-widest font-bold block mb-1">Phase 1</span>
-              <h3 class="font-syne font-bold text-base text-white uppercase">Préparation</h3>
-              <ul class="text-xs text-slate-300 mt-3 space-y-1.5 font-light">
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Études d'exécution (EXE)</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Repérages & relevés</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Mode opératoire & PIC</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Planning détaillé</span></li>
-              </ul>
+              <h3 class="font-syne font-bold text-sm sm:text-base text-white uppercase">Études & Préparation</h3>
+              <p class="text-xs text-slate-300 mt-2 font-normal leading-relaxed">
+                Relevés in situ, plans d'exécution EXE, modes opératoires techniques et calage du rétroplanning détaillé.
+              </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-slate-400">
-              Anticipation & PPSPS
+            <div class="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-check text-lbr-magenta text-[9px]"></i>
+              <span>Anticipation & PPSPS</span>
             </div>
           </div>
 
           <!-- Phase 2 -->
-          <div class="dark-luxury-card p-5 rounded-xl relative border-t-4 border-t-lbr-magenta flex flex-col justify-between">
+          <div class="bg-white/5 border border-white/10 hover:border-lbr-magenta/60 rounded-xl p-5 flex flex-col justify-between transition-all">
             <div>
-              <div class="w-10 h-10 rounded-lg bg-lbr-navy-light text-white font-syne font-extrabold text-base flex items-center justify-center mb-4 border border-white/10">
+              <div class="w-10 h-10 rounded-lg bg-white/10 text-white font-syne font-extrabold text-sm flex items-center justify-center mb-3">
                 02
               </div>
               <span class="font-mono text-[10px] text-lbr-lavender uppercase tracking-widest font-bold block mb-1">Phase 2</span>
-              <h3 class="font-syne font-bold text-base text-white uppercase">Installations</h3>
-              <ul class="text-xs text-slate-300 mt-3 space-y-1.5 font-light">
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Installations base-vie</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Protections & clôtures</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Signalétique usagers</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Sécurité du chantier</span></li>
-              </ul>
+              <h3 class="font-syne font-bold text-sm sm:text-base text-white uppercase">Installation Site</h3>
+              <p class="text-xs text-slate-300 mt-2 font-normal leading-relaxed">
+                Mise en place de la base-vie, protections hermétiques, balisage réglementaire et sécurisation du public ERP.
+              </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-slate-400">
-              Sécurisation du site
+            <div class="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-check text-lbr-magenta text-[9px]"></i>
+              <span>Sécurisation ERP</span>
             </div>
           </div>
 
           <!-- Phase 3 -->
-          <div class="dark-luxury-card p-5 rounded-xl relative border-t-4 border-t-lbr-blue flex flex-col justify-between">
+          <div class="bg-white/5 border border-white/10 hover:border-lbr-magenta/60 rounded-xl p-5 flex flex-col justify-between transition-all">
             <div>
-              <div class="w-10 h-10 rounded-lg bg-lbr-navy-light text-white font-syne font-extrabold text-base flex items-center justify-center mb-4 border border-white/10">
+              <div class="w-10 h-10 rounded-lg bg-white/10 text-white font-syne font-extrabold text-sm flex items-center justify-center mb-3">
                 03
               </div>
               <span class="font-mono text-[10px] text-lbr-lavender uppercase tracking-widest font-bold block mb-1">Phase 3</span>
-              <h3 class="font-syne font-bold text-base text-white uppercase">Gros / Second Œuvre</h3>
-              <ul class="text-xs text-slate-300 mt-3 space-y-1.5 font-light">
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Travaux tous corps d'état</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Coordination des lots</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Contrôles en cours</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Gestion des flux</span></li>
-              </ul>
+              <h3 class="font-syne font-bold text-sm sm:text-base text-white uppercase">Gros & Second Œuvre</h3>
+              <p class="text-xs text-slate-300 mt-2 font-normal leading-relaxed">
+                Démolition ciblée, cloisons modulaires, réseaux CVC, plomberie et électricité RJ45 coordonnés en continu.
+              </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-slate-400">
-              Pilotage TCE intégré
+            <div class="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-check text-lbr-magenta text-[9px]"></i>
+              <span>Pilotage TCE Intégré</span>
             </div>
           </div>
 
           <!-- Phase 4 -->
-          <div class="dark-luxury-card p-5 rounded-xl relative border-t-4 border-t-lbr-magenta flex flex-col justify-between">
+          <div class="bg-white/5 border border-white/10 hover:border-lbr-magenta/60 rounded-xl p-5 flex flex-col justify-between transition-all">
             <div>
-              <div class="w-10 h-10 rounded-lg bg-lbr-navy-light text-white font-syne font-extrabold text-base flex items-center justify-center mb-4 border border-white/10">
+              <div class="w-10 h-10 rounded-lg bg-white/10 text-white font-syne font-extrabold text-sm flex items-center justify-center mb-3">
                 04
               </div>
               <span class="font-mono text-[10px] text-lbr-lavender uppercase tracking-widest font-bold block mb-1">Phase 4</span>
-              <h3 class="font-syne font-bold text-base text-white uppercase">Finitions</h3>
-              <ul class="text-xs text-slate-300 mt-3 space-y-1.5 font-light">
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Peintures, sols, faïences</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Menuiseries & équipements</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Nettoyage continu</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-lbr-magenta text-xs"></i><span>Autocontrôles DTU</span></li>
-              </ul>
+              <h3 class="font-syne font-bold text-sm sm:text-base text-white uppercase">Finitions & Agencement</h3>
+              <p class="text-xs text-slate-300 mt-2 font-normal leading-relaxed">
+                Revêtements de sols grands trafics, menuiseries sur-mesure, peintures techniques et autocontrôles stricts.
+              </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-slate-400">
-              Perfection esthétique
+            <div class="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-check text-lbr-magenta text-[9px]"></i>
+              <span>Exigence Esthétique</span>
             </div>
           </div>
 
           <!-- Phase 5 -->
-          <div class="dark-luxury-card p-5 rounded-xl relative border-t-4 border-t-emerald-500 flex flex-col justify-between">
+          <div class="bg-white/5 border border-white/10 hover:border-lbr-magenta/60 rounded-xl p-5 flex flex-col justify-between transition-all">
             <div>
-              <div class="w-10 h-10 rounded-lg bg-lbr-navy-light text-white font-syne font-extrabold text-base flex items-center justify-center mb-4 border border-white/10">
+              <div class="w-10 h-10 rounded-lg bg-white/10 text-white font-syne font-extrabold text-sm flex items-center justify-center mb-3">
                 05
               </div>
               <span class="font-mono text-[10px] text-emerald-400 uppercase tracking-widest font-bold block mb-1">Phase 5</span>
-              <h3 class="font-syne font-bold text-base text-white uppercase">Réception & DOE</h3>
-              <ul class="text-xs text-slate-300 mt-3 space-y-1.5 font-light">
-                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i><span>Contrôles qualité</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i><span>Levée des réserves</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i><span>Réception sans réserve</span></li>
-                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs"></i><span>Dossier DOE complet</span></li>
-              </ul>
+              <h3 class="font-syne font-bold text-sm sm:text-base text-white uppercase">Réception & DOE</h3>
+              <p class="text-xs text-slate-300 mt-2 font-normal leading-relaxed">
+                Opérations préalables à la réception (OPR), levée intégrale des réserves et remise du DOE complet.
+              </p>
             </div>
-            <div class="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-emerald-400">
-              Livraison garantie
+            <div class="mt-4 pt-3 border-t border-white/10 text-[10px] font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+              <i class="fa-solid fa-check text-emerald-400 text-[9px]"></i>
+              <span>Livraison Sans Réserve</span>
             </div>
           </div>
 
@@ -785,7 +856,7 @@
             </div>
           </div>
 
-          <!-- Bloc 2 : Organigramme Chantier & Gouvernance Projet (6 cols) -->
+          <!-- Bloc 2 : Organigramme Chantier & Gouvernance Projet avec Bonhommes Stylisés (6 cols) -->
           <div class="lg:col-span-6 bg-white/5 border border-white/10 rounded-2xl p-7 flex flex-col justify-between">
             <div>
               <div class="flex items-center gap-3 mb-4">
@@ -798,49 +869,71 @@
                 </div>
               </div>
 
-              <!-- Conducteur de Travaux Sommet -->
-              <div class="mt-5 p-4 rounded-xl bg-lbr-navy border-2 border-lbr-magenta text-center">
-                <span class="font-mono text-[9px] uppercase tracking-widest text-lbr-magenta font-bold block">Direction Opérationnelle Marché</span>
-                <h5 class="font-syne font-extrabold text-base text-white uppercase mt-0.5">Conducteur de Travaux Dédié</h5>
-                <p class="text-xs text-slate-300 font-light mt-1">Interlocuteur unique du maître d'ouvrage et de la maîtrise d'œuvre • Présent sur site</p>
+              <!-- NIVEAU 1 : Conducteur de Travaux Sommet avec avatar bonhomme -->
+              <div class="mt-4 p-4 rounded-xl bg-lbr-navy border border-lbr-magenta/80 text-center shadow-lg relative">
+                <div class="w-12 h-12 rounded-full bg-lbr-magenta/20 border-2 border-lbr-magenta text-white flex items-center justify-center mx-auto mb-2 shadow-md">
+                  <i class="fa-solid fa-user-tie text-lg text-white"></i>
+                </div>
+                <span class="font-mono text-[9px] uppercase tracking-widest text-lbr-magenta font-bold block">Interlocuteur Unique MOA / MOE</span>
+                <h5 class="font-syne font-extrabold text-sm sm:text-base text-white uppercase mt-0.5">Conducteur de Travaux Principal</h5>
+                <p class="text-xs text-slate-300 font-light mt-1">Présence permanente sur site • Responsable direct du respect des délais, coûts et règles de l'art</p>
               </div>
 
-              <!-- 4 Pôles Supports -->
-              <div class="grid grid-cols-2 gap-3 mt-3">
-                <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-center">
-                  <i class="fa-solid fa-compass-drafting text-lbr-blue text-sm mb-1 block"></i>
-                  <h6 class="font-syne font-bold text-xs text-white uppercase">Resp. Méthodes</h6>
-                  <p class="text-[10px] text-slate-400 mt-0.5">Plans EXE & phasage</p>
+              <!-- Ligne de liaison verticale -->
+              <div class="w-[2px] h-3 bg-lbr-magenta/40 mx-auto"></div>
+
+              <!-- NIVEAU 2 : 4 Pôles Supports avec avatars bonhommes -->
+              <div class="grid grid-cols-2 gap-2.5">
+                <div class="p-2.5 bg-white/5 rounded-lg border border-white/10 text-center">
+                  <div class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center mx-auto mb-1 border border-white/10">
+                    <i class="fa-solid fa-user-gear text-lbr-blue text-xs"></i>
+                  </div>
+                  <h6 class="font-syne font-bold text-[11px] text-white uppercase">Resp. Méthodes</h6>
+                  <p class="text-[10px] text-slate-400 mt-0.5 font-light">Plans EXE & phasage</p>
                 </div>
 
-                <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-center">
-                  <i class="fa-solid fa-calendar-check text-lbr-magenta text-sm mb-1 block"></i>
-                  <h6 class="font-syne font-bold text-xs text-white uppercase">Resp. Planning</h6>
-                  <p class="text-[10px] text-slate-400 mt-0.5">Rétroplanning & flux</p>
+                <div class="p-2.5 bg-white/5 rounded-lg border border-white/10 text-center">
+                  <div class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center mx-auto mb-1 border border-white/10">
+                    <i class="fa-solid fa-user-clock text-lbr-magenta text-xs"></i>
+                  </div>
+                  <h6 class="font-syne font-bold text-[11px] text-white uppercase">Resp. Planning</h6>
+                  <p class="text-[10px] text-slate-400 mt-0.5 font-light">Rétroplanning & flux</p>
                 </div>
 
-                <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-center">
-                  <i class="fa-solid fa-certificate text-lbr-blue text-sm mb-1 block"></i>
-                  <h6 class="font-syne font-bold text-xs text-white uppercase">Resp. Qualité</h6>
-                  <p class="text-[10px] text-slate-400 mt-0.5">Autocontrôles DTU</p>
+                <div class="p-2.5 bg-white/5 rounded-lg border border-white/10 text-center">
+                  <div class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center mx-auto mb-1 border border-white/10">
+                    <i class="fa-solid fa-user-check text-lbr-blue text-xs"></i>
+                  </div>
+                  <h6 class="font-syne font-bold text-[11px] text-white uppercase">Resp. Qualité</h6>
+                  <p class="text-[10px] text-slate-400 mt-0.5 font-light">Autocontrôles DTU</p>
                 </div>
 
-                <div class="p-3 bg-white/5 rounded-lg border border-white/10 text-center">
-                  <i class="fa-solid fa-hard-hat text-lbr-magenta text-sm mb-1 block"></i>
-                  <h6 class="font-syne font-bold text-xs text-white uppercase">Resp. Sécurité SPS</h6>
-                  <p class="text-[10px] text-slate-400 mt-0.5">Application PGC & 0 accident</p>
+                <div class="p-2.5 bg-white/5 rounded-lg border border-white/10 text-center">
+                  <div class="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center mx-auto mb-1 border border-white/10">
+                    <i class="fa-solid fa-user-shield text-lbr-magenta text-xs"></i>
+                  </div>
+                  <h6 class="font-syne font-bold text-[11px] text-white uppercase">Resp. Sécurité SPS</h6>
+                  <p class="text-[10px] text-slate-400 mt-0.5 font-light">PGC & 0 accident</p>
                 </div>
               </div>
 
-              <!-- Compagnons & Sous-traitants -->
-              <div class="mt-3 p-3 bg-white/5 rounded-lg border border-white/10 text-center">
-                <span class="font-syne font-bold text-xs text-white uppercase block">Chefs d'Équipe & 26 Compagnons Intégrés</span>
-                <span class="text-[10px] text-slate-400 font-mono block mt-0.5">Appuyés par notre réseau de sous-traitants & fournisseurs référencés</span>
+              <!-- Ligne de liaison verticale -->
+              <div class="w-[2px] h-3 bg-lbr-magenta/40 mx-auto"></div>
+
+              <!-- NIVEAU 3 : Compagnons & Équipes Terrain avec avatars bonhommes -->
+              <div class="p-3 bg-white/5 rounded-lg border border-white/10 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-lbr-blue/20 border border-lbr-blue/40 text-lbr-blue flex items-center justify-center shrink-0">
+                  <i class="fa-solid fa-users text-sm"></i>
+                </div>
+                <div>
+                  <span class="font-syne font-bold text-xs text-white uppercase block">Chefs d'Équipe & 26 Compagnons Intégrés</span>
+                  <span class="text-[10px] text-slate-400 font-mono block mt-0.5">Plaquistes, menuisiers, peintres, électriciens et plombiers qualifiés</span>
+                </div>
               </div>
             </div>
 
             <!-- Bandeau Slogan Signature -->
-            <div class="mt-6 p-3 rounded-lg bg-gradient-to-r from-lbr-magenta to-[#520F30] text-center">
+            <div class="mt-4 p-2.5 rounded-lg bg-gradient-to-r from-lbr-magenta to-[#520F30] text-center">
               <span class="font-syne font-bold text-xs uppercase tracking-wider text-white">
                 "BÂTIR ENSEMBLE, DURABLEMENT"
               </span>
@@ -872,8 +965,8 @@
           </div>
 
           <a href="brochure-commerciale.html" target="_blank" class="btn-outline-lbr px-6 py-3 rounded-md text-xs font-syne font-bold uppercase tracking-wider inline-flex items-center gap-2 shrink-0">
-            <i class="fa-solid fa-book-open text-lbr-magenta"></i>
-            <span>Voir Toutes les Réalisations (Brochure)</span>
+            <i class="fa-solid fa-file-pdf text-lbr-magenta"></i>
+            <span>Consulter notre brochure</span>
           </a>
         </div>
 
@@ -992,45 +1085,42 @@
 
             <div class="space-y-3.5 pt-2">
               <!-- RGE QUALIBAT -->
-              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-lbr-magenta transition-all">
-                <div class="w-12 h-12 rounded-lg bg-lbr-blue text-white flex flex-col items-center justify-center shrink-0 font-syne font-extrabold text-xs">
-                  <span>RGE</span>
-                  <span class="text-[8px] font-mono font-light">QUALIBAT</span>
+              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-lbr-magenta transition-all shadow-sm">
+                <div class="w-16 h-16 rounded-xl bg-white p-2 border border-slate-200 flex items-center justify-center shrink-0 shadow-sm">
+                  <img src="images/logos/certifications/qualibat.svg" alt="Qualibat RGE" class="max-h-12 max-w-full object-contain">
                 </div>
                 <div>
                   <h4 class="font-syne font-bold text-sm text-lbr-navy uppercase">RGE QUALIBAT (Codes 6111 & 4131)</h4>
-                  <p class="text-xs text-slate-600 mt-1">Peintures, ravalement de façades, plâtrerie technique, faux plafonds et revêtements de sols. Garantie d'éligibilité aux aides à la rénovation énergétique.</p>
+                  <p class="text-xs text-slate-600 mt-1">Peintures, ravalement de façades, plâtrerie technique, faux plafonds et revêtements de sols. Gage d'éligibilité aux primes et de respect strict des DTU.</p>
                 </div>
               </div>
 
               <!-- SS4 AMIANTE -->
-              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-lbr-magenta transition-all">
-                <div class="w-12 h-12 rounded-lg bg-lbr-magenta text-white flex flex-col items-center justify-center shrink-0 font-syne font-extrabold text-xs">
-                  <span>SS4</span>
-                  <span class="text-[8px] font-mono font-light">AMIANTE</span>
+              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-lbr-magenta transition-all shadow-sm">
+                <div class="w-16 h-16 rounded-xl bg-white p-2 border border-slate-200 flex items-center justify-center shrink-0 shadow-sm">
+                  <img src="images/logos/certifications/ss4_amiante.svg" alt="Qualification SS4 Amiante" class="max-h-12 max-w-full object-contain">
                 </div>
                 <div>
                   <h4 class="font-syne font-bold text-sm text-lbr-navy uppercase">Qualification SS4 (Sous-Section 4 Amiante)</h4>
-                  <p class="text-xs text-slate-600 mt-1">Intervention sécurisée sur matériaux amiantés, confinement hermétique, dépoussiérage THE, protection individuelle et bordereaux BSDA.</p>
+                  <p class="text-xs text-slate-600 mt-1">Habilitation officielle d'intervention sur matériaux amiantés, processus de confinement hermétique, dépoussiérage THE et bordereaux BSDA.</p>
                 </div>
               </div>
 
-              <!-- QUALIGAZ -->
-              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-lbr-magenta transition-all">
-                <div class="w-12 h-12 rounded-lg bg-emerald-700 text-white flex flex-col items-center justify-center shrink-0 font-syne font-extrabold text-xs">
-                  <span>GAZ</span>
-                  <span class="text-[8px] font-mono font-light">QUALIGAZ</span>
+              <!-- QUALIGAZ ÉVONIA -->
+              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-lbr-magenta transition-all shadow-sm">
+                <div class="w-16 h-16 rounded-xl bg-white p-2 border border-slate-200 flex items-center justify-center shrink-0 shadow-sm">
+                  <img src="images/logos/certifications/qualigaz_evonia.png" alt="Qualigaz Évonia" class="max-h-10 max-w-full object-contain">
                 </div>
                 <div>
-                  <h4 class="font-syne font-bold text-sm text-lbr-navy uppercase">QUALIGAZ Installation Gaz & Chauffage</h4>
+                  <h4 class="font-syne font-bold text-sm text-lbr-navy uppercase">QUALIGAZ ÉVONIA Gaz & Fluides</h4>
                   <p class="text-xs text-slate-600 mt-1">Conformité réglementaire des installations intérieures et collectives au gaz, raccordements certifiés et attestations officielles de conformité.</p>
                 </div>
               </div>
 
               <!-- GARANTIE DÉCENNALE AXA -->
-              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-lbr-magenta transition-all">
-                <div class="w-12 h-12 rounded-lg bg-lbr-navy text-white flex flex-col items-center justify-center shrink-0 font-syne font-extrabold text-xs">
-                  <i class="fa-solid fa-shield-halved text-base"></i>
+              <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-lbr-magenta transition-all shadow-sm">
+                <div class="w-16 h-16 rounded-xl bg-white p-2 border border-slate-200 flex items-center justify-center shrink-0 shadow-sm">
+                  <img src="images/logos/certifications/axa.svg" alt="AXA Assurance Décennale" class="max-h-11 max-w-full object-contain">
                 </div>
                 <div>
                   <h4 class="font-syne font-bold text-sm text-lbr-navy uppercase">Garantie Décennale AXA France</h4>
@@ -1254,16 +1344,6 @@
 
             </div>
 
-            <!-- Téléchargement Brochure Directe -->
-            <div class="p-5 rounded-xl bg-gradient-to-r from-lbr-navy-light to-lbr-magenta/40 border border-white/15">
-              <span class="font-syne font-bold text-sm text-white uppercase block mb-1">Consulter la Brochure 2026 (26 Pages)</span>
-              <p class="text-xs text-slate-300 mb-3">Téléchargez le dossier complet avec chiffres certifiés, certifications et organigramme.</p>
-              <a href="brochure-commerciale.html" target="_blank" class="btn-magenta-lbr px-4 py-2 rounded text-xs font-syne font-bold uppercase tracking-wider inline-flex items-center gap-2">
-                <i class="fa-solid fa-file-pdf"></i>
-                <span>Ouvrir la Brochure Complète</span>
-              </a>
-            </div>
-
           </div>
 
           <!-- Colonne Droite : Formulaire Complet & Upload Multi-Fichiers -->
@@ -1382,20 +1462,25 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       
       <div class="flex items-center gap-4">
-        <div class="h-10 flex items-center justify-center bg-white px-2.5 py-1 rounded-md">
-          <img src="images/logo.png" alt="LBR CONCEPT" class="h-8 w-auto object-contain">
+        <div class="h-14 sm:h-16 flex items-center justify-center bg-white px-3.5 py-1.5 rounded-lg shadow-sm">
+          <img src="images/logo.png" alt="LBR CONCEPT" class="h-12 sm:h-14 w-auto object-contain">
         </div>
         <div>
-          <span class="font-syne font-bold text-white text-sm tracking-wider">LBR CONCEPT</span>
-          <p class="text-xs text-slate-400">477 Rue Marcel Paul, 94500 Champigny-sur-Marne • Tél : 01 45 94 59 89 / 06 66 99 19 71</p>
+          <span class="font-syne font-bold text-white text-base tracking-wider">LBR CONCEPT</span>
+          <p class="text-xs text-slate-300">477 Rue Marcel Paul, 94500 Champigny-sur-Marne • Tél : 06 66 99 19 71 / 01 45 94 59 89</p>
           <p class="text-[11px] font-mono text-lbr-magenta font-semibold mt-0.5">BÂTIR ENSEMBLE, DURABLEMENT • BÂTIMENT - DÉCORATION - RÉNOVATION</p>
         </div>
       </div>
 
       <div class="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400">
-        <a href="brochure-commerciale.html" target="_blank" class="hover:text-lbr-magenta transition-colors flex items-center gap-1.5 text-white font-semibold">
-          <i class="fa-solid fa-book-open text-lbr-magenta"></i>
-          <span>Nouvelle Brochure (26 P.)</span>
+        <a href="mentions-legales.html" class="hover:text-lbr-magenta text-slate-300 font-semibold transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-scale-balanced text-lbr-magenta"></i>
+          <span>Mentions Légales</span>
+        </a>
+        <span>•</span>
+        <a href="brochure-commerciale.html" target="_blank" class="hover:text-lbr-magenta text-slate-300 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-file-pdf text-lbr-magenta"></i>
+          <span>Consulter notre brochure</span>
         </a>
         <span>•</span>
         <span>Garantie Décennale AXA</span>
@@ -1403,8 +1488,6 @@
         <span>Qualibat RGE</span>
         <span>•</span>
         <span>SS4 Amiante</span>
-        <span>•</span>
-        <span>RE2020</span>
       </div>
 
       <div class="text-xs font-mono text-slate-500">

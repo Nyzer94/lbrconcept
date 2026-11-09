@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 210" width="160" height="210">
+  <defs>
+    <clipPath id="ss4Shape">
+      <path d="M 0,70 C 0,15 160,15 160,70 L 160,200 A 10,10 0 0,1 150,210 L 10,210 A 10,10 0 0,1 0,200 Z" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#ss4Shape)">
+    <rect x="0" y="0" width="160" height="105" fill="#111827" />
+    <rect x="0" y="105" width="160" height="105" fill="#a11b1b" />
+    <text x="80" y="82" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="94" fill="#ffffff" text-anchor="middle">a</text>
+    <text x="80" y="140" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="700" font-size="16" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">Qualification</text>
+    <text x="80" y="185" font-family="'Outfit', 'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="36" fill="#ffffff" text-anchor="middle" letter-spacing="1">SS4</text>
+  </g>
+</svg>
